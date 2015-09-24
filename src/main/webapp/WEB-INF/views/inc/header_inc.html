@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+</head>
+<body>
+<div th:fragment="header">
+	<div id="loader">
+		<img src="resources/img/icon/loader.png" class="loading"/>
+	</div>
+	<p class="skip"><a href="#gnb">주메뉴 바로가기</a></p>
+	<p class="skip"><a href="#container">본문 바로가기</a></p>
+	<div class="modal_bg" style="display: none;"></div>
+
+	<div id="wrap" class="">
+
+		<header id="header">
+			<h1>
+				<a href="main">
+					<img src="resources/img/main/logo.png" alt="홈으로 가기"/>
+				</a>
+			</h1>
+
+			<p class="buttons">
+				<a href="resources/main/intro.php" class="triangular">
+					<img src="resources/img/main/logo_ico.png" alt="홈으로 가기"/>
+				</a>
+			</p>
+			<div class="utilbar"><div class="inside"></div></div>
+			<div class="logobar"></div>
+			<div class="loadIndicator"></div>
+			
+		</header><!--header_end-->
+
+		<p id="navbutton">
+			<a href="#nav" class="" style="transform: translate3d(0px, 0px, 0px);">
+				<span></span>
+				<span></span>
+				<span></span>
+			Navigation</a>
+		</p>
+
+		<div class="utilbar" style="height: 48px; display: none;">
+			<div class="inside">
+				<header class="subhead-" style="">
+					<h2>NEWS</h2>
+				</header>
+			</div>
+		</div><!-- //utilbar -->
+
+		<div id="nav" class="">
+		    <div class="inside">
+		        <nav>
+		            <ul class="menu">
+		                <li class=""><a href=""><span class="ico_gnb ico_home"></span>h o m e</a></li>
+		                <li class=""><a href=""><span class="ico_gnb ico_work"></span>w o r k</a></li>
+		                <li class=""><a href=""><span class="ico_gnb ico_about"></span>a b o u t</a></li>
+		                <li class=""><a href=""><span class="ico_gnb ico_contact"></span>c o n t a c t</a></li>
+		                <li class=""><a href=""><span class="ico_gnb ico_admin"></span>a d m i n</a></li>
+		            </ul>
+
+		            <ul class="sns">
+		            	<li class=""><a href=""><span class="ico_gnb ico_instagram"></span>instagram</a></li>
+		            	<li class=""><a href=""><span class="ico_gnb ico_pinterest"></span>pinterest</a></li>
+		            	<li class=""><a href=""><span class="ico_gnb ico_facebook"></span>facebook</a></li>
+		            </ul>
+
+		            <p class="gnb_footer">Copyright Casker All Rights Reserved.</p>
+		        </nav>
+		    </div>
+		</div>
+
+		<div class="cover_gnb">
+			<!-- 로그인 -->
+		</div>
+	</div>
+</div>
+</body>
+</html>

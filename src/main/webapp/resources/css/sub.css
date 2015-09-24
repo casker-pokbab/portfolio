@@ -1,0 +1,51 @@
+@charset "utf-8";
+
+/* default layout 1280px 
+-------------------------------------------------------------------------------------------------------------------*/
+
+/*///////////////////// header /////////////////////*/
+
+#sub_header {position: fixed; width: 100%; height: 42px; background-color: #aa76db;}
+#sub_header .title_project {margin-left: 3.125em; font-size: 1em; color: #fff;  line-height: 42px; font-family: 'Nanum Barun Gothic'; font-weight: 100;}
+#sub_header .title_project span.logo_project {display: inline-block; width: 19px; height: 20px; background: url('../img/sub/logo_project.png') no-repeat center center; background-size: 100%; margin-right: .625em; vertical-align: -5px;}
+#sub_header .btn_back {margin-right: 3.125em; line-height: 42px;}
+#sub_header .btn_back > a {display: inline-block; width: 11px; height: 11px; background: url('../img/btn/btn_back.png') no-repeat center center; background-size: 100%;}
+
+
+/*///////////////////// header End /////////////////////*/
+/*
+d
+e
+m
+a
+r
+c
+a
+t
+i
+o
+n
+*/
+/*///////////////////// container /////////////////////*/
+
+#sub_container {width: 100%; padding: 5em 0; background-color: #e3e5e4;}
+
+
+/*///////////////////// container End /////////////////////*/
+/*
+d
+e
+m
+a
+r
+c
+a
+t
+i
+o
+n
+*/
+/*///////////////////// footer /////////////////////*/
+
+
+/*///////////////////// footer End /////////////////////*/
