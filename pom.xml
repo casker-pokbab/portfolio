@@ -9,7 +9,7 @@
 	<version>1.0.0</version>
 
 	<properties>
-		<java-version>1.8</java-version>
+		<java-version>1.7</java-version>
 		<org.springframework-version>4.1.6.RELEASE</org.springframework-version>
 		<org.aspectj-version>1.6.10</org.aspectj-version>
 		<org.slf4j-version>1.6.6</org.slf4j-version>
@@ -138,6 +138,25 @@
 			<artifactId>lombok</artifactId>
 			<version>1.16.2</version>
 		</dependency>
+
+		<!-- mybatis -->
+		<dependency>
+			<groupId>org.mybatis</groupId>
+			<artifactId>mybatis</artifactId>
+			<version>3.2.8</version>
+		</dependency>
+		<dependency>
+			<groupId>org.mybatis</groupId>
+			<artifactId>mybatis-spring</artifactId>
+			<version>1.2.2</version>
+		</dependency>
+
+		<!-- JDBC Driver -->
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>5.1.36</version>
+		</dependency>
 	</dependencies>
 
 	<build>
@@ -201,12 +220,43 @@
 				<groupId>org.apache.tomcat.maven</groupId>
 				<artifactId>tomcat7-maven-plugin</artifactId>
 				<version>${tomcat7-maven-plugin.version}</version>
-				<configuration>
-					<path>/</path>
-					<port>8080</port>
-					<uriEncoding>UTF-8</uriEncoding>
-				</configuration>
+				<executions>
+					<execution>
+						<id>tomcat-run</id>
+						<goals>
+							<goal>exec-war-only</goal>
+						</goals>
+						<phase>package</phase>
+						<configuration>
+							<path>/</path>
+							<port>8080</port>
+							<uriEncoding>UTF-8</uriEncoding>
+							<charset>utf-8</charset>
+							<enableNaming>false</enableNaming>
+							<finalName>portfolio.jar</finalName>
+						</configuration>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
 	</build>
+
+	<profiles>
+		<profile>
+			<id>local</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<properties>
+				<env>local</env>
+				<deploy.path>${project.build.directory}/${project.build.finalName}</deploy.path>
+			</properties>
+		</profile>
+		<profile>
+			<id>real</id>
+			<properties>
+				<env>real</env>
+			</properties>
+		</profile>
+	</profiles>
 </project>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+
+<mapper namespace="com.threem.eurasia.sample.EurasiaMapper">
+	<select id="selectEurasia" resultType="String">
+		select host_name from asset where ci_no = 'CI_20120718000015'
+	</select>
+	
+	<resultMap id="sampleResultMap" type="com.threem.eurasia.sample.Eurasia">
+		<result property="hostName" column="host_name"/>
+		<association property="eurasiaSub" column="ci_no" select="com.threem.eurasia.sample.EurasiaMapper.selectLazyLoadingTestB"/>
+	</resultMap>
+	
+	<select id="selectLazyLoadingTestA" resultMap="sampleResultMap">
+		select ci_no, host_name from asset where ci_no = 'CI_20120718000015'
+	</select>
+	
+	<select id="selectLazyLoadingTestB" parameterType="String" resultType="com.threem.eurasia.sample.EurasiaSub">
+		select server_type_code from server where ci_no = #{value}
+	</select>
+	
+</mapper>

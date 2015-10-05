@@ -29,12 +29,22 @@ public class HomeController {
 		return "home";
 	}
 	
+	/**
+	 * 인트로 페이지
+	 * 
+	 * @return
+	 */
 	@RequestMapping(value = "/intro", method = RequestMethod.GET)
 	public String intro() {
 		
 		return "main/intro";
 	}
 	
+	/**
+	 * 메인 페이지
+	 * 
+	 * @return
+	 */
 	@RequestMapping(value = "/main", method = RequestMethod.GET)
 	public String main() {
 		
