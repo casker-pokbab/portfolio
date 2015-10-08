@@ -1,27 +1,19 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:th="http://www.thymeleaf.org"
-	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-	layout:decorator="/layout/commonLayout">
-<head>
-</head>
-<body>
-	<header layout:fragment="header">
-		<div th:replace="inc/header_inc :: header"></div>
-	</header>
-	
-	<section id="container" layout:fragment="content">
+<? include('../inc/head_inc.php');?>
+
+<? include('../inc/header_inc.php');?>	
+
+	<section id="container">
 
 		<!-- main visual -->
 		<section class="wrap_main_visual">
 			<ul class="main_visual">
-				<li class="slide_img01"><img src="resources/img/main/main_slide01.png" alt="메인 슬라이드 이미지 01"/></li>
-				<li class="slide_img01"><img src="resources/img/main/main_slide02.png" alt="메인 슬라이드 이미지 02"/></li>
-				<li class="slide_img01"><img src="resources/img/main/main_slide03.png" alt="메인 슬라이드 이미지 03"/></li>
+				<li class="slide_img01"><img src="../img/main/main_slide01.png" alt="메인 슬라이드 이미지 01"></li>
+				<li class="slide_img01"><img src="../img/main/main_slide02.png" alt="메인 슬라이드 이미지 02"></li>
+				<li class="slide_img01"><img src="../img/main/main_slide03.png" alt="메인 슬라이드 이미지 03"></li>
 			</ul>
 
 			<a href="#work" onclick="" class="skip_intro only_pc">
-				<img src="resources/img/btn/scroll_down.png" alt="SCROLL DOWN TO DISCOVER MORE"/>
+				<img src="../img/btn/scroll_down.png" alt="SCROLL DOWN TO DISCOVER MORE">
 			</a>		
 		</section><!-- //wrap_main_visual -->
 
@@ -31,7 +23,7 @@
 			<div class="wrap_part">
 
 				<h1><em>w o r k</em></h1>
-				<h2><strong>항상 새롭고 차별화된 아이디어와 인사이트에 도전합니다.<br/>사용자 경험을 통해 브랜드를 이야기하고 경쟁력 있는 웹사이트를 구축하기 위해 끊임없이 고민합니다.</strong><br/>당신의 비지니스에 필요한 아름답고 유용한 기술을 제공합니다.</h2>
+				<h2><strong>항상 새롭고 차별화된 아이디어와 인사이트에 도전합니다.<br>사용자 경험을 통해 브랜드를 이야기하고 경쟁력 있는 웹사이트를 구축하기 위해 끊임없이 고민합니다.</strong><br>당신의 비지니스에 필요한 아름답고 유용한 기술을 제공합니다.</h2>
 
 				<div class="wrap_masonry">
 					<div class="" id="masonrybox">
@@ -41,11 +33,11 @@
 								<div class="bg_text">
 									<p class="text">
 										<span class="work_name">한국관광공사, 관광투자 웹사이트</span>
-										<a href="resources/sub/project01.php" class="work_more">자세히 보기</a>
+										<a href="../sub/project01.php" class="work_more">자세히 보기</a>
 										<span class="work_date">2015</span>
 									</p>								
 								</div>
-								<p class="img"><img class="ratio" src="resources/img/sample/sample_work01.jpg" alt="포트폴리오 썸네일 이미지입니다"/></p>							
+								<p class="img"><img class="ratio" src="../img/sample/sample_work01.jpg" alt="포트폴리오 썸네일 이미지입니다"></p>							
 							</div>
 						</div>
 
@@ -54,11 +46,11 @@
 								<div class="bg_text">
 									<p class="text">
 										<span class="work_name">한국관광공사, 관광투자 웹사이트</span>
-										<a href="resources/sub/project01.php" class="work_more">자세히 보기</a>
+										<a href="../sub/project01.php" class="work_more">자세히 보기</a>
 										<span class="work_date">2015</span>
 									</p>								
 								</div>
-								<p class="img"><img src="resources/img/sample/sample_work02.jpg" alt="포트폴리오 썸네일 이미지입니다"/></p>							
+								<p class="img"><img src="../img/sample/sample_work02.jpg" alt="포트폴리오 썸네일 이미지입니다"></p>							
 							</div>
 						</div>
 
@@ -67,11 +59,11 @@
 								<div class="bg_text">
 									<p class="text">
 										<span class="work_name">한국관광공사, 관광투자 웹사이트</span>
-										<a href="resources/sub/project01.php" class="work_more">자세히 보기</a>
+										<a href="../sub/project01.php" class="work_more">자세히 보기</a>
 										<span class="work_date">2015</span>
 									</p>								
 								</div>
-								<p class="img"><img src="resources/img/sample/sample_work03.jpg" alt="포트폴리오 썸네일 이미지입니다"/></p>							
+								<p class="img"><img src="../img/sample/sample_work03.jpg" alt="포트폴리오 썸네일 이미지입니다"></p>							
 							</div>
 						</div>
 
@@ -80,11 +72,11 @@
 								<div class="bg_text">
 									<p class="text">
 										<span class="work_name">한국관광공사, 관광투자 웹사이트</span>
-										<a href="resources/sub/project01.php" class="work_more">자세히 보기</a>
+										<a href="../sub/project01.php" class="work_more">자세히 보기</a>
 										<span class="work_date">2015</span>
 									</p>								
 								</div>
-								<p class="img"><img src="resources/img/sample/sample_work01.jpg" alt="포트폴리오 썸네일 이미지입니다"/></p>							
+								<p class="img"><img src="../img/sample/sample_work01.jpg" alt="포트폴리오 썸네일 이미지입니다"></p>							
 							</div>
 						</div>
 
@@ -93,11 +85,11 @@
 								<div class="bg_text">
 									<p class="text">
 										<span class="work_name">한국관광공사, 관광투자 웹사이트</span>
-										<a href="resources/sub/project01.php" class="work_more">자세히 보기</a>
+										<a href="../sub/project01.php" class="work_more">자세히 보기</a>
 										<span class="work_date">2015</span>
 									</p>								
 								</div>
-								<p class="img"><img src="resources/img/sample/sample_work02.jpg" alt="포트폴리오 썸네일 이미지입니다"/></p>							
+								<p class="img"><img src="../img/sample/sample_work02.jpg" alt="포트폴리오 썸네일 이미지입니다"></p>							
 							</div>
 						</div>
 
@@ -106,11 +98,11 @@
 								<div class="bg_text">
 									<p class="text">
 										<span class="work_name">한국관광공사, 관광투자 웹사이트</span>
-										<a href="resources/sub/project01.php" class="work_more">자세히 보기</a>
+										<a href="../sub/project01.php" class="work_more">자세히 보기</a>
 										<span class="work_date">2015</span>
 									</p>								
 								</div>
-								<p class="img"><img src="resources/img/sample/sample_work02.jpg" alt="포트폴리오 썸네일 이미지입니다"/></p>							
+								<p class="img"><img src="../img/sample/sample_work02.jpg" alt="포트폴리오 썸네일 이미지입니다"></p>							
 							</div>
 						</div>
 
@@ -119,11 +111,11 @@
 								<div class="bg_text">
 									<p class="text">
 										<span class="work_name">한국관광공사, 관광투자 웹사이트</span>
-										<a href="resources/sub/project01.php" class="work_more">자세히 보기</a>
+										<a href="../sub/project01.php" class="work_more">자세히 보기</a>
 										<span class="work_date">2015</span>
 									</p>								
 								</div>
-								<p class="img"><img src="resources/img/sample/sample_work02.jpg" alt="포트폴리오 썸네일 이미지입니다"/></p>							
+								<p class="img"><img src="../img/sample/sample_work02.jpg" alt="포트폴리오 썸네일 이미지입니다"></p>							
 							</div>
 						</div>
 
@@ -132,11 +124,11 @@
 								<div class="bg_text">
 									<p class="text">
 										<span class="work_name">한국관광공사, 관광투자 웹사이트</span>
-										<a href="resources/sub/project01.php" class="work_more">자세히 보기</a>
+										<a href="../sub/project01.php" class="work_more">자세히 보기</a>
 										<span class="work_date">2015</span>
 									</p>								
 								</div>
-								<p class="img"><img src="resources/img/sample/sample_work02.jpg" alt="포트폴리오 썸네일 이미지입니다"/></p>							
+								<p class="img"><img src="../img/sample/sample_work02.jpg" alt="포트폴리오 썸네일 이미지입니다"></p>							
 							</div>
 						</div>
 
@@ -145,11 +137,11 @@
 								<div class="bg_text">
 									<p class="text">
 										<span class="work_name">한국관광공사, 관광투자 웹사이트</span>
-										<a href="resources/sub/project01.php" class="work_more">자세히 보기</a>
+										<a href="../sub/project01.php" class="work_more">자세히 보기</a>
 										<span class="work_date">2015</span>
 									</p>								
 								</div>
-								<p class="img"><img src="resources/img/sample/sample_work02.jpg" alt="포트폴리오 썸네일 이미지입니다"/></p>							
+								<p class="img"><img src="../img/sample/sample_work02.jpg" alt="포트폴리오 썸네일 이미지입니다"></p>							
 							</div>
 						</div>
 
@@ -158,11 +150,11 @@
 								<div class="bg_text">
 									<p class="text">
 										<span class="work_name">한국관광공사, 관광투자 웹사이트</span>
-										<a href="resources/sub/project01.php" class="work_more">자세히 보기</a>
+										<a href="../sub/project01.php" class="work_more">자세히 보기</a>
 										<span class="work_date">2015</span>
 									</p>								
 								</div>
-								<p class="img"><img src="resources/img/sample/sample_work02.jpg" alt="포트폴리오 썸네일 이미지입니다"/></p>							
+								<p class="img"><img src="../img/sample/sample_work02.jpg" alt="포트폴리오 썸네일 이미지입니다"></p>							
 							</div>
 						</div>
 
@@ -183,7 +175,7 @@
 				<div class="wrap_920 clearfix">
 					<div class="my_profile left">
 						<div class="area_pic">
-							<img src="resources/img/main/profile_pic01.png" alt="프로필 사진입니다"/>
+							<img src="../img/main/profile_pic01.png" alt="프로필 사진입니다">
 						</div>
 
 						<div class="area_ptxt">
@@ -216,10 +208,10 @@
 				 			<table cellspacing="0" cellpadding="0" class="table_project">
 
 						    	<colgroup>
-						    		<col width="10%"/>
-						    		<col width="50%"/>
-						    		<col width="20%"/>
-						    		<col width="20%"/>
+						    		<col width="10%">
+						    		<col width="50%">
+						    		<col width="20%">
+						    		<col width="20%">
 						    	</colgroup>
 
 						    	<thead>
@@ -375,19 +367,19 @@
 					<div class="cf">
 						<div class="left cf field">
 							<label for="name">이름</label>
-							<input name="name" id="name" placeholder="홍길동" required=""/>
+							<input name="name" id="name" placeholder="홍길동" required="">
 						</div>
 						<div class="right cf field">
 							<label for="email">이메일</label>
-							<input type="email" name="email" id="email" placeholder="your@email.com" required=""/>
+							<input type="email" name="email" id="email" placeholder="your@email.com" required="">
 						</div>
 						<div class="left cf field">
 							<label for="tel">연락처</label>
-							<input name="tel" id="tel" placeholder="010 1234 5678"/>
+							<input name="tel" id="tel" placeholder="010 1234 5678">
 						</div>
 						<div class="right cf field">
 							<label for="company">회사명</label>
-							<input name="company" id="company" placeholder="회사명을 입력해주세요"/>
+							<input name="company" id="company" placeholder="회사명을 입력해주세요">
 						</div>
 						<div class="left cf field">
 							<label for="project">프로젝트</label>
@@ -418,7 +410,7 @@
 					
 					<p class="item agree">
 						<span class="ipcheck">
-							<input type="checkbox" id="" value="0" data-setted="true"/>
+							<input type="checkbox" id="" value="0" data-setted="true">
 							<label for="">
 								<a href="#privacypolicy" class="btn_privacypolicy" onclick="return false;"></a> <a class="go_policy" target="_blank" href="../sub/policy.html">개인정보보호정책</a> 에 동의합니다.
 							</label>
@@ -431,8 +423,5 @@
 		</section><!-- //contact -->
 
 	</section><!-- //container End -->
-	
-	<footer layout:fragment="footer" th:replace="inc/footer_inc :: footer">
-	</footer>
-</body>
-</html>
+
+<? include('../inc/footer_inc.php');?>
