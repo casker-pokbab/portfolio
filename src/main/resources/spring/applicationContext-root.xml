@@ -25,4 +25,6 @@
 	<bean id="localeResolver" class="org.springframework.web.servlet.i18n.SessionLocaleResolver">
  		<property name="defaultLocale" value="ko" /> 
 	</bean>
+	
+	<import resource="classpath:/spring/applicationContext-dao-config.xml"/>
 </beans>

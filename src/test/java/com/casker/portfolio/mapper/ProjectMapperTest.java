@@ -16,7 +16,7 @@ import com.casker.portfolio.domain.Project;
 
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = {"classpath:spring/applicationContext.xml"})
+@ContextConfiguration(locations = {"classpath:spring/applicationContext-root.xml"})
 @Transactional
 public class ProjectMapperTest {
 	
