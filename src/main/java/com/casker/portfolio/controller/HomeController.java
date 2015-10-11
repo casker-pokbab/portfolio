@@ -1,33 +1,24 @@
 package com.casker.portfolio.controller;
 
-import java.text.DateFormat;
-import java.util.Date;
-import java.util.Locale;
+import java.util.List;
 
 import lombok.extern.slf4j.Slf4j;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.casker.portfolio.domain.Portfolio;
+import com.casker.portfolio.service.PortfolioService;
+
 @Slf4j
 @Controller
 public class HomeController {
 	
-	@RequestMapping(value = "/home", method = RequestMethod.GET)
-	public String home(Locale locale, Model model) {
-		log.info("Welcome home! The client locale is {}.", locale);
-		
-		Date date = new Date();
-		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
-		
-		String formattedDate = dateFormat.format(date);
-		
-		model.addAttribute("serverTime", formattedDate );
-		
-		return "home";
-	}
+	@Autowired
+	private PortfolioService portfolioService;
 	
 	/**
 	 * 인트로 페이지
@@ -46,7 +37,11 @@ public class HomeController {
 	 * @return
 	 */
 	@RequestMapping(value = "/main", method = RequestMethod.GET)
-	public String main() {
+	public String main(Model model) {
+		
+		List<Portfolio> portfolioList = portfolioService.getPortfolioList();
+		
+		model.addAttribute("portfolioList", portfolioList);
 		
 		return "main/main";
 	}

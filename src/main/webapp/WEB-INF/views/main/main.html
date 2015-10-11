@@ -4,6 +4,8 @@
 	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
 	layout:decorator="/layout/commonLayout">
 <head>
+	<object th:include="inc/head_inc :: head"></object>
+	<script src="resources/js/main.js" type="text/javascript"></script>
 </head>
 <body>
 	<header layout:fragment="header">
@@ -36,133 +38,16 @@
 				<div class="wrap_masonry">
 					<div class="" id="masonrybox">
 
-						<div class="item">
+						<div class="item" th:each="portfolio : ${portfolioList}">
 							<div class="cont_work">	
 								<div class="bg_text">
 									<p class="text">
-										<span class="work_name">한국관광공사, 관광투자 웹사이트</span>
-										<a href="resources/sub/project01.php" class="work_more">자세히 보기</a>
-										<span class="work_date">2015</span>
+										<span class="work_name" th:text="${portfolio.portfolioName}">??</span>
+										<a th:href="${portfolio.url}" class="work_more">자세히 보기</a>
+										<span class="work_date" th:text="${portfolio.workDate}">2015</span>
 									</p>								
 								</div>
 								<p class="img"><img class="ratio" src="resources/img/sample/sample_work01.jpg" alt="포트폴리오 썸네일 이미지입니다"/></p>							
-							</div>
-						</div>
-
-						<div class="item">
-							<div class="cont_work">	
-								<div class="bg_text">
-									<p class="text">
-										<span class="work_name">한국관광공사, 관광투자 웹사이트</span>
-										<a href="resources/sub/project01.php" class="work_more">자세히 보기</a>
-										<span class="work_date">2015</span>
-									</p>								
-								</div>
-								<p class="img"><img src="resources/img/sample/sample_work02.jpg" alt="포트폴리오 썸네일 이미지입니다"/></p>							
-							</div>
-						</div>
-
-						<div class="item">
-							<div class="cont_work">	
-								<div class="bg_text">
-									<p class="text">
-										<span class="work_name">한국관광공사, 관광투자 웹사이트</span>
-										<a href="resources/sub/project01.php" class="work_more">자세히 보기</a>
-										<span class="work_date">2015</span>
-									</p>								
-								</div>
-								<p class="img"><img src="resources/img/sample/sample_work03.jpg" alt="포트폴리오 썸네일 이미지입니다"/></p>							
-							</div>
-						</div>
-
-						<div class="item">
-							<div class="cont_work">	
-								<div class="bg_text">
-									<p class="text">
-										<span class="work_name">한국관광공사, 관광투자 웹사이트</span>
-										<a href="resources/sub/project01.php" class="work_more">자세히 보기</a>
-										<span class="work_date">2015</span>
-									</p>								
-								</div>
-								<p class="img"><img src="resources/img/sample/sample_work01.jpg" alt="포트폴리오 썸네일 이미지입니다"/></p>							
-							</div>
-						</div>
-
-						<div class="item">
-							<div class="cont_work">	
-								<div class="bg_text">
-									<p class="text">
-										<span class="work_name">한국관광공사, 관광투자 웹사이트</span>
-										<a href="resources/sub/project01.php" class="work_more">자세히 보기</a>
-										<span class="work_date">2015</span>
-									</p>								
-								</div>
-								<p class="img"><img src="resources/img/sample/sample_work02.jpg" alt="포트폴리오 썸네일 이미지입니다"/></p>							
-							</div>
-						</div>
-
-						<div class="item">
-							<div class="cont_work">	
-								<div class="bg_text">
-									<p class="text">
-										<span class="work_name">한국관광공사, 관광투자 웹사이트</span>
-										<a href="resources/sub/project01.php" class="work_more">자세히 보기</a>
-										<span class="work_date">2015</span>
-									</p>								
-								</div>
-								<p class="img"><img src="resources/img/sample/sample_work02.jpg" alt="포트폴리오 썸네일 이미지입니다"/></p>							
-							</div>
-						</div>
-
-						<div class="item">
-							<div class="cont_work">	
-								<div class="bg_text">
-									<p class="text">
-										<span class="work_name">한국관광공사, 관광투자 웹사이트</span>
-										<a href="resources/sub/project01.php" class="work_more">자세히 보기</a>
-										<span class="work_date">2015</span>
-									</p>								
-								</div>
-								<p class="img"><img src="resources/img/sample/sample_work02.jpg" alt="포트폴리오 썸네일 이미지입니다"/></p>							
-							</div>
-						</div>
-
-						<div class="item">
-							<div class="cont_work">	
-								<div class="bg_text">
-									<p class="text">
-										<span class="work_name">한국관광공사, 관광투자 웹사이트</span>
-										<a href="resources/sub/project01.php" class="work_more">자세히 보기</a>
-										<span class="work_date">2015</span>
-									</p>								
-								</div>
-								<p class="img"><img src="resources/img/sample/sample_work02.jpg" alt="포트폴리오 썸네일 이미지입니다"/></p>							
-							</div>
-						</div>
-
-						<div class="item">
-							<div class="cont_work">	
-								<div class="bg_text">
-									<p class="text">
-										<span class="work_name">한국관광공사, 관광투자 웹사이트</span>
-										<a href="resources/sub/project01.php" class="work_more">자세히 보기</a>
-										<span class="work_date">2015</span>
-									</p>								
-								</div>
-								<p class="img"><img src="resources/img/sample/sample_work02.jpg" alt="포트폴리오 썸네일 이미지입니다"/></p>							
-							</div>
-						</div>
-
-						<div class="item">
-							<div class="cont_work">	
-								<div class="bg_text">
-									<p class="text">
-										<span class="work_name">한국관광공사, 관광투자 웹사이트</span>
-										<a href="resources/sub/project01.php" class="work_more">자세히 보기</a>
-										<span class="work_date">2015</span>
-									</p>								
-								</div>
-								<p class="img"><img src="resources/img/sample/sample_work02.jpg" alt="포트폴리오 썸네일 이미지입니다"/></p>							
 							</div>
 						</div>
 

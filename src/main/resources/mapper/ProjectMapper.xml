@@ -5,8 +5,12 @@
 	
 	<select id="selectProjectList" resultType="project">
 		/* ProjectMapper.selectProjectList */
-		SELECT  projectNo
-			, projectName
+		SELECT 
+			  project_no
+			, project_name
+			, participation_part
+			, date
+			, url
 		FROM  project
 	</select>
 </mapper>

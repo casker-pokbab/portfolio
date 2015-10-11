@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.casker.portfolio.mapper.PortfolioMapper">
+	
+	<select id="selectPortfolioList" resultType="portfolio">
+		/* PortfolioMapper.selectPortfolioList */
+		SELECT 
+			  portfolio_no
+			, portfolio_name
+			, url
+			, work_date
+		FROM  portfolio
+	</select>
+	
+	<insert id="insertPortfoilo" parameterType="portfolio">
+		/* PortfolioMapper.insertPortfoilo */
+		INSERT portfolio
+		SET 
+			  portfolio_no = #{portfolioNo}
+			, portfolio_name = #{portfolioName}
+			, url = #{url}
+			, work_date = #{workDate}
+	</insert>
+</mapper>

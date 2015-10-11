@@ -1,5 +1,5 @@
 /*
- * @(#)Project.java $version 2015. 9. 24.
+ * @(#)Portfolio.java $version 2015. 10. 10.
  *
  * Copyright 2015 NHN Ent. All rights Reserved. 
  * NHN PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
@@ -12,16 +12,13 @@ import java.util.Date;
 import lombok.Data;
 
 /**
- * 프로젝트
- * 
  * @author Kanghoon Choi
  */
 @Data
-public class Project {
+public class Portfolio {
 
-	private int projectNo;
-	private String projectName;
-	private String participationPart;
-	private Date date;
+	private int portfolioNo;
+	private String portfolioName;
 	private String url;
+	private Date workDate;
 }
