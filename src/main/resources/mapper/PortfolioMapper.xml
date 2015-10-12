@@ -3,14 +3,18 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.casker.portfolio.mapper.PortfolioMapper">
 	
-	<select id="selectPortfolioList" resultType="portfolio">
+	<select id="selectPortfolioList" resultType="portfolio" parameterType="baseSearch">
 		/* PortfolioMapper.selectPortfolioList */
 		SELECT 
 			  portfolio_no
 			, portfolio_name
 			, url
 			, work_date
+			, thumbnail
 		FROM  portfolio
+		<if test="all == false">
+		LIMIT #{skipRows}, #{pageSize}
+		</if>
 	</select>
 	
 	<insert id="insertPortfoilo" parameterType="portfolio">
@@ -21,5 +25,6 @@
 			, portfolio_name = #{portfolioName}
 			, url = #{url}
 			, work_date = #{workDate}
+			, thumbnail = #{thumbnail}
 	</insert>
 </mapper>

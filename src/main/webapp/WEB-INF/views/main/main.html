@@ -38,23 +38,10 @@
 				<div class="wrap_masonry">
 					<div class="" id="masonrybox">
 
-						<div class="item" th:each="portfolio : ${portfolioList}">
-							<div class="cont_work">	
-								<div class="bg_text">
-									<p class="text">
-										<span class="work_name" th:text="${portfolio.portfolioName}">??</span>
-										<a th:href="${portfolio.url}" class="work_more">자세히 보기</a>
-										<span class="work_date" th:text="${portfolio.workDate}">2015</span>
-									</p>								
-								</div>
-								<p class="img"><img class="ratio" src="resources/img/sample/sample_work01.jpg" alt="포트폴리오 썸네일 이미지입니다"/></p>							
-							</div>
-						</div>
-
 					</div><!-- //masonrybox -->				
 				</div>
 
-				<a onclick="return false;" href="!#" class="more_work">더 많은 포트폴리오 불러오기</a>
+				<a class="more_work" style="cursor: pointer;">더 많은 포트폴리오 불러오기</a>
 				
 			</div><!-- //wrap_part -->
 		</section><!-- //work -->
@@ -98,151 +85,6 @@
 
 						<div class="wrap_table_project">
 
-				 			<table cellspacing="0" cellpadding="0" class="table_project">
-
-						    	<colgroup>
-						    		<col width="10%"/>
-						    		<col width="50%"/>
-						    		<col width="20%"/>
-						    		<col width="20%"/>
-						    	</colgroup>
-
-						    	<thead>
-								    <tr>
-								        <th>No</th>
-								        <th>프로젝트명</th>
-								        <th>참여부문</th>
-								        <th>날짜</th>
-								    </tr>		    		
-						    	</thead>
-
-						    	<tbody>
-								    <tr>
-								    	<td class="num">190</td>
-								    	<td class="subject"><a target="_blank" href="http://korean.visitkorea.or.kr/kor/invest/main.kto?func_name=main">한국관광공사, 관광투자 홈페이지</a></td>
-								    	<td class="major">
-								    		<span class="ico_des" title="디자인"></span>
-								    		<span class="ico_cod" title="퍼블리싱"></span>
-								    	</td>
-								    	<td class="date">2015. 04</td>
-								    </tr>
-
-								    <tr>
-								    	<td class="num">189</td>
-								    	<td class="subject"><a target="_blank" href="http://korean.visitkorea.or.kr/kor/invest/main.kto?func_name=main">한국관광공사, 관광투자 홈페이지</a></td>
-								    	<td class="major">
-								    		<span class="ico_des" title="디자인"></span>
-								    		<!-- <span class="ico_cod" title="퍼블리싱"></span> -->
-								    	</td>
-								    	<td class="date">2015. 04</td>
-								    </tr>
-
-								    <tr>
-								    	<td class="num">188</td>
-								    	<td class="subject"><a target="_blank" href="http://korean.visitkorea.or.kr/kor/invest/main.kto?func_name=main">한국관광공사, 관광투자 홈페이지</a></td>
-								    	<td class="major">
-								    		<span class="ico_des" title="디자인"></span>
-								    		<!-- <span class="ico_cod" title="퍼블리싱"></span> -->
-								    	</td>
-								    	<td class="date">2015. 04</td>
-								    </tr>
-
-								    <tr>
-								    	<td class="num">187</td>
-								    	<td class="subject"><a target="_blank" href="http://korean.visitkorea.or.kr/kor/invest/main.kto?func_name=main">한국관광공사, 관광투자 홈페이지</a></td>
-								    	<td class="major">
-								    		<span class="ico_des" title="디자인"></span>
-								    		<span class="ico_cod" title="퍼블리싱"></span>
-								    	</td>
-								    	<td class="date">2015. 04</td>
-								    </tr>
-
-								    <tr>
-								    	<td class="num">186</td>
-								    	<td class="subject"><a target="_blank" href="http://korean.visitkorea.or.kr/kor/invest/main.kto?func_name=main">한국관광공사, 관광투자 홈페이지</a></td>
-								    	<td class="major">
-								    		<span class="ico_des" title="디자인"></span>
-								    		<!-- <span class="ico_cod" title="퍼블리싱"></span> -->
-								    	</td>
-								    	<td class="date">2015. 04</td>
-								    </tr>
-
-								    <tr>
-								    	<td class="num">185</td>
-								    	<td class="subject"><a target="_blank" href="http://korean.visitkorea.or.kr/kor/invest/main.kto?func_name=main">한국관광공사, 관광투자 홈페이지</a></td>
-								    	<td class="major">
-								    		<!-- <span class="ico_des" title="디자인"></span> -->
-								    		<span class="ico_cod" title="퍼블리싱"></span>
-								    	</td>
-								    	<td class="date">2015. 04</td>
-								    </tr>
-
-								    <tr>
-								    	<td class="num">184</td>
-								    	<td class="subject"><a target="_blank" href="http://korean.visitkorea.or.kr/kor/invest/main.kto?func_name=main">한국관광공사, 관광투자 홈페이지</a></td>
-								    	<td class="major">
-								    		<span class="ico_des" title="디자인"></span>
-								    		<span class="ico_cod" title="퍼블리싱"></span>
-								    	</td>
-								    	<td class="date">2015. 04</td>
-								    </tr>
-
-								    <tr>
-								    	<td class="num">183</td>
-								    	<td class="subject"><a target="_blank" href="http://korean.visitkorea.or.kr/kor/invest/main.kto?func_name=main">한국관광공사, 관광투자 홈페이지</a></td>
-								    	<td class="major">
-								    		<!-- <span class="ico_des" title="디자인"></span> -->
-								    		<span class="ico_cod" title="퍼블리싱"></span>
-								    	</td>
-								    	<td class="date">2015. 04</td>
-								    </tr>
-
-								    <tr>
-								    	<td class="num">182</td>
-								    	<td class="subject"><a target="_blank" href="http://korean.visitkorea.or.kr/kor/invest/main.kto?func_name=main">한국관광공사, 관광투자 홈페이지</a></td>
-								    	<td class="major">
-								    		<span class="ico_des" title="디자인"></span>
-								    		<span class="ico_cod" title="퍼블리싱"></span>
-								    	</td>
-								    	<td class="date">2015. 04</td>
-								    </tr>
-
-								    <tr>
-								    	<td class="num">181</td>
-								    	<td class="subject"><a target="_blank" href="http://korean.visitkorea.or.kr/kor/invest/main.kto?func_name=main">한국관광공사, 관광투자 홈페이지</a></td>
-								    	<td class="major">
-								    		<span class="ico_des" title="디자인"></span>
-								    		<!-- <span class="ico_cod" title="퍼블리싱"></span> -->
-								    	</td>
-								    	<td class="date">2015. 04</td>
-								    </tr>	
-
-								    <tr>
-								    	<td class="num">180</td>
-								    	<td class="subject"><a target="_blank" href="http://korean.visitkorea.or.kr/kor/invest/main.kto?func_name=main">한국관광공사, 관광투자 홈페이지</a></td>
-								    	<td class="major">
-								    		<span class="ico_des" title="디자인"></span>
-								    		<!-- <span class="ico_cod" title="퍼블리싱"></span> -->
-								    	</td>
-								    	<td class="date">2015. 04</td>
-								    </tr>		    		
-						    	</tbody>
-
-						    	<tfoot></tfoot>
-							</table>
-
-							<!-- paging -->
-							<div class="board_num_list">
-								<a class="prev_all" href="PREV ALL"></a>
-								<a class="prev" href="">PREV</a>
-								<a class="num" href="">1</a>
-								<a class="num" href="">2</a>
-								<a class="num on" href="">3</a>
-								<a class="num" href="">4</a>
-								<a class="num" href="">5</a>
-								<a class="next" href="">NEST</a>
-								<a class="next_all" href="">NEST ALL</a>
-							</div><!-- //board_num_list -->							
 						</div><!-- //wrap_table -->						
 					</div><!-- //recent_project -->
 				</div>

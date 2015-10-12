@@ -9,6 +9,7 @@ package com.casker.portfolio.mapper;
 
 import java.util.List;
 
+import com.casker.portfolio.domain.BaseSearch;
 import com.casker.portfolio.domain.Portfolio;
 
 
@@ -18,9 +19,10 @@ import com.casker.portfolio.domain.Portfolio;
 public interface PortfolioMapper {
 
 	/**
+	 * @param baseSearch 
 	 * @return
 	 */
-	List<Portfolio> selectPortfolioList();
+	List<Portfolio> selectPortfolioList(BaseSearch baseSearch);
 	
 	/**
 	 * @param portfolio

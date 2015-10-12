@@ -9,6 +9,7 @@ package com.casker.portfolio.mapper;
 
 import java.util.List;
 
+import com.casker.portfolio.domain.BaseSearch;
 import com.casker.portfolio.domain.Project;
 
 
@@ -18,8 +19,9 @@ import com.casker.portfolio.domain.Project;
 public interface ProjectMapper {
 
 	/**
+	 * @param baseSearch 
 	 * @return
 	 */
-	List<Project> selectProjectList();
+	List<Project> selectProjectList(BaseSearch baseSearch);
 
 }

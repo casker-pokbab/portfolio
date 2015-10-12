@@ -21,4 +21,5 @@ public class Portfolio {
 	private String portfolioName;
 	private String url;
 	private Date workDate;
+	private String thumbnail;
 }

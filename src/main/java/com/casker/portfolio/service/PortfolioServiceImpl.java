@@ -12,8 +12,11 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.casker.portfolio.domain.BaseSearch;
 import com.casker.portfolio.domain.Portfolio;
+import com.casker.portfolio.domain.Project;
 import com.casker.portfolio.mapper.PortfolioMapper;
+import com.casker.portfolio.mapper.ProjectMapper;
 
 
 /**
@@ -25,9 +28,16 @@ public class PortfolioServiceImpl implements PortfolioService {
 	@Autowired
 	private PortfolioMapper portfolioMapper;
 	
+	@Autowired
+	private ProjectMapper projectMapper;
+	
 	@Override
-	public List<Portfolio> getPortfolioList() {
-		return portfolioMapper.selectPortfolioList();
+	public List<Portfolio> getPortfolioList(BaseSearch baseSearch) {
+		return portfolioMapper.selectPortfolioList(baseSearch);
 	}
 
+	@Override
+	public List<Project> getProjectList(BaseSearch baseSearch) {
+		return projectMapper.selectProjectList(baseSearch);
+	}
 }
