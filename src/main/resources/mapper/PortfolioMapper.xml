@@ -9,12 +9,27 @@
 			  portfolio_no
 			, portfolio_name
 			, url
+			, view_name
 			, work_date
 			, thumbnail
 		FROM  portfolio
 		<if test="all == false">
 		LIMIT #{skipRows}, #{pageSize}
 		</if>
+	</select>
+	
+	<select id="selectPortfolio" resultType="portfolio" parameterType="int">
+		/* PortfolioMapper.selectPortfolio */
+		SELECT 
+			  portfolio_no
+			, portfolio_name
+			, url
+			, view_name
+			, work_date
+			, thumbnail
+		FROM  portfolio
+		WHERE
+			portfolio_no = #{portfolioNo}
 	</select>
 	
 	<insert id="insertPortfoilo" parameterType="portfolio">
@@ -24,6 +39,7 @@
 			  portfolio_no = #{portfolioNo}
 			, portfolio_name = #{portfolioName}
 			, url = #{url}
+			, view_name = #{viewName}
 			, work_date = #{workDate}
 			, thumbnail = #{thumbnail}
 	</insert>

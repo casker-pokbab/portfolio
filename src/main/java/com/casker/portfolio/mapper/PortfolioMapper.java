@@ -29,4 +29,10 @@ public interface PortfolioMapper {
 	 */
 	void insertPortfoilo(Portfolio portfolio);
 
+	/**
+	 * @param portfolioNo
+	 * @return
+	 */
+	Portfolio selectPortfolio(int portfolioNo);
+
 }

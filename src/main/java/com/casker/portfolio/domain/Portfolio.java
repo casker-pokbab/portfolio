@@ -20,6 +20,7 @@ public class Portfolio {
 	private int portfolioNo;
 	private String portfolioName;
 	private String url;
+	private String viewName;
 	private Date workDate;
 	private String thumbnail;
 }

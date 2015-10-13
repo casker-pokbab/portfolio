@@ -45,4 +45,9 @@ public class PortfolioServiceImpl implements PortfolioService {
 	public List<Project> getProjectList(BaseSearch baseSearch) {
 		return projectMapper.selectProjectList(baseSearch);
 	}
+
+	@Override
+	public Portfolio getPortfolioDetail(int portfolioNo) {
+		return portfolioMapper.selectPortfolio(portfolioNo);
+	}
 }

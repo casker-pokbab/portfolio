@@ -37,4 +37,12 @@ public interface PortfolioService {
 	 */
 	int getProjectListCount();
 
+	/**
+	 * 포트폴리오 상세정보를 가져온다.
+	 * 
+	 * @param portfolioNo
+	 * @return
+	 */
+	Portfolio getPortfolioDetail(int portfolioNo);
+
 }
