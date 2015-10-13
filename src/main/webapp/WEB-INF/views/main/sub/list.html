@@ -39,7 +39,7 @@
 	    	<tbody th:unless="${#lists.isEmpty(projectList)}">
 			    <tr th:each="project : ${projectList}">
 			    	<td class="num" th:text="${project.projectNo}">No</td>
-			    	<td class="subject" th:text="${project.projectName}"><a target="_blank" th:href="@{${project.url}}">프로젝트명</a></td>
+			    	<td class="subject"><a target="_blank" th:href="@{${project.url}}" th:remove="${#strings.isEmpty(project.url)} ? tag : none" th:text="${project.projectName}">프로젝트명</a></td>
 			    	<td class="major">
 			    		<span class="ico_des" title="디자인"></span>
 			    		<span class="ico_cod" title="퍼블리싱"></span>
