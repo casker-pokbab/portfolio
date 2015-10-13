@@ -9,6 +9,8 @@ $(document).ready(function() {
 	$("#contact .more_work").on("click", function() {
 		if (!$("#privacypolicy").prop("checked") && confirm("개인정보보호정책에 동의합니까?")) {
 			$(".btn_privacypolicy").click();
+		} else {
+			sendEmail();
 		}
 	});
 	
@@ -77,4 +79,16 @@ function getProjectList(pageNum, pageSize) {
  */
 function goPage(pageNum) {
 	getProjectList(pageNum, defaultPageSize)
+}
+
+function sendEmail() {
+	$("#contact_form").find("[name]").each(function() {
+		if ($(this).val() == "") {
+			alert("비어있는 양식을 작성해주세요");
+			$(this).focus();
+			return false;
+		}
+	});
+	
+	
 }
