@@ -2,9 +2,23 @@ var defaultPageSize = 10;
 
 $(document).ready(function() {
 	
-	$(".more_work").on("click", function() {
+	$("#work .more_work").on("click", function() {
 		getPortfolioList(true)
-	})
+	});
+	
+	$("#contact .more_work").on("click", function() {
+		if (!$("#privacypolicy").prop("checked") && confirm("개인정보보호정책에 동의합니까?")) {
+			$(".btn_privacypolicy").click();
+		}
+	});
+	
+	$(".btn_privacypolicy").on("click", function() {
+		if ($(this).hasClass("checked")) {
+			$("#privacypolicy").prop("checked", true);
+		} else {
+			$("#privacypolicy").prop("checked", false);
+		}
+	});
 	
 	getPortfolioList(false);
 	getProjectList();
