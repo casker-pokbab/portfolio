@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -69,5 +70,15 @@ public class MainController {
 		model.addAttribute("projectList", projectList);
 		
 		return VIEW_PREFIX + "sub/list :: projectList";
+	}
+	
+	/**
+	 * 캐스커 프로젝트 상세보기
+	 * 
+	 * @return
+	 */
+	@RequestMapping(value = "/project/detail/{projectId}", method = RequestMethod.GET)
+	public String projectDetail(Model model, @PathVariable String projectId) {
+		return VIEW_PREFIX + "sub/" + projectId;
 	}
 }
