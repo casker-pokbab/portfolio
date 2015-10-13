@@ -39,7 +39,7 @@
 	    	<tbody th:unless="${#lists.isEmpty(projectList)}">
 			    <tr th:each="project : ${projectList}">
 			    	<td class="num" th:text="${project.projectNo}">No</td>
-			    	<td class="subject" th:text="${project.projectName}"><a target="_blank" th:href="@{${project.url}}">한국관광공사, 관광투자 홈페이지</a></td>
+			    	<td class="subject" th:text="${project.projectName}"><a target="_blank" th:href="@{${project.url}}">프로젝트명</a></td>
 			    	<td class="major">
 			    		<span class="ico_des" title="디자인"></span>
 			    		<span class="ico_cod" title="퍼블리싱"></span>
@@ -53,15 +53,17 @@
 		
 		<!-- paging -->
 		<div class="board_num_list">
-			<a class="prev_all" href="PREV ALL"></a>
-			<a class="prev" href="">PREV</a>
-			<a class="num" href="">1</a>
-			<a class="num" href="">2</a>
-			<a class="num on" href="">3</a>
-			<a class="num" href="">4</a>
-			<a class="num" href="">5</a>
-			<a class="next" href="">NEST</a>
-			<a class="next_all" href="">NEST ALL</a>
+			<a href="#//" class="prev_all" onclick="goPage(1); return false;">PREV ALL</a>
+			<div th:if="${page.pageNum ne 1}" th:remove="tag">
+				<a href="#//" class="prev" th:attr="onclick='goPage(' + ${page.pageNum - 1} + '); return false;'">PREV</a>
+			</div>
+			<div th:each="pageNo : ${#numbers.sequence(page.viewFirst, page.lastPage)}" th:remove="tag">
+				<a href="#//" class="num" th:classappend="${page.pageNum eq pageNo}? 'on' : ''" th:text="${pageNo}" th:attr="onclick='goPage(' + ${pageNo} + '); return false;'">pageNo</a>
+			</div>
+			<div th:if="${page.pageNum ne page.lastPage}" th:remove="tag">
+				<a href="#//" class="next" th:attr="onclick='goPage(' + ${page.pageNum + 1} + '); return false;'">NEXT</a>
+			</div>
+			<a href="#//" class="next_all" th:attr="onclick='goPage(' + ${page.lastPage} + '); return false;'">NEXT ALL</a>
 		</div><!-- //board_num_list -->
 	</div>
 </body>

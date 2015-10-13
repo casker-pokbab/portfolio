@@ -14,8 +14,8 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.casker.portfolio.domain.BaseSearch;
 import com.casker.portfolio.domain.Portfolio;
-import com.casker.portfolio.domain.Project;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = {"classpath:spring/applicationContext-root.xml"})
@@ -27,7 +27,7 @@ public class PortfolioMapperTest {
 
 	@Test
 	public void testSelectProjectList() throws Exception {
-		List<Portfolio> actual = portfolioMapper.selectPortfolioList();
+		List<Portfolio> actual = portfolioMapper.selectPortfolioList(new BaseSearch());
 
 		assertFalse(CollectionUtils.isEmpty(actual));
 	}

@@ -2,12 +2,16 @@ package com.casker.portfolio.controller;
 
 import java.util.List;
 
+import org.apache.commons.collections4.CollectionUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.casker.portfolio.common.Page;
+import com.casker.portfolio.common.PageUtil;
 import com.casker.portfolio.domain.BaseSearch;
 import com.casker.portfolio.domain.Portfolio;
 import com.casker.portfolio.domain.Project;
@@ -51,8 +55,14 @@ public class HomeController {
 	}
 	
 	@RequestMapping("/project")
-	public String getProjectList(Model model, BaseSearch baseSearch) {
+	public String getProjectList(Model model, BaseSearch baseSearch, @ModelAttribute Page page) {
+		int totalCount = portfolioService.getProjectListCount();
 		List<Project> projectList = portfolioService.getProjectList(baseSearch);
+		
+		if (CollectionUtils.isNotEmpty(projectList)) {
+			page.setTotalCount(totalCount);
+		}
+		PageUtil.setPage(page);
 		
 		model.addAttribute("projectList", projectList);
 		

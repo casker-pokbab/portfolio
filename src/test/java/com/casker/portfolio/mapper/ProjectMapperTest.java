@@ -12,6 +12,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.casker.portfolio.domain.BaseSearch;
 import com.casker.portfolio.domain.Project;
 
 
@@ -25,7 +26,7 @@ public class ProjectMapperTest {
 
 	@Test
 	public void testSelectProjectList() throws Exception {
-		List<Project> actual = projectMapper.selectProjectList();
+		List<Project> actual = projectMapper.selectProjectList(new BaseSearch());
 
 		assertFalse(CollectionUtils.isEmpty(actual));
 	}

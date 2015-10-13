@@ -1,9 +1,11 @@
+var defaultPageSize = 10;
+
 $(document).ready(function() {
 	
 	$(".more_work").on("click", function() {
 		getPortfolioList(true)
 	})
-
+	
 	getPortfolioList(false);
 	getProjectList();
 });
@@ -25,7 +27,7 @@ function getPortfolioList(all) {
 function getProjectList(pageNum, pageSize) {
 	
 	pageNum = (pageNum == undefined) ? 1 : pageNum;
-	pageSize = (pageSize == undefined) ? 12 : pageSize;
+	pageSize = (pageSize == undefined) ? defaultPageSize : pageSize;
 	
 	$.ajax({
 		  url : "/project"
@@ -36,4 +38,8 @@ function getProjectList(pageNum, pageSize) {
 			$(".wrap_table_project").empty().append(data);
 		}
 	});
+}
+
+function goPage(pageNum) {
+	getProjectList(pageNum, defaultPageSize)
 }

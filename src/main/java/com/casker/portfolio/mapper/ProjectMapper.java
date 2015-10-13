@@ -24,4 +24,9 @@ public interface ProjectMapper {
 	 */
 	List<Project> selectProjectList(BaseSearch baseSearch);
 
+	/**
+	 * @return
+	 */
+	int selectProjectListCount();
+
 }

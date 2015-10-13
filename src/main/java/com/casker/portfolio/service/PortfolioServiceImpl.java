@@ -35,6 +35,11 @@ public class PortfolioServiceImpl implements PortfolioService {
 	public List<Portfolio> getPortfolioList(BaseSearch baseSearch) {
 		return portfolioMapper.selectPortfolioList(baseSearch);
 	}
+	
+	@Override
+	public int getProjectListCount() {
+		return projectMapper.selectProjectListCount();
+	}
 
 	@Override
 	public List<Project> getProjectList(BaseSearch baseSearch) {

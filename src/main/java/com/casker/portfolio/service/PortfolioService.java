@@ -32,4 +32,9 @@ public interface PortfolioService {
 	 */
 	List<Project> getProjectList(BaseSearch baseSearch);
 
+	/**
+	 * @return
+	 */
+	int getProjectListCount();
+
 }
