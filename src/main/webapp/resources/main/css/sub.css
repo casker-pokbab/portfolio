@@ -1,0 +1,75 @@
+@charset "utf-8";
+
+/* default layout 1280px 
+-------------------------------------------------------------------------------------------------------------------*/
+
+/*///////////////////// header /////////////////////*/
+
+#sub_header {position: fixed; width: 100%; height: 42px; background-color: #aa76db; z-index: 999;}
+#sub_header .title_project {margin-left: 3.125em; font-size: 1em; color: #fff; line-height: 42px; font-family: 'Nanum Barun Gothic'; font-weight: 100;}
+#sub_header .title_project span.logo_project {display: inline-block; width: 1.1875em; height: 1.25em; background: url('../img/sub/logo_project.png') no-repeat center center; background-size: 100%; margin-right: .625em; vertical-align: -.3125em;}
+#sub_header .btn_back {margin-right: 3.125em; line-height: 42px;}
+#sub_header .btn_back > a {display: inline-block; width: 11px; height: 11px; background: url('../img/btn/btn_back.png') no-repeat center center; background-size: 100%;}
+
+
+/*///////////////////// header End /////////////////////*/
+/*
+d
+e
+m
+a
+r
+c
+a
+t
+i
+o
+n
+*/
+/*///////////////////// container /////////////////////*/
+
+.wrap_1024 {max-width: 1024px; width: 100%; margin: 0 auto;}
+#sub_container {width: 100%; padding: 5em 0; background-color: #e3e5e4;}
+#sub_container .top_project {width: 100%;}
+#sub_container .top_project > img {width: 100%;}
+
+#sub_container .middle_project {width: 100%;}
+#sub_container .middle_project .fl_01 {width: 94%; padding: 2.625em 3%; border: 1px solid #d1d2d1; border-left: none; border-right: none; position: relative;}
+#sub_container .middle_project .fl_01 .area_left {width: 75%;}
+#sub_container .middle_project .fl_01 .area_left p.title_project {font-size: 1em; font-weight: 600; color: #342828; margin-bottom: 1.3126em;}
+#sub_container .middle_project .fl_01 .area_left p.explain_project {font-size: .8125em; font-weight: 100; color: #555; line-height: 1.69em;}
+#sub_container .middle_project .fl_01 .area_right {width: 25%;}
+#sub_container .middle_project .fl_01 .go_website {display: block; position: absolute; right: 3%; bottom: 2.625em; font-size: .9375em; font-weight: 200; padding: 1.2em 3.8em 1.2em 2em; color: #fff; background: #b379e9 url('../img/icon/ico_go_site.png') no-repeat 84% center; background-size: 22px 22px;}
+#sub_container .middle_project .fl_01 .no_url {background: #c9c9c9 url('../img/icon/ico_go_site.png') no-repeat 84% center !important; background-size: 22px 22px !important; cursor: default;}
+#sub_container .middle_project .fl_02 {width: 94%; padding: 2.625em 3%;}
+#sub_container .middle_project .fl_02 .info_text01 {font-size: .75em; color: #555; font-weight: 200; line-height: 1.6666em; padding-bottom: 2.5em;}
+#sub_container .middle_project .fl_02 .info_text02 {font-size: .75em; color: #555; font-weight: 200; line-height: 1.6666em; padding-top: 1.75em;}
+#sub_container .middle_project .fl_02 .line423 {display: block; width: 42px; height: 3px; background-color: #342828;}
+
+#sub_container .bottom_project {width: 100%;}
+#sub_container .bottom_project .img_frame {width: 100%; margin-bottom: 1.875em;}
+#sub_container .bottom_project .img_frame > img {width: 100%;}
+
+#sub_container .project_end {text-align: center;}
+#sub_container .project_end > a {display: inline-block; font-size: .6875em; font-weight: 600; color: #342828; padding: 0.4em 0.2em; border-bottom: 1px solid #342828;}
+
+/*///////////////////// container End /////////////////////*/
+/*
+d
+e
+m
+a
+r
+c
+a
+t
+i
+o
+n
+*/
+/*///////////////////// footer /////////////////////*/
+
+#sub_footer {width: 100%; text-align: center; position: fixed; z-index: 999; bottom: 0; background-color: rgba(255, 255, 255, 0.9);}
+#sub_footer .sub_copy {font-size: .6875em; font-weight: 200; color: #a46ada; line-height: 3em;}
+
+/*///////////////////// footer End /////////////////////*/

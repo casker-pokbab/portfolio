@@ -1,0 +1,307 @@
+<? include('../inc/head.inc.html');?>
+
+<? include('../inc/header.inc.html');?>	
+
+	<!-- <section id="container"> -->
+
+			<section class="content">
+
+				<div class="title">
+					<h1>포트폴리오 관리</h1>
+
+					<div class="loc_area">
+						<p>HOME > WORK > <span class="loc">포트폴리오 관리</span></p>
+					</div>					
+				</div><!-- //title -->
+
+				<!-- ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+
+				<div class="search_box">
+					<form action="">					
+						<fieldset>
+							<legend>포트폴리오 목록 검색</legend>
+							<table>
+								<colgroup>
+									<col width="10%">
+									<col width="30%">
+									<col width="10%">
+									<col width="30%">
+									<col width="20%">
+								</colgroup>
+								<tbody>
+									<tr>
+										<th><label for="">프로젝트명</label></th>
+
+										<td>
+											<input type="text" class="w140"/>
+										</td>
+
+										<th><label for="">등록일</label></th>
+
+										<td>
+											<input type="text" class="w100" id="date_start"/> ~ <input type="text" class="w100" id="date_end"/>
+										</td>
+
+										<td rowspan="2" style="text-align: center !important; padding: 0 !important"><span class="btn_research02">검색</span></td>				
+									</tr>									
+
+									<tr>
+										<th><label for="">회사명</label></th>
+
+										<td>
+											<input type="text" class="w140"/>
+										</td>
+
+										<th><label for="">예산</label></th>
+
+										<td>
+											<input type="text" class="w100" placeholder="500만원"/> ~ <input type="text" class="w100" placeholder="1000만원"/>
+										</td>
+									</tr>			
+								</tbody>			
+							</table>
+						</fieldset>
+					</form>						
+				</div><!-- //search_box -->
+
+				<div class="list_area">
+
+					<div class="list_head clearfix">
+						<div class="left">
+							<p>총 게시물 <span>30</span>건 / 페이지(<span>1/3</span>)</p>
+						</div>
+
+						<div class="right">
+							<p>리스트 수 <span>3</span></p>
+						</div>
+					</div>
+
+					<table cellspacing="0" cellpadding="0"  class="list01">
+
+				    	<colgroup>
+						    <col width="4%"/> 		
+						    <col width="6%"/> 		
+						    <col width="35%"/> 		
+						    <col width="10%"/> 		
+						    <col width="10%"/> 		
+						    <col width="15%"/>	
+						    <col width="10%"/>	
+						    <col width="10%"/>	
+				    	</colgroup>
+
+				    	<thead>
+						    <tr>
+						    	<th></th>
+						        <th>번호</th>
+						        <th>프로젝트명</th>
+						        <th>회사명</th>
+						        <th>예산</th>
+						        <th>등록일</th>						        
+						        <th>노출여부</th>
+						        <th>순서조절</th>
+						    </tr>		    		
+				    	</thead>
+
+				    	<tbody>
+						    <tr class="bg1">
+						    	<td><input type="checkbox"/></td>
+						    	<td class="num">10</td>
+						    	<td class="subject"><a href="/resources/admin/sub/sub_portfolio_view.html">한국관광공사, 관광투자 웹사이트</a></td>
+						    	<td>한국관광공사</td>
+						    	<td>비공개</td>
+						    	<td>2015, 02, 28</td>
+						    	<td>Y</td>
+						    	<td>
+						    		<a href="!#" onclick="return false;" class="arr_rang" id="high">▲</a>
+						    		<a href="!#" onclick="return false;" class="arr_rang" id="low">▼</a>
+						    	</td>						    	
+						    </tr>
+
+						    <tr class="bg1">
+						    	<td><input type="checkbox"/></td>
+						    	<td class="num">10</td>
+						    	<td class="subject"><a href="/resources/admin/sub/sub_portfolio_view.html">한국관광공사, 관광투자 웹사이트</a></td>
+						    	<td>한국관광공사</td>
+						    	<td>비공개</td>
+						    	<td>2015, 02, 28</td>
+						    	<td>N</td>
+						    	<td>
+						    		<a href="!#" onclick="return false;" class="arr_rang" id="high">▲</a>
+						    		<a href="!#" onclick="return false;" class="arr_rang" id="low">▼</a>
+						    	</td>						    	
+						    </tr>
+
+						    <tr class="bg1">
+						    	<td><input type="checkbox"/></td>
+						    	<td class="num">10</td>
+						    	<td class="subject"><a href="/resources/admin/sub/sub_portfolio_view.html">한국관광공사, 관광투자 웹사이트</a></td>
+						    	<td>한국관광공사</td>
+						    	<td>비공개</td>
+						    	<td>2015, 02, 28</td>
+						    	<td>Y</td>
+						    	<td>
+						    		<a href="!#" onclick="return false;" class="arr_rang" id="high">▲</a>
+						    		<a href="!#" onclick="return false;" class="arr_rang" id="low">▼</a>
+						    	</td>						    	
+						    </tr>
+
+						    <tr class="bg1">
+						    	<td><input type="checkbox"/></td>
+						    	<td class="num">10</td>
+						    	<td class="subject"><a href="/resources/admin/sub/sub_portfolio_view.html">한국관광공사, 관광투자 웹사이트</a></td>
+						    	<td>한국관광공사</td>
+						    	<td>비공개</td>
+						    	<td>2015, 02, 28</td>
+						    	<td>N</td>
+						    	<td>
+						    		<a href="!#" onclick="return false;" class="arr_rang" id="high">▲</a>
+						    		<a href="!#" onclick="return false;" class="arr_rang" id="low">▼</a>
+						    	</td>						    	
+						    </tr>
+
+						    <tr class="bg1">
+						    	<td><input type="checkbox"/></td>
+						    	<td class="num">10</td>
+						    	<td class="subject"><a href="/resources/admin/sub/sub_portfolio_view.html">한국관광공사, 관광투자 웹사이트</a></td>
+						    	<td>한국관광공사</td>
+						    	<td>비공개</td>
+						    	<td>2015, 02, 28</td>
+						    	<td>Y</td>
+						    	<td>
+						    		<a href="!#" onclick="return false;" class="arr_rang" id="high">▲</a>
+						    		<a href="!#" onclick="return false;" class="arr_rang" id="low">▼</a>
+						    	</td>						    	
+						    </tr>
+
+						    <tr class="bg1">
+						    	<td><input type="checkbox"/></td>
+						    	<td class="num">10</td>
+						    	<td class="subject"><a href="/resources/admin/sub/sub_portfolio_view.html">한국관광공사, 관광투자 웹사이트</a></td>
+						    	<td>한국관광공사</td>
+						    	<td>비공개</td>
+						    	<td>2015, 02, 28</td>
+						    	<td>N</td>
+						    	<td>
+						    		<a href="!#" onclick="return false;" class="arr_rang" id="high">▲</a>
+						    		<a href="!#" onclick="return false;" class="arr_rang" id="low">▼</a>
+						    	</td>						    	
+						    </tr>
+
+						    <tr class="bg1">
+						    	<td><input type="checkbox"/></td>
+						    	<td class="num">10</td>
+						    	<td class="subject"><a href="/resources/admin/sub/sub_portfolio_view.html">한국관광공사, 관광투자 웹사이트</a></td>
+						    	<td>한국관광공사</td>
+						    	<td>비공개</td>
+						    	<td>2015, 02, 28</td>
+						    	<td>Y</td>
+						    	<td>
+						    		<a href="!#" onclick="return false;" class="arr_rang" id="high">▲</a>
+						    		<a href="!#" onclick="return false;" class="arr_rang" id="low">▼</a>
+						    	</td>						    	
+						    </tr>
+
+						    <tr class="bg1">
+						    	<td><input type="checkbox"/></td>
+						    	<td class="num">10</td>
+						    	<td class="subject"><a href="/resources/admin/sub/sub_portfolio_view.html">한국관광공사, 관광투자 웹사이트</a></td>
+						    	<td>한국관광공사</td>
+						    	<td>비공개</td>
+						    	<td>2015, 02, 28</td>
+						    	<td>N</td>
+						    	<td>
+						    		<a href="!#" onclick="return false;" class="arr_rang" id="high">▲</a>
+						    		<a href="!#" onclick="return false;" class="arr_rang" id="low">▼</a>
+						    	</td>						    	
+						    </tr>
+
+						    <tr class="bg1">
+						    	<td><input type="checkbox"/></td>
+						    	<td class="num">10</td>
+						    	<td class="subject"><a href="/resources/admin/sub/sub_portfolio_view.html">한국관광공사, 관광투자 웹사이트</a></td>
+						    	<td>한국관광공사</td>
+						    	<td>비공개</td>
+						    	<td>2015, 02, 28</td>
+						    	<td>N</td>
+						    	<td>
+						    		<a href="!#" onclick="return false;" class="arr_rang" id="high">▲</a>
+						    		<a href="!#" onclick="return false;" class="arr_rang" id="low">▼</a>
+						    	</td>						    	
+						    </tr>
+
+						    <tr class="bg1">
+						    	<td><input type="checkbox"/></td>
+						    	<td class="num">10</td>
+						    	<td class="subject"><a href="/resources/admin/sub/sub_portfolio_view.html">한국관광공사, 관광투자 웹사이트</a></td>
+						    	<td>한국관광공사</td>
+						    	<td>비공개</td>
+						    	<td>2015, 02, 28</td>
+						    	<td>N</td>
+						    	<td>
+						    		<a href="!#" onclick="return false;" class="arr_rang" id="high">▲</a>
+						    		<a href="!#" onclick="return false;" class="arr_rang" id="low">▼</a>
+						    	</td>						    	
+						    </tr>		
+				    	</tbody>
+
+					</table><!-- 답변하기X 일반 게시판 -->
+
+
+					<!-- 게시판 버튼 -->
+					<div class="board_button clearfix">
+					    <div class="left_button blind2">
+						    <a href="" class="btnArr">이전글</a>    
+						    <a href="" class="btnArr">다음글</a>    
+						</div>
+
+					    <div class="right_button">  
+					    	<a href="!#" onclick="return false;" class="btnArr">삭제하기</a>
+					        <a href="/resources/admin/sub/sub_portfolio_write.html" class="btnArr">등록하기</a>
+					    </div>
+					</div>
+
+
+					<!-- 페이징 -->
+					<div class="board_num_list">
+						<a class="prev_all" href="PREV ALL"></a>
+						<a class="prev" href="">PREV</a>
+						<a class="num on" href="">1</a>
+						<a class="num" href="">2</a>
+						<a class="num" href="">3</a>
+						<a class="num" href="">4</a>
+						<a class="num" href="">5</a>
+						<a class="num" href="">6</a>
+						<a class="num" href="">7</a>
+						<a class="num" href="">8</a>
+						<a class="num" href="">9</a>
+						<a class="num" href="">10</a>
+						<a class="next" href="">NEXT</a>
+						<a class="next_all" href="">NEXT ALL</a>
+					</div><!-- //board_num_list -->
+
+
+					<!-- 게시판 검색 -->	    
+				    <div class="board_search blind2">
+				        <form name="fsearch" method="get">
+					        <input type="hidden" name="bo_table" value="nafternote"/>
+					        <input type="hidden" name="sca"      value=""/>
+					        <select name="sfl" class="sfl">
+					            <option value="wr_all">전체</option>
+					            <option value="wr_subject">제목</option>
+					            <option value="wr_content">내용</option>
+					            <option value="wr_subject||wr_content">제목+내용</option>
+					            <option value="mb_id">작성자</option>
+					        </select>
+					        <input name="stx" class="stx" maxlength="15" itemname="검색어" required value=''/>
+					        <a href="" class="btnSearch">검색</a> <!-- <input type="submit" /> -->
+				    </div><!-- //board_search -->					
+					
+				</div><!-- //list_area -->	
+				
+			</section><!-- //content -->
+
+		</div><!-- //wrap -->
+
+	</section><!-- //container End -->
+
+<? include('../inc/footer.inc.html');?>

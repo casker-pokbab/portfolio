@@ -1,0 +1,121 @@
+@charset "utf-8";
+
+
+/*///////////////////// header /////////////////////*/
+
+#wrap{}
+.wrap_bg{background: url('../img/main/main_bg.jpg') repeat center center; width: 100%; height: 100%;}
+
+
+/*///////////////////// header End /////////////////////*/
+
+
+
+
+/*///////////////////// container /////////////////////*/
+
+.login_section{width: 460px; background: url('../img/common/bg_white50.png') repeat; border: 1px solid #ddd; position: fixed; top: 50%; left: 50%; margin-top: -200px; margin-left: -230px; box-shadow: 1px 1px 10px rgba(0,0,0,0.3); padding: 0 0 10px 0;}
+.main_logo_section{text-align: center; height: 80px; margin: 21px auto;}
+.input_row{position: relative; width: 390px; border: 1px solid #ddd; padding: 10px 35px 10px 10px; margin: 0 auto 10px; background-color: #fff; height: 29px;}
+.input_row input{height: 29px; width: 400px; border: none;}
+.btn_login input{display: block; width: 436px; margin: 0 auto; background-color: #b379e9; border: 1px solid #a46ada; height: 61px; cursor: pointer;}
+.btn_login .int_join{color: #fff; font-size: 24px;}
+.find_info_section{margin-top: 30px; padding-top: 10px; width: 100%; height: 42px; text-align: center; border-top: 1px solid #ddd;}
+.bar{padding: 0 5px;}
+.find_info_section a{line-height: 42px;}
+.find_info_section p{font-size: 11px; letter-spacing: -1px; line-height: 42px;}
+.sub01_pop{width: 470px; height: 500px;}
+
+
+/*///////////////////// container End /////////////////////*/
+
+
+
+
+
+
+/*///////////////////// footer /////////////////////*/
+
+
+/*///////////////////// footer End /////////////////////*/
+
+
+
+
+
+
+/*///////////////////// common /////////////////////*/
+
+/*btn*/
+/*투자정보목록 검색버튼*/
+.btn_research{display: inline-block; width: 100%; height: 100%; line-height: 128px; font-size: 20px; font-weight: bold; text-align: center; background-color: #b379e9; border: 1px solid #a46ada; color: white; cursor: pointer;}
+.btn_research02{display: inline-block; width: 100%; height: 100%; line-height: 85px; font-size: 20px; font-weight: bold; text-align: center; background-color: #b379e9; border: 1px solid #a46ada; color: white; cursor: pointer;}
+.btn_research03{display: inline-block; width: 100%; height: 100%; line-height: 42px; font-size: 20px; font-weight: bold; text-align: center; background-color: #b379e9; border: 1px solid #a46ada; color: white; cursor: pointer;}
+
+/*코드등록*/
+.yorn{display: inline-block; padding: 2px 4px; background-color: #f9f9f9; border: 1px solid #ddd; font-size: 10px; color: #342828; cursor: pointer;}
+.btn_submit01{display: inline-block; padding: 4px 10px; background-color: white; border: 1px solid #ddd; color: #999; cursor: pointer; margin-right: 4px;}
+.btn_submit02{display: inline-block; padding: 4px 10px; background-color: #eaeaea; border: 1px solid #ddd; color: #342828; cursor: pointer;}
+
+/*투자정보위치확인버튼*/
+.btn_chk_map{display: inline-block; padding: 4px 10px; background-color: white; border: 1px solid #ddd; font-size: 11px; color: #999; cursor: pointer;}
+
+/*성공사례*/
+.btn_file_del{display: inline-block; padding: 2px 6px; background: white; font-size: 11px; color: #aaa; border: 1px solid #aaa; cursor: pointer; margin-left: 6px;}
+
+.btn_sample{display: inline-block; width: 10px; height: 10px; line-height: 10px; text-align: center; background: url() no-repeat center center; cursor: pointer;}
+
+/*modal bg*/
+.modal_bg{position: fixed; top: 0; bottom: 0; left: 0; right: 0; background: url('../img/common/bg_black75.png') repeat center center; z-index: 9998;}
+
+
+/*.list01{text-align: center; width: 100%;}
+.list01 th{background-color: #f3f3f3; line-height: 31px; border-top:3px solid #ff6960; border-bottom:1px solid #dfdfdf; font-weight: 700;}
+.list01 td{background-color: white; line-height: 31px; border-bottom: 1px solid #d4d4d4;}
+.list01 td a{color: #666; text-decoration: none;}
+.list01 .subject{text-align: left;}
+.list01 .subject a:hover{color:#ff6960;}
+.list01 .num a{color: #bbb;}
+.list01 .name a{color: #bbb;}
+.list01 .datetime a{color: #bbb;}
+.list01 .hit a{color: #bbb;}
+
+
+
+.list_secret{text-align: center; width: 100%;}
+.list_secret th{background-color: #f3f3f3; line-height: 31px; border-top:3px solid #ff6960; border-bottom:1px solid #dfdfdf; font-weight: 700;}
+.list_secret td{background-color: white; line-height: 31px; border-bottom: 1px solid #d4d4d4;}
+.list_secret td a{color: #666; text-decoration: none;}
+.list_secret .subject{text-align: left;}
+.list_secret .subject .comment{font-size: 10px; color: red;}
+.list_secret .subject .lock{display: inline-block; width: 9px; height: 11px; vertical-align: middle; background: url('../img/common/board_secret.gif')top center;}
+.list_secret .subject a:hover{color:#ff6960;}
+.list_secret .num a{color: #bbb;}
+.list_secret .name a{color: #bbb;}
+.list_secret .datetime a{color: #bbb;}
+.list_secret .hit a{color: #bbb;}
+
+
+
+.view01{text-align: left; width: 100%;}
+.view01 th{background-color: #f3f3f3; padding-left: 10px; line-height: 31px; border-top:3px solid #ff6960; border-bottom:1px solid #dfdfdf; font-weight: 700; color: bbb;}
+.view01 td{background-color: white; line-height: 31px; border-bottom: 1px solid #d4d4d4; color: #666;}
+.view01 td span{color: #666;}
+.view01 td a{ color: #666; text-decoration: none;}
+.view01 td span{ color: #666;}
+.view01 td p{ color: #666;}
+
+
+.board_button {width: 100%; margin: 6px 0;}
+.btnArr {} /* btnArr : a tag */
+.left_button a{float: left;	margin-right: 6px;}
+.right_button a{float: right; margin-left: 6px;}
+
+
+.board_search{text-align: center;}
+.sfl{}
+.stx{height: 18px;}
+.btnSearch{display: inline-block; width: 50px; line-height: 21px; text-align: center; border-radius: 4px; background-color: #ff6960; color: white; font-weight: bold;}*/
+
+
+/*///////////////////// common End /////////////////////*/

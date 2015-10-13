@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+</head>
+<body>
+	<div class="item" th:fragment="portfolioList" th:unless="${#lists.isEmpty(portfolioList)}" th:each="portfolio : ${portfolioList}">
+		<div class="cont_work">	
+			<div class="bg_text">
+				<p class="text">
+					<span class="work_name" th:text="${portfolio.portfolioName}">포트폴리오명</span>
+					<a th:href="${portfolio.url}" class="work_more">자세히 보기</a>
+					<span class="work_date" th:text="${#calendars.format(portfolio.workDate,'yyyy')}">작업일시</span>
+				</p>								
+			</div>
+			<p class="img"><img class="ratio" th:src="@{'/resources/main/img' + ${portfolio.thumbnail}}" alt="포트폴리오 썸네일 이미지입니다"/></p>							
+		</div>
+	</div>
+	
+	<div class="item" th:fragment="projectList" >
+		<table cellspacing="0" cellpadding="0" class="table_project">
+
+	    	<colgroup>
+	    		<col width="10%"/>
+	    		<col width="50%"/>
+	    		<col width="20%"/>
+	    		<col width="20%"/>
+	    	</colgroup>
+
+	    	<thead>
+			    <tr>
+			        <th>No</th>
+			        <th>프로젝트명</th>
+			        <th>참여부문</th>
+			        <th>날짜</th>
+			    </tr>		    		
+	    	</thead>
+
+	    	<tbody th:unless="${#lists.isEmpty(projectList)}">
+			    <tr th:each="project : ${projectList}">
+			    	<td class="num" th:text="${project.projectNo}">No</td>
+			    	<td class="subject" th:text="${project.projectName}"><a target="_blank" th:href="@{${project.url}}">프로젝트명</a></td>
+			    	<td class="major">
+			    		<span class="ico_des" title="디자인"></span>
+			    		<span class="ico_cod" title="퍼블리싱"></span>
+			    	</td>
+			    	<td class="date" th:text="${#calendars.format(project.date,'yyyy. MM')}">날짜</td>
+			    </tr>
+			</tbody>
+			
+			<tfoot></tfoot>
+		</table>
+		
+		<!-- paging -->
+		<div class="board_num_list">
+			<a href="#//" class="prev_all" onclick="goPage(1); return false;">PREV ALL</a>
+			<div th:if="${page.pageNum ne 1}" th:remove="tag">
+				<a href="#//" class="prev" th:attr="onclick='goPage(' + ${page.pageNum - 1} + '); return false;'">PREV</a>
+			</div>
+			<div th:each="pageNo : ${#numbers.sequence(page.viewFirst, page.lastPage)}" th:remove="tag">
+				<a href="#//" class="num" th:classappend="${page.pageNum eq pageNo}? 'on' : ''" th:text="${pageNo}" th:attr="onclick='goPage(' + ${pageNo} + '); return false;'">pageNo</a>
+			</div>
+			<div th:if="${page.pageNum ne page.lastPage}" th:remove="tag">
+				<a href="#//" class="next" th:attr="onclick='goPage(' + ${page.pageNum + 1} + '); return false;'">NEXT</a>
+			</div>
+			<a href="#//" class="next_all" th:attr="onclick='goPage(' + ${page.lastPage} + '); return false;'">NEXT ALL</a>
+		</div><!-- //board_num_list -->
+	</div>
+</body>
+</html>
