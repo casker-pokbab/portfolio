@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+</head>
+<body th:fragment="gnb">
+	<nav class="gnb_section">
+
+		<ul id="gnb">
+
+			<li>
+				<a href="!#" onclick="return false;" class="m_btn">WORK</a>
+				<ul class="dep2">
+					<li><a href="/resources/admin/sub/sub_portfolio.html">포트폴리오 관리</a></li>
+					<li><a href="/resources/admin/sub/sub_recently.html">최근 작업 관리</a></li>
+				</ul>
+			</li>
+
+			<!-- <li>
+				<a href="!#" onclick="return false;" class="m_btn">MEMBER</a>
+				<ul class="dep2">
+					<li><a href="/resources/admin/sub/sub_portfolio.html">회원 관리</a></li>
+				</ul>
+			</li> -->
+
+			<li>
+				<a href="!#" onclick="return false;" class="m_btn">PASSWORD</a>
+				<ul class="dep2">
+					<li><a href="/resources/admin/sub/sub_password.html">비밀번호 수정</a></li>
+				</ul>
+			</li>
+		</ul>
+	</nav>
+</body>
+</html>

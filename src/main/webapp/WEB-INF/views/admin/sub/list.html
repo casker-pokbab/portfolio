@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+</head>
+<body th:fragment="portfolioList" th:remove="tag">
+	<div class="list_head clearfix">
+		<div class="left">
+			<p>총 게시물 <span th:text="${page.totalCount}">totalCount</span>건 / 페이지(<span th:text="${page.pageNum} + '/' + ${page.lastPage}">0/0</span>)</p>
+		</div>
+
+		<div class="right">
+			<p>리스트 수 <span>3</span></p>
+		</div>
+	</div>
+
+	<table cellspacing="0" cellpadding="0"  class="list01">
+
+    	<colgroup>
+		    <col width="4%"/> 		
+		    <col width="6%"/> 		
+		    <col width="35%"/> 		
+		    <col width="10%"/> 		
+		    <col width="10%"/> 		
+		    <col width="15%"/>	
+		    <col width="10%"/>	
+		    <col width="10%"/>	
+    	</colgroup>
+
+    	<thead>
+		    <tr>
+		    	<th></th>
+		        <th>번호</th>
+		        <th>프로젝트명</th>
+		        <th>회사명</th>
+		        <th>예산</th>
+		        <th>등록일</th>						        
+		        <th>노출여부</th>
+		        <th>순서조절</th>
+		    </tr>		    		
+    	</thead>
+    	
+    	<tbody th:unless="${#lists.isEmpty(portfolioList)}">
+		    <tr class="bg1" th:each="portfolio : ${portfolioList}">
+		    	<td><input type="checkbox"/></td>
+		    	<td class="num" th:text="${portfolio.portfolioNo}">No</td>
+		    	<td class="subject"><a th:href="@{'/admin/portfolio/detail/' + ${portfolio.portfolioNo}}" th:text="${portfolio.portfolioName}">프로젝트명</a></td>
+		    	<td>한국관광공사</td>
+		    	<td>비공개</td>
+		    	<td th:text="${#calendars.format(portfolio.workDate,'yyyy. MM. dd')}">등록일</td>
+		    	<td>Y</td>
+		    	<td>
+		    		<a href="!#" onclick="return false;" class="arr_rang" id="high">▲</a>
+		    		<a href="!#" onclick="return false;" class="arr_rang" id="low">▼</a>
+		    	</td>						    	
+		    </tr>
+		</tbody>
+
+	</table><!-- 답변하기X 일반 게시판 -->
+	
+	<!-- 게시판 버튼 -->
+	<div class="board_button clearfix">
+	    <div class="left_button blind2">
+		    <a href="" class="btnArr">이전글</a>    
+		    <a href="" class="btnArr">다음글</a>    
+		</div>
+
+	    <div class="right_button">  
+	    	<a href="!#" onclick="return false;" class="btnArr">삭제하기</a>
+	        <a href="/admin/manegement/portfolio/writeForm" class="btnArr">등록하기</a>
+	    </div>
+	</div>
+
+
+	<!-- 페이징 -->
+	<div class="board_num_list">
+		<a href="#//" class="prev_all" onclick="goPage(1); return false;">PREV ALL</a>
+		<div th:if="${page.pageNum ne 1}" th:remove="tag">
+			<a href="#//" class="prev" th:attr="onclick='goPage(' + ${page.pageNum - 1} + '); return false;'">PREV</a>
+		</div>
+		<div th:each="pageNo : ${#numbers.sequence(page.viewFirst, page.lastPage)}" th:remove="tag">
+			<a href="#//" class="num" th:classappend="${page.pageNum eq pageNo}? 'on' : ''" th:text="${pageNo}" th:attr="onclick='goPage(' + ${pageNo} + '); return false;'">pageNo</a>
+		</div>
+		<div th:if="${page.pageNum ne page.lastPage}" th:remove="tag">
+			<a href="#//" class="next" th:attr="onclick='goPage(' + ${page.pageNum + 1} + '); return false;'">NEXT</a>
+		</div>
+		<a href="#//" class="next_all" th:attr="onclick='goPage(' + ${page.lastPage} + '); return false;'">NEXT ALL</a>
+	</div><!-- //board_num_list -->
+	
+	<!-- 게시판 검색 -->	    
+    <div class="board_search blind2">
+        <form name="fsearch" method="get">
+	        <input type="hidden" name="bo_table" value="nafternote"/>
+	        <input type="hidden" name="sca"      value=""/>
+	        <select name="sfl" class="sfl">
+	            <option value="wr_all">전체</option>
+	            <option value="wr_subject">제목</option>
+	            <option value="wr_content">내용</option>
+	            <option value="wr_subject||wr_content">제목+내용</option>
+	            <option value="mb_id">작성자</option>
+	        </select>
+	        <input name="stx" class="stx" maxlength="15" itemname="검색어" required="required" value=''/>
+	        <a href="" class="btnSearch">검색</a> <!-- <input type="submit" /> -->
+	    </form>
+    </div><!-- //board_search -->
+</body>
+</html>
