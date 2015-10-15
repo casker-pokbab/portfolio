@@ -1,11 +1,16 @@
 var defaultPageSize = 10;
 
 $(document).ready(function() {
-	
-	
+	if (!isPcResolution()) {
+		alert("PC에서 접속해주세요.")
+	}
 	
 	getPortfolioList();
 })
+
+function isPcResolution() {
+	return $(window).width() > 1024
+}
 
 /**
  * 포트폴리오 리스트를 가져온다.
