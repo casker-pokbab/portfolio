@@ -7,10 +7,16 @@
 
 package com.casker.portfolio.controller;
 
+import javax.servlet.http.HttpSession;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+
+import com.casker.portfolio.domain.User;
+import com.casker.portfolio.service.UserService;
 
 
 /**
@@ -20,6 +26,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class AdminController {
 	private static final String VIEW_PREFIX = "admin/";
+	
+	@Autowired
+	private UserService userService;
 
 	/**
 	 * 어드민 로그인폼
@@ -38,7 +47,24 @@ public class AdminController {
 	 * @return
 	 */
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
-	public String login(Model model) {
+	public String login(HttpSession session, User user) {
+		
+		if (!userService.login(user)) {
+			throw new UserNotFoundException(); 
+		}
+		
+		session.setAttribute("user", user);
+		
+		return "redirect:/admin/main";
+	}
+	
+	/**
+	 * 어드민 메인
+	 * 
+	 * @return
+	 */
+	@RequestMapping(value = "/main", method = RequestMethod.GET)
+	public String main(Model model) {
 		
 		return VIEW_PREFIX + "sub/sub_portfolio";
 	}

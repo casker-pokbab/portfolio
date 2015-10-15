@@ -39,17 +39,17 @@
 					<img src="/resources/admin/img/main/admin_logo.png" alt="로고" />					
 				</div><!-- //main_logo_section -->
 
-				<form id="login" action="" method="">
+				<form id="login" action="/admin/login" method="post">
 					<fieldset class="blind">로그인</fieldset>
 
 					<div class="input_row">
 						<label for="id" id="label_id_area" class="lbl"></label>
-						<input type="text" id="id" placeholder="아이디" value=""/>			
+						<input type="text" id="id" name="id" placeholder="아이디"/>			
 					</div>
 
 					<div class="input_row">
 						<label for="pw" id="label_id_area" class="lbl"></label>
-						<input type="password" id="pw" placeholder="비밀번호" value=""/>			
+						<input type="password" id="pw" name="password" placeholder="비밀번호"/>			
 					</div>
 
 					<span class="btn_login">
