@@ -6,6 +6,7 @@ $(window).load(function() {
 
 
 $(document).ready(function(){
+	$('#masonrybox').masonry();
 
 	// work pattern height
 	$height_work_con = $('#work').height() - 560;
@@ -23,8 +24,8 @@ $(document).ready(function(){
 	});
 
 	// gnb
-	var $width_cover = $(window).width() - 300;
-	$('.cover_gnb').css('width', $width_cover);
+//	var $width_cover = $(window).width() - 300;
+//	$('.cover_gnb').css('width', $width_cover);
 
 	$('#navbutton > a').click(function(){
 		$(this).toggleClass("on");
@@ -160,16 +161,12 @@ $(document).ready(function(){
 });
 
 function initMasonry() {
-	// work 목록
-	$('#masonrybox').masonry({
-		itemSelector: '.item'
-	});
-
+	
 	// work list & height값
 	var $workHeight = $('#masonrybox .item').width();
 	$('#masonrybox .item').css("height", $workHeight);
 	
-	$(window).resize(function(){
+	$(window).off("resize").on("resize", function(){
 		var $workHeight = $('#masonrybox .item').width();
 		$('#masonrybox .item').css("height", $workHeight);
 
@@ -200,10 +197,10 @@ function initMasonry() {
 
 	// work list mouseenter event
 	$('.bg_text').hide();
-	$('#masonrybox .item .cont_work').mouseover(function(){
+	$('#masonrybox .item .cont_work').off("mouseover").on("mouseover", function(){
 		$(this).children('.bg_text').fadeIn(300);
 	});
-	$('#masonrybox .item .cont_work').mouseleave(function(){
+	$('#masonrybox .item .cont_work').off("mouseleave").on("mouseleave", function(){
 		$(this).children('.bg_text').fadeOut(100);
 	});	
 }

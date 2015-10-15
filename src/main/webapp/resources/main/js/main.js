@@ -3,7 +3,7 @@ var defaultPageSize = 10;
 $(document).ready(function() {
 	
 	$("#work .more_work").on("click", function() {
-		getPortfolioList(true)
+		getPortfolioList($("#work .item").size(), 8);
 	});
 	
 	$("#contact .more_work").on("click", function() {
@@ -22,7 +22,7 @@ $(document).ready(function() {
 		}
 	});
 	
-	getPortfolioList(false);
+	getPortfolioList(0, 12);
 	getProjectList();
 });
 
@@ -31,15 +31,20 @@ $(document).ready(function() {
  * 
  * @param all
  */
-function getPortfolioList(all) {
+function getPortfolioList(skipRows, pageSize) {
+	
+	skipRows = (skipRows == undefined) ? 1 : skipRows;
+	pageSize = (pageSize == undefined) ? defaultPageSize : pageSize;
 	
 	$.ajax({
 		  url : "/main/portfolio"
 		, type : "html"
 		, method : "GET"
-		, data : "all=" + all
+		, data : "skipRows=" + skipRows + "&pageSize=" + pageSize
 		, success : function(data) {
-			$("#masonrybox").empty().append(data);
+			$("#masonrybox").append(data);
+			$("#masonrybox").masonry("appended", $(data));
+			
 			initMasonry();
 		}
 	});
