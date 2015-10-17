@@ -47,3 +47,19 @@ function getRecentlyList(pageNum, pageSize) {
 function goPage(pageNum) {
 	getRecentlyList(pageNum, defaultPageSize)
 }
+
+function removeRecently() {
+	$(".list_area").find("input[type=checkbox]:checked").each(function() {
+		var no = $(this).parent().next().text();
+		$.ajax({
+			  url : "/admin/manegement/recently/remove"
+			, type : "html"
+			, method : "POST"
+			, data : "recentlyNo=" + no
+			, success : function(data) {
+				alert("선택한 최근작업을 삭제했습니다.");
+				getRecentlyList();
+			}
+		});
+	});
+}

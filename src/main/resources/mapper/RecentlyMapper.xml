@@ -46,4 +46,10 @@
 			, end_date = #{endDate}
 			, display_yn = #{displayYN}
 	</insert>
+	
+	<delete id="deleteRecently" parameterType="recently">
+		/* RecentlyMapper.deleteRecently */
+		DELETE FROM recently
+		WHERE recently_no = #{recentlyNo}
+	</delete>
 </mapper>

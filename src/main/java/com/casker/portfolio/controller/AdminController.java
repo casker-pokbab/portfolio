@@ -159,6 +159,20 @@ public class AdminController {
 	}
 	
 	/**
+	 * 포트폴리오 삭제
+	 * 
+	 * @return
+	 */
+	@ResponseBody
+	@RequestMapping(value = "/manegement/portfolio/remove", method = RequestMethod.POST)
+	public String removePortfolio(Model model, Portfolio portfolio) {
+		
+		portfolioService.removePortfolio(portfolio);
+		
+		return "success";
+	}
+	
+	/**
 	 * 최근 작업 관리
 	 * 
 	 * @return
@@ -216,5 +230,19 @@ public class AdminController {
 		
 		response.setCharacterEncoding("UTF-8");
 		return "<html><head><script>alert('최근작업이 등록되었습니다.');location.href='/admin/manegement/recently';</script></head></html>";
+	}
+	
+	/**
+	 * 포트폴리오 삭제
+	 * 
+	 * @return
+	 */
+	@ResponseBody
+	@RequestMapping(value = "/manegement/recently/remove", method = RequestMethod.POST)
+	public String removeRecently(Model model, Recently recently) {
+		
+		portfolioService.removeRecently(recently);
+		
+		return "success";
 	}
 }

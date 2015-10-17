@@ -42,6 +42,11 @@ public class PortfolioServiceImpl implements PortfolioService {
 	}
 	
 	@Override
+	public void removePortfolio(Portfolio portfolio) {
+		portfolioMapper.deletePortfolio(portfolio);
+	}
+	
+	@Override
 	public int getRecentlyListCount() {
 		return recentlyMapper.selectRecentlyListCount();
 	}
@@ -49,6 +54,11 @@ public class PortfolioServiceImpl implements PortfolioService {
 	@Override
 	public List<Recently> getRecentlyList(BaseSearch<Recently> baseSearch) {
 		return recentlyMapper.selectRecentlyList(baseSearch);
+	}
+	
+	@Override
+	public void removeRecently(Recently recently) {
+		recentlyMapper.deleteRecently(recently);
 	}
 
 	@Override
@@ -61,5 +71,7 @@ public class PortfolioServiceImpl implements PortfolioService {
 		recently.setRecentlyNo(getRecentlyListCount() + 1); //TODO 채번방식 변경필요
 		recentlyMapper.insertRecently(recently);
 	}
+
+	
 
 }

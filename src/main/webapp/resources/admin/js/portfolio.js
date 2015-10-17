@@ -47,3 +47,19 @@ function getPortfolioList(pageNum, pageSize) {
 function goPage(pageNum) {
 	getPortfolioList(pageNum, defaultPageSize)
 }
+
+function removePortfolio() {
+	$(".list_area").find("input[type=checkbox]:checked").each(function() {
+		var no = $(this).parent().next().text();
+		$.ajax({
+			  url : "/admin/manegement/portfolio/remove"
+			, type : "html"
+			, method : "POST"
+			, data : "portfolioNo=" + no
+			, success : function(data) {
+				alert("선택한 프로젝트를 삭제했습니다.");
+				getPortfolioList();
+			}
+		});
+	});
+}

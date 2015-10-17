@@ -22,7 +22,7 @@ public interface RecentlyMapper {
 	 * @param baseSearch 
 	 * @return
 	 */
-	List<Recently> selectRecentlyList(BaseSearch baseSearch);
+	List<Recently> selectRecentlyList(BaseSearch<Recently> baseSearch);
 
 	/**
 	 * @return
@@ -33,5 +33,10 @@ public interface RecentlyMapper {
 	 * @param recently
 	 */
 	void insertRecently(Recently recently);
+
+	/**
+	 * @param recently
+	 */
+	void deleteRecently(Recently recently);
 
 }

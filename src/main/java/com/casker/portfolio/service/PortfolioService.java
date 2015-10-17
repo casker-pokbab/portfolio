@@ -55,4 +55,14 @@ public interface PortfolioService {
 	 */
 	void addRecently(Recently recently);
 
+	/**
+	 * @param portfolio
+	 */
+	void removePortfolio(Portfolio portfolio);
+
+	/**
+	 * @param recently
+	 */
+	void removeRecently(Recently recently);
+
 }

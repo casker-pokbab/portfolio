@@ -22,7 +22,7 @@ public interface PortfolioMapper {
 	 * @param baseSearch 
 	 * @return
 	 */
-	List<Portfolio> selectPortfolioList(BaseSearch baseSearch);
+	List<Portfolio> selectPortfolioList(BaseSearch<Portfolio> baseSearch);
 	
 	/**
 	 * @param portfolio
@@ -39,5 +39,10 @@ public interface PortfolioMapper {
 	 * @return
 	 */
 	int selectPortfolioListCount();
+
+	/**
+	 * @param portfolio
+	 */
+	void deletePortfolio(Portfolio portfolio);
 
 }

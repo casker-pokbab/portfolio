@@ -60,4 +60,10 @@
 			, thumbnail = #{thumbnail}
 			, display_yn = #{displayYN}
 	</insert>
+	
+	<delete id="deletePortfolio" parameterType="portfolio">
+		/* PortfolioMapper.deletePortfolio */
+		DELETE FROM portfolio
+		WHERE portfolio_no = #{portfolioNo}
+	</delete>
 </mapper>
