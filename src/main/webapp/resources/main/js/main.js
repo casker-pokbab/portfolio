@@ -23,7 +23,7 @@ $(document).ready(function() {
 	});
 	
 	getPortfolioList(0, 12);
-	getProjectList();
+	getRecentlyList();
 });
 
 /**
@@ -61,13 +61,13 @@ function getPortfolioList(skipRows, pageSize) {
  * @param pageNum
  * @param pageSize
  */
-function getProjectList(pageNum, pageSize) {
+function getRecentlyList(pageNum, pageSize) {
 	
 	pageNum = (pageNum == undefined) ? 1 : pageNum;
 	pageSize = (pageSize == undefined) ? defaultPageSize : pageSize;
 	
 	$.ajax({
-		  url : "/main/project"
+		  url : "/main/recently"
 		, type : "html"
 		, method : "GET"
 		, data : "pageNum=" + pageNum + "&pageSize=" + pageSize
@@ -88,7 +88,7 @@ function getProjectList(pageNum, pageSize) {
  * @param pageNum
  */
 function goPage(pageNum) {
-	getProjectList(pageNum, defaultPageSize)
+	getRecentlyList(pageNum, defaultPageSize)
 }
 
 function sendEmail() {

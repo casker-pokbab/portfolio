@@ -57,19 +57,19 @@ public class MainController {
 		return VIEW_PREFIX + "sub/list :: portfolioList";
 	}
 	
-	@RequestMapping("/project")
-	public String getProjectList(Model model, BaseSearch baseSearch, @ModelAttribute Page page) {
+	@RequestMapping("/recently")
+	public String getRecentlyList(Model model, BaseSearch baseSearch, @ModelAttribute Page page) {
 		int totalCount = portfolioService.getRecentlyListCount();
-		List<Recently> projectList = portfolioService.getRecentlyList(baseSearch);
+		List<Recently> recentlyList = portfolioService.getRecentlyList(baseSearch);
 		
-		if (CollectionUtils.isNotEmpty(projectList)) {
+		if (CollectionUtils.isNotEmpty(recentlyList)) {
 			page.setTotalCount(totalCount);
 		}
 		PageUtil.setPage(page);
 		
-		model.addAttribute("projectList", projectList);
+		model.addAttribute("recentlyList", recentlyList);
 		
-		return VIEW_PREFIX + "sub/list :: projectList";
+		return VIEW_PREFIX + "sub/list :: recentlyList";
 	}
 	
 	/**
@@ -77,8 +77,8 @@ public class MainController {
 	 * 
 	 * @return
 	 */
-	@RequestMapping(value = "/project/detail/{portfolioNo}", method = RequestMethod.GET)
-	public String projectDetail(Model model, @PathVariable int portfolioNo) {
+	@RequestMapping(value = "/recently/detail/{portfolioNo}", method = RequestMethod.GET)
+	public String recentlyDetail(Model model, @PathVariable int portfolioNo) {
 		
 		Portfolio portfolio = portfolioService.getPortfolioDetail(portfolioNo);
 		

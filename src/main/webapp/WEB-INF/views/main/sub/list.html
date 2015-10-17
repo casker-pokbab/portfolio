@@ -9,7 +9,7 @@
 			<div class="bg_text">
 				<p class="text">
 					<span class="work_name" th:text="${portfolio.portfolioName}">포트폴리오명</span>
-					<a th:href="@{'/main/project/detail/' + ${portfolio.portfolioNo}}" class="work_more">자세히 보기</a>
+					<a th:href="@{'/main/recently/detail/' + ${portfolio.portfolioNo}}" class="work_more">자세히 보기</a>
 					<span class="work_date" th:text="${#calendars.format(portfolio.workDate,'yyyy')}">작업일시</span>
 				</p>								
 			</div>
@@ -17,7 +17,7 @@
 		</div>
 	</div>
 	
-	<div class="item" th:fragment="projectList" >
+	<div class="item" th:fragment="recentlyList" >
 		<table cellspacing="0" cellpadding="0" class="table_project">
 
 	    	<colgroup>
@@ -36,15 +36,15 @@
 			    </tr>		    		
 	    	</thead>
 
-	    	<tbody th:unless="${#lists.isEmpty(projectList)}">
-			    <tr th:each="project : ${projectList}">
-			    	<td class="num" th:text="${project.projectNo}">No</td>
-			    	<td class="subject"><a target="_blank" th:href="@{${project.url}}" th:remove="${#strings.isEmpty(project.url)} ? tag : none" th:text="${project.projectName}">프로젝트명</a></td>
+	    	<tbody th:unless="${#lists.isEmpty(recentlyList)}">
+			    <tr th:each="recently : ${recentlyList}">
+			    	<td class="num" th:text="${recently.recentlyNo}">No</td>
+			    	<td class="subject"><a target="_blank" th:href="@{${recently.url}}" th:remove="${#strings.isEmpty(recently.url)} ? tag : none" th:text="${recently.recentlyName}">프로젝트명</a></td>
 			    	<td class="major">
 			    		<span class="ico_des" title="디자인"></span>
 			    		<span class="ico_cod" title="퍼블리싱"></span>
 			    	</td>
-			    	<td class="date" th:text="${#calendars.format(project.date,'yyyy. MM')}">날짜</td>
+			    	<td class="date" th:text="${#calendars.format(recently.createDate,'yyyy. MM')}">날짜</td>
 			    </tr>
 			</tbody>
 			
