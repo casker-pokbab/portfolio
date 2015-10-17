@@ -21,4 +21,9 @@ public interface UserMapper {
 	 */
 	int selectUserCount(User user);
 
+	/**
+	 * @param user
+	 */
+	void updateUser(User user);
+
 }

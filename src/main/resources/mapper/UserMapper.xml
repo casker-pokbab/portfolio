@@ -10,4 +10,12 @@
 		WHERE id = #{id} AND password = #{password}
 	</select>
 	
+	<update id="updateUser" parameterType="user">
+		/* UserMapper.updateUser */
+		UPDATE user
+		SET
+			  password = #{password}
+			, update_date = now()
+		WHERE id = #{id}
+	</update>
 </mapper>

@@ -21,4 +21,9 @@ public interface UserService {
 	 */
 	boolean login(User user);
 
+	/**
+	 * @param user
+	 */
+	void editPassword(User user);
+
 }

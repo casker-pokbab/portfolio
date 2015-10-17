@@ -18,6 +18,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.casker.portfolio.common.Page;
 import com.casker.portfolio.common.PageUtil;
@@ -68,6 +69,35 @@ public class AdminController {
 		session.setAttribute("user", user);
 		
 		return "redirect:/admin/manegement/portfolio";
+	}
+	
+	/**
+	 * 패스워드 수정폼
+	 * 
+	 * @return
+	 */
+	@RequestMapping(value = "/password/editForm", method = RequestMethod.GET)
+	public String passwordEditForm(Model model, HttpSession session) {
+		
+		User user = new User();
+		user.setId("pokbab");
+		session.setAttribute("user", user);
+		
+		return VIEW_PREFIX + "sub/sub_password";
+	}
+	
+	/**
+	 * 패스워드 수정
+	 * 
+	 * @return
+	 */
+	@ResponseBody
+	@RequestMapping(value = "/password/edit", method = RequestMethod.POST)
+	public String editPassword(Model model, User user) {
+		
+		userService.editPassword(user);
+		
+		return "success";
 	}
 	
 	/**

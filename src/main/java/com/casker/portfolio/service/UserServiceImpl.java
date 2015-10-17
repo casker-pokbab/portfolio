@@ -27,4 +27,9 @@ public class UserServiceImpl implements UserService {
 	public boolean login(User user) {
 		return (userMapper.selectUserCount(user) == 1) ? true : false;
 	}
+
+	@Override
+	public void editPassword(User user) {
+		userMapper.updateUser(user);
+	}
 }
