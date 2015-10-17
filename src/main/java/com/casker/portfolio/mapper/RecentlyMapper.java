@@ -10,23 +10,28 @@ package com.casker.portfolio.mapper;
 import java.util.List;
 
 import com.casker.portfolio.domain.BaseSearch;
-import com.casker.portfolio.domain.Project;
+import com.casker.portfolio.domain.Recently;
 
 
 /**
  * @author Kanghoon Choi
  */
-public interface ProjectMapper {
+public interface RecentlyMapper {
 
 	/**
 	 * @param baseSearch 
 	 * @return
 	 */
-	List<Project> selectProjectList(BaseSearch baseSearch);
+	List<Recently> selectRecentlyList(BaseSearch baseSearch);
 
 	/**
 	 * @return
 	 */
-	int selectProjectListCount();
+	int selectRecentlyListCount();
+
+	/**
+	 * @param recently
+	 */
+	void insertRecently(Recently recently);
 
 }

@@ -9,6 +9,7 @@ package com.casker.portfolio.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.apache.commons.collections4.CollectionUtils;
@@ -24,6 +25,7 @@ import com.casker.portfolio.common.Page;
 import com.casker.portfolio.common.PageUtil;
 import com.casker.portfolio.domain.BaseSearch;
 import com.casker.portfolio.domain.Portfolio;
+import com.casker.portfolio.domain.Recently;
 import com.casker.portfolio.domain.User;
 import com.casker.portfolio.service.PortfolioService;
 import com.casker.portfolio.service.UserService;
@@ -121,7 +123,7 @@ public class AdminController {
 	 */
 	@RequestMapping("/portfolio")
 	public String getPortfolioList(Model model, BaseSearch baseSearch, @ModelAttribute Page page) {
-		int totalCount = portfolioService.getProjectListCount();
+		int totalCount = portfolioService.getPortfolioListCount();
 		List<Portfolio> portfolioList = portfolioService.getPortfolioList(baseSearch);
 		
 		if (CollectionUtils.isNotEmpty(portfolioList)) {
@@ -131,7 +133,7 @@ public class AdminController {
 		
 		model.addAttribute("portfolioList", portfolioList);
 		
-		return VIEW_PREFIX + "sub/list :: portfolioList";
+		return VIEW_PREFIX + "sub/portfolio_list :: portfolioList";
 	}
 	
 	/**
@@ -154,5 +156,65 @@ public class AdminController {
 	public String writePortfolio(Model model, Portfolio portfolio) {
 		
 		return VIEW_PREFIX + "sub/sub_portfolio_write";
+	}
+	
+	/**
+	 * 최근 작업 관리
+	 * 
+	 * @return
+	 */
+	@RequestMapping(value = "/manegement/recently", method = RequestMethod.GET)
+	public String manegementRecently(Model model) {
+		
+		return VIEW_PREFIX + "sub/sub_recently";
+	}
+	
+	/**
+	 * 최근 작업 리스트
+	 * 
+	 * @param model
+	 * @param baseSearch
+	 * @param page
+	 * @return
+	 */
+	@RequestMapping("/recently")
+	public String getRecentlyList(Model model, BaseSearch baseSearch, @ModelAttribute Page page) {
+		int totalCount = portfolioService.getRecentlyListCount();
+		List<Recently> recentlyList = portfolioService.getRecentlyList(baseSearch);
+		
+		if (CollectionUtils.isNotEmpty(recentlyList)) {
+			page.setTotalCount(totalCount);
+		}
+		PageUtil.setPage(page);
+		
+		model.addAttribute("recentlyList", recentlyList);
+		
+		return VIEW_PREFIX + "sub/recently_list :: recentlyList";
+	}
+	
+	/**
+	 * 최근 작업 등록폼
+	 * 
+	 * @return
+	 */
+	@RequestMapping(value = "/manegement/recently/writeForm", method = RequestMethod.GET)
+	public String writeRecentlyForm(Model model) {
+		
+		return VIEW_PREFIX + "sub/sub_recently_write";
+	}
+	
+	/**
+	 * 최근 작업 등록
+	 * 
+	 * @return
+	 */
+	@ResponseBody
+	@RequestMapping(value = "/manegement/recently/write", method = RequestMethod.POST)
+	public String writeRecently(HttpServletResponse response, Recently recently) {
+		
+		portfolioService.addRecently(recently);
+		
+		response.setCharacterEncoding("UTF-8");
+		return "<html><head><script>alert('최근작업이 등록되었습니다.');location.href='/admin/manegement/recently';</script></head></html>";
 	}
 }

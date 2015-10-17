@@ -35,4 +35,9 @@ public interface PortfolioMapper {
 	 */
 	Portfolio selectPortfolio(int portfolioNo);
 
+	/**
+	 * @return
+	 */
+	int selectPortfolioListCount();
+
 }

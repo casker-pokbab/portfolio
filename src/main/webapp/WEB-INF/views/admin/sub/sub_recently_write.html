@@ -1,8 +1,17 @@
-<? include('../inc/head.inc.html');?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+	<object th:include="admin/inc/head.inc :: head" th:remove="tag"></object>
+</head>
+<body>
+	<div id="wrap">
+		
+		<div th:replace="admin/inc/header.inc :: header" th:remove="tag"></div>
 
-<? include('../inc/header.inc.html');?>	
-
-	<!-- <section id="container"> -->
+		<section id="container" class="wrap_1240 container clearfix">
+		
+			<div th:replace="admin/inc/gnb :: gnb" th:remove="tag"></div>
 
 			<section class="content">
 
@@ -17,7 +26,7 @@
 				<!-- ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
 
 				<div class="write_area">
-
+				<form id="form" action="/admin/manegement/recently/write" method="post">
 					<div class="write_head clearfix">
 						<div class="left">
 							
@@ -28,7 +37,7 @@
 						</div>
 					</div>
 
-					<table border=0 cellpadding=0 cellspacing=0 class="view01">
+					<table border="0" cellpadding="0" cellspacing="0" class="view01">
 						<colgroup>
 					   		<col width="20%" />					
 					   		<col width="80%" />					
@@ -37,29 +46,29 @@
 						<tbody>
 						    <tr>
 						    	<th>프로젝트명</th>
-						    	<td><input type="text" class="w600"/> <input style="margin-left: 10px;" type="checkbox"/> <label for="">표출여부</label></td>
+						    	<td><input type="text" name="recentlyName" class="w600"/> <input style="margin-left: 10px;" type="checkbox"/> <label for="">표출여부</label></td>
 						    </tr>
 
 						    <tr>
 						    	<th>URL</th>
-						    	<td><input type="text" class="w600"/></td>
+						    	<td><input type="text" name="url" class="w600"/></td>
 						    </tr>
 
 						    <tr>
 						    	<th>참여여부</th>
 						    	<td>
-						    		<select id="" class="w140" name="" title="참여부문 선택">
+						    		<select id="" class="w140" name="participationPart" title="참여부문 선택">
 										<option value="">선택</option>		
-										<option value="">디자인</option>	
-										<option value="">퍼블리싱</option>	
-										<option value="">디자인 + 퍼블리싱</option>	
+										<option value="DESIGN">디자인</option>	
+										<option value="PUBLISHING">퍼블리싱</option>	
+										<option value="TOTAL">디자인 + 퍼블리싱</option>	
 									</select>
 						    	</td>
 						    </tr>
 
 						    <tr>
 						    	<th>기간</th>
-						    	<td><input type="text" class="w100" id="date_start"/> ~ <input type="text" class="w100" id="date_end"/></td>
+						    	<td><input type="text" class="w100" id="date_start" name="startDate"/> ~ <input type="text" class="w100" id="date_end" name="endDate"/></td>
 						    </tr>	
 						</tbody>
 					</table><!-- //게시판 End -->
@@ -72,16 +81,17 @@
 
 					    <div class="right_button">   
 					        <a href="/resources/admin/sub/sub_recently.html" class="btnArr">목록</a>
-					        <a href="!#" onclick="return false;" class="btnArr">등록하기</a>
+					        <a href="!#" onclick="$('#form').submit(); return false;" class="btnArr">등록하기</a>
 					    </div>
 					</div><!-- //board_button -->		
-					
+				</form>
 				</div><!-- //write_area -->		
 				
 			</section><!-- //content -->
 
-		</div><!-- //wrap -->
+		</section><!-- //container End -->
 
-	</section><!-- //container End -->
-
-<? include('../inc/footer.inc.html');?>
+	<div th:replace="admin/inc/footer.inc :: footer" th:remove="tag"></div>
+	</div><!-- //wrap -->
+</body>
+</html>

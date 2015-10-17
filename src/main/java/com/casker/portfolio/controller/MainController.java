@@ -15,7 +15,7 @@ import com.casker.portfolio.common.Page;
 import com.casker.portfolio.common.PageUtil;
 import com.casker.portfolio.domain.BaseSearch;
 import com.casker.portfolio.domain.Portfolio;
-import com.casker.portfolio.domain.Project;
+import com.casker.portfolio.domain.Recently;
 import com.casker.portfolio.service.PortfolioService;
 
 @RequestMapping("/main")
@@ -59,8 +59,8 @@ public class MainController {
 	
 	@RequestMapping("/project")
 	public String getProjectList(Model model, BaseSearch baseSearch, @ModelAttribute Page page) {
-		int totalCount = portfolioService.getProjectListCount();
-		List<Project> projectList = portfolioService.getProjectList(baseSearch);
+		int totalCount = portfolioService.getRecentlyListCount();
+		List<Recently> projectList = portfolioService.getRecentlyList(baseSearch);
 		
 		if (CollectionUtils.isNotEmpty(projectList)) {
 			page.setTotalCount(totalCount);

@@ -3,6 +3,13 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.casker.portfolio.mapper.PortfolioMapper">
 	
+	<select id="selectPortfolioListCount" resultType="int">
+		/* ProjectMapper.selectPortfolioListCount */
+		SELECT 
+			COUNT(1)
+		FROM  portfolio
+	</select>
+	
 	<select id="selectPortfolioList" resultType="portfolio" parameterType="baseSearch">
 		/* PortfolioMapper.selectPortfolioList */
 		SELECT 

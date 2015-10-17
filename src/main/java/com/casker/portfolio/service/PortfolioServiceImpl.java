@@ -14,9 +14,9 @@ import org.springframework.stereotype.Service;
 
 import com.casker.portfolio.domain.BaseSearch;
 import com.casker.portfolio.domain.Portfolio;
-import com.casker.portfolio.domain.Project;
+import com.casker.portfolio.domain.Recently;
 import com.casker.portfolio.mapper.PortfolioMapper;
-import com.casker.portfolio.mapper.ProjectMapper;
+import com.casker.portfolio.mapper.RecentlyMapper;
 
 
 /**
@@ -29,7 +29,12 @@ public class PortfolioServiceImpl implements PortfolioService {
 	private PortfolioMapper portfolioMapper;
 	
 	@Autowired
-	private ProjectMapper projectMapper;
+	private RecentlyMapper recentlyMapper;
+	
+	@Override
+	public int getPortfolioListCount() {
+		return portfolioMapper.selectPortfolioListCount();
+	}
 	
 	@Override
 	public List<Portfolio> getPortfolioList(BaseSearch baseSearch) {
@@ -37,17 +42,24 @@ public class PortfolioServiceImpl implements PortfolioService {
 	}
 	
 	@Override
-	public int getProjectListCount() {
-		return projectMapper.selectProjectListCount();
+	public int getRecentlyListCount() {
+		return recentlyMapper.selectRecentlyListCount();
 	}
 
 	@Override
-	public List<Project> getProjectList(BaseSearch baseSearch) {
-		return projectMapper.selectProjectList(baseSearch);
+	public List<Recently> getRecentlyList(BaseSearch baseSearch) {
+		return recentlyMapper.selectRecentlyList(baseSearch);
 	}
 
 	@Override
 	public Portfolio getPortfolioDetail(int portfolioNo) {
 		return portfolioMapper.selectPortfolio(portfolioNo);
 	}
+
+	@Override
+	public void addRecently(Recently recently) {
+		recently.setRecentlyNo(getRecentlyListCount() + 1); //TODO 채번방식 변경필요
+		recentlyMapper.insertRecently(recently);
+	}
+
 }

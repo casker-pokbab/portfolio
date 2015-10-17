@@ -13,20 +13,20 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.casker.portfolio.domain.BaseSearch;
-import com.casker.portfolio.domain.Project;
+import com.casker.portfolio.domain.Recently;
 
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = {"classpath:spring/applicationContext-root.xml"})
 @Transactional
-public class ProjectMapperTest {
+public class RecentlyMapperTest {
 	
 	@Autowired
-	private ProjectMapper projectMapper;
+	private RecentlyMapper projectMapper;
 
 	@Test
 	public void testSelectProjectList() throws Exception {
-		List<Project> actual = projectMapper.selectProjectList(new BaseSearch());
+		List<Recently> actual = projectMapper.selectRecentlyList(new BaseSearch());
 
 		assertFalse(CollectionUtils.isEmpty(actual));
 	}

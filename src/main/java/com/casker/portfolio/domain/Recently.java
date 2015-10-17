@@ -17,11 +17,13 @@ import lombok.Data;
  * @author Kanghoon Choi
  */
 @Data
-public class Project {
+public class Recently {
 
-	private int projectNo;
-	private String projectName;
+	private int recentlyNo;
+	private String recentlyName;
 	private String participationPart;
-	private Date date;
+	private Date createDate;
 	private String url;
+	private String startDate;
+	private String endDate;
 }

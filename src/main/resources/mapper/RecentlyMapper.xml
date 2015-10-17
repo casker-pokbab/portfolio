@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.casker.portfolio.mapper.RecentlyMapper">
+
+	<select id="selectRecentlyListCount" resultType="int">
+		/* RecentlyMapper.selectRecentlyListCount */
+		SELECT 
+			COUNT(1)
+		FROM  recently
+	</select>
+	
+	<select id="selectRecentlyList" resultType="recently" parameterType="baseSearch">
+		/* RecentlyMapper.selectRecentlyList */
+		SELECT 
+			  recently_no
+			, recently_name
+			, participation_part
+			, create_date
+			, url
+		FROM  recently
+		<if test="all == false">
+		LIMIT #{skipRows}, #{pageSize}
+		</if>
+	</select>
+	
+	<insert id="insertRecently" parameterType="recently">
+		/* RecentlyMapper.insertRecently */
+		INSERT recently
+		SET 
+			  recently_no = #{recentlyNo}
+			, recently_name = #{recentlyName}
+			, participation_part = #{participationPart}
+			, create_date = NOW()
+			, url = #{url}
+			, start_date = #{startDate}
+			, end_date = #{endDate}
+	</insert>
+</mapper>

@@ -11,7 +11,7 @@ import java.util.List;
 
 import com.casker.portfolio.domain.BaseSearch;
 import com.casker.portfolio.domain.Portfolio;
-import com.casker.portfolio.domain.Project;
+import com.casker.portfolio.domain.Recently;
 
 
 /**
@@ -24,18 +24,23 @@ public interface PortfolioService {
 	 * @param baseSearch 
 	 */
 	List<Portfolio> getPortfolioList(BaseSearch baseSearch);
+	
+	/**
+	 * @return
+	 */
+	int getPortfolioListCount();
 
 	/**
-	 * 프로젝트 리스트를 가져온다.
+	 * 최근작업 리스트를 가져온다.
 	 * @param baseSearch
 	 * @return
 	 */
-	List<Project> getProjectList(BaseSearch baseSearch);
+	List<Recently> getRecentlyList(BaseSearch baseSearch);
 
 	/**
 	 * @return
 	 */
-	int getProjectListCount();
+	int getRecentlyListCount();
 
 	/**
 	 * 포트폴리오 상세정보를 가져온다.
@@ -44,5 +49,10 @@ public interface PortfolioService {
 	 * @return
 	 */
 	Portfolio getPortfolioDetail(int portfolioNo);
+
+	/**
+	 * @param recently
+	 */
+	void addRecently(Recently recently);
 
 }

@@ -1,8 +1,18 @@
-<? include('../inc/head.inc.html');?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+	<object th:include="admin/inc/head.inc :: head" th:remove="tag"></object>
+	<script src="/resources/admin/js/recently.js" type="text/javascript"></script>
+</head>
+<body>
+	<div id="wrap">
+		
+		<div th:replace="admin/inc/header.inc :: header" th:remove="tag"></div>
 
-<? include('../inc/header.inc.html');?>	
-
-	<!-- <section id="container"> -->
+		<section id="container" class="wrap_1240 container clearfix">
+		
+			<div th:replace="admin/inc/gnb :: gnb" th:remove="tag"></div>
 
 			<section class="content">
 
@@ -70,243 +80,13 @@
 				</div><!-- //search_box -->
 
 				<div class="list_area">
-
-					<div class="list_head clearfix">
-						<div class="left">
-							<p>총 게시물 <span>30</span>건 / 페이지(<span>1/3</span>)</p>
-						</div>
-
-						<div class="right">
-							<p>리스트 수 <span>3</span></p>
-						</div>
-					</div>
-
-					<table cellspacing="0" cellpadding="0"  class="list01">
-
-				    	<colgroup>
-						    <col width="4%"/> 		
-						    <col width="6%"/> 		
-						    <col width="30%"/> 		
-						    <col width="10%"/> 		
-						    <col width="15%"/> 		
-						    <col width="15%"/>	
-						    <col width="10%"/>
-						    <col width="10%"/>
-				    	</colgroup>
-
-				    	<thead>
-						    <tr>
-						    	<th></th>
-						        <th>번호</th>
-						        <th>프로젝트명</th>
-						        <th>회사명</th>
-						        <th>참여부문</th>
-						        <th>등록일</th>						        
-						        <th>노출여부</th>
-						        <th>순서조절</th>
-						    </tr>		    		
-				    	</thead>
-
-				    	<tbody>
-						    <tr class="bg1">
-						    	<td><input type="checkbox"/></td>
-						    	<td class="num">10</td>
-						    	<td class="subject"><a href="/resources/admin/sub/sub_recently_view.html">한국관광공사, 관광투자 웹사이트</a></td>
-						    	<td>한국관광공사</td>
-						    	<td>디자인 + 퍼블리싱</td>
-						    	<td>2015, 02, 28</td>
-						    	<td>Y</td>
-						    	<td>
-						    		<a href="!#" onclick="return false;" class="arr_rang" id="high">▲</a>
-						    		<a href="!#" onclick="return false;" class="arr_rang" id="low">▼</a>
-						    	</td>
-						    </tr>
-
-						    <tr class="bg1">
-						    	<td><input type="checkbox"/></td>
-						    	<td class="num">10</td>
-						    	<td class="subject"><a href="/resources/admin/sub/sub_recently_view.html">한국관광공사, 관광투자 웹사이트</a></td>
-						    	<td>한국관광공사</td>
-						    	<td>디자인 + 퍼블리싱</td>
-						    	<td>2015, 02, 28</td>
-						    	<td>Y</td>
-						    	<td>
-						    		<a href="!#" onclick="return false;" class="arr_rang" id="high">▲</a>
-						    		<a href="!#" onclick="return false;" class="arr_rang" id="low">▼</a>
-						    	</td>
-						    </tr> 
-
-						    <tr class="bg1">
-						    	<td><input type="checkbox"/></td>
-						    	<td class="num">10</td>
-						    	<td class="subject"><a href="/resources/admin/sub/sub_recently_view.html">한국관광공사, 관광투자 웹사이트</a></td>
-						    	<td>한국관광공사</td>
-						    	<td>디자인 + 퍼블리싱</td>
-						    	<td>2015, 02, 28</td>
-						    	<td>Y</td>
-						    	<td>
-						    		<a href="!#" onclick="return false;" class="arr_rang" id="high">▲</a>
-						    		<a href="!#" onclick="return false;" class="arr_rang" id="low">▼</a>
-						    	</td>
-						    </tr> 
-
-						    <tr class="bg1">
-						    	<td><input type="checkbox"/></td>
-						    	<td class="num">10</td>
-						    	<td class="subject"><a href="/resources/admin/sub/sub_recently_view.html">한국관광공사, 관광투자 웹사이트</a></td>
-						    	<td>한국관광공사</td>
-						    	<td>디자인 + 퍼블리싱</td>
-						    	<td>2015, 02, 28</td>
-						    	<td>Y</td>
-						    	<td>
-						    		<a href="!#" onclick="return false;" class="arr_rang" id="high">▲</a>
-						    		<a href="!#" onclick="return false;" class="arr_rang" id="low">▼</a>
-						    	</td>
-						    </tr> 
-
-						    <tr class="bg1">
-						    	<td><input type="checkbox"/></td>
-						    	<td class="num">10</td>
-						    	<td class="subject"><a href="/resources/admin/sub/sub_recently_view.html">한국관광공사, 관광투자 웹사이트</a></td>
-						    	<td>한국관광공사</td>
-						    	<td>디자인</td>
-						    	<td>2015, 02, 28</td>
-						    	<td>N</td>
-						    	<td>
-						    		<a href="!#" onclick="return false;" class="arr_rang" id="high">▲</a>
-						    		<a href="!#" onclick="return false;" class="arr_rang" id="low">▼</a>
-						    	</td>
-						    </tr> 
-
-						    <tr class="bg1">
-						    	<td><input type="checkbox"/></td>
-						    	<td class="num">10</td>
-						    	<td class="subject"><a href="/resources/admin/sub/sub_recently_view.html">한국관광공사, 관광투자 웹사이트</a></td>
-						    	<td>한국관광공사</td>
-						    	<td>디자인 + 퍼블리싱</td>
-						    	<td>2015, 02, 28</td>
-						    	<td>Y</td>
-						    	<td>
-						    		<a href="!#" onclick="return false;" class="arr_rang" id="high">▲</a>
-						    		<a href="!#" onclick="return false;" class="arr_rang" id="low">▼</a>
-						    	</td>
-						    </tr> 
-
-						    <tr class="bg1">
-						    	<td><input type="checkbox"/></td>
-						    	<td class="num">10</td>
-						    	<td class="subject"><a href="/resources/admin/sub/sub_recently_view.html">한국관광공사, 관광투자 웹사이트</a></td>
-						    	<td>한국관광공사</td>
-						    	<td>퍼블리싱</td>
-						    	<td>2015, 02, 28</td>
-						    	<td>Y</td>
-						    	<td>
-						    		<a href="!#" onclick="return false;" class="arr_rang" id="high">▲</a>
-						    		<a href="!#" onclick="return false;" class="arr_rang" id="low">▼</a>
-						    	</td>
-						    </tr> 
-
-						    <tr class="bg1">
-						    	<td><input type="checkbox"/></td>
-						    	<td class="num">10</td>
-						    	<td class="subject"><a href="/resources/admin/sub/sub_recently_view.html">한국관광공사, 관광투자 웹사이트</a></td>
-						    	<td>한국관광공사</td>
-						    	<td>디자인 + 퍼블리싱</td>
-						    	<td>2015, 02, 28</td>
-						    	<td>N</td>
-						    	<td>
-						    		<a href="!#" onclick="return false;" class="arr_rang" id="high">▲</a>
-						    		<a href="!#" onclick="return false;" class="arr_rang" id="low">▼</a>
-						    	</td>
-						    </tr> 
-
-						    <tr class="bg1">
-						    	<td><input type="checkbox"/></td>
-						    	<td class="num">10</td>
-						    	<td class="subject"><a href="/resources/admin/sub/sub_recently_view.html">한국관광공사, 관광투자 웹사이트</a></td>
-						    	<td>한국관광공사</td>
-						    	<td>디자인</td>
-						    	<td>2015, 02, 28</td>
-						    	<td>Y</td>
-						    	<td>
-						    		<a href="!#" onclick="return false;" class="arr_rang" id="high">▲</a>
-						    		<a href="!#" onclick="return false;" class="arr_rang" id="low">▼</a>
-						    	</td>
-						    </tr> 
-
-						    <tr class="bg1">
-						    	<td><input type="checkbox"/></td>
-						    	<td class="num">10</td>
-						    	<td class="subject"><a href="/resources/admin/sub/sub_recently_view.html">한국관광공사, 관광투자 웹사이트</a></td>
-						    	<td>한국관광공사</td>
-						    	<td>디자인 + 퍼블리싱</td>
-						    	<td>2015, 02, 28</td>
-						    	<td>Y</td>
-						    	<td>
-						    		<a href="!#" onclick="return false;" class="arr_rang" id="high">▲</a>
-						    		<a href="!#" onclick="return false;" class="arr_rang" id="low">▼</a>
-						    	</td>
-						    </tr>   		
-				    	</tbody>
-
-					</table><!-- 답변하기X 일반 게시판 -->
-
-
-					<!-- 게시판 버튼 -->
-					<div class="board_button clearfix">
-					    <div class="left_button blind2">
-						    <a href="" class="btnArr">이전글</a>    
-						    <a href="" class="btnArr">다음글</a>    
-						</div>
-
-					    <div class="right_button">  
-					    	<a href="!#" onclick="return false;" class="btnArr">삭제하기</a>
-					        <a href="/resources/admin/sub/sub_recently_write.html" class="btnArr">등록하기</a>
-					    </div>
-					</div>
-
-
-					<!-- 페이징 -->
-					<div class="board_num_list">
-						<a class="prev_all" href="PREV ALL"></a>
-						<a class="prev" href="">PREV</a>
-						<a class="num on" href="">1</a>
-						<a class="num" href="">2</a>
-						<a class="num" href="">3</a>
-						<a class="num" href="">4</a>
-						<a class="num" href="">5</a>
-						<a class="num" href="">6</a>
-						<a class="num" href="">7</a>
-						<a class="num" href="">8</a>
-						<a class="num" href="">9</a>
-						<a class="num" href="">10</a>
-						<a class="next" href="">NEXT</a>
-						<a class="next_all" href="">NEXT ALL</a>
-					</div><!-- //board_num_list -->
-
-
-					<!-- 게시판 검색 -->	    
-				    <div class="board_search blind2">
-				        <form name="fsearch" method="get">
-					        <input type="hidden" name="bo_table" value="nafternote"/>
-					        <input type="hidden" name="sca"      value=""/>
-					        <select name="sfl" class="sfl">
-					            <option value="wr_all">전체</option>
-					            <option value="wr_subject">제목</option>
-					            <option value="wr_content">내용</option>
-					            <option value="wr_subject||wr_content">제목+내용</option>
-					            <option value="mb_id">작성자</option>
-					        </select>
-					        <input name="stx" class="stx" maxlength="15" itemname="검색어" required value=''/>
-					        <a href="" class="btnSearch">검색</a> <!-- <input type="submit" /> -->
-				    </div><!-- //board_search -->					
-					
 				</div><!-- //list_area -->	
 				
 			</section><!-- //content -->
 
-		</div><!-- //wrap -->
+		</section><!-- //container End -->
 
-	</section><!-- //container End -->
-
-<? include('../inc/footer.inc.html');?>
+	<div th:replace="admin/inc/footer.inc :: footer" th:remove="tag"></div>
+	</div><!-- //wrap -->
+</body>
+</html>
