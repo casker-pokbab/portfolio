@@ -23,4 +23,5 @@ public class Portfolio {
 	private String viewName;
 	private Date workDate;
 	private String thumbnail;
+	private String displayYN;
 }

@@ -21,9 +21,11 @@ public class Recently {
 
 	private int recentlyNo;
 	private String recentlyName;
+	private String companyName;
 	private String participationPart;
 	private Date createDate;
 	private String url;
 	private String startDate;
 	private String endDate;
+	private String displayYN;
 }

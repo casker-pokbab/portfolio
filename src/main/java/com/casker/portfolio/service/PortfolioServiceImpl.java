@@ -37,7 +37,7 @@ public class PortfolioServiceImpl implements PortfolioService {
 	}
 	
 	@Override
-	public List<Portfolio> getPortfolioList(BaseSearch baseSearch) {
+	public List<Portfolio> getPortfolioList(BaseSearch<Portfolio> baseSearch) {
 		return portfolioMapper.selectPortfolioList(baseSearch);
 	}
 	
@@ -47,7 +47,7 @@ public class PortfolioServiceImpl implements PortfolioService {
 	}
 
 	@Override
-	public List<Recently> getRecentlyList(BaseSearch baseSearch) {
+	public List<Recently> getRecentlyList(BaseSearch<Recently> baseSearch) {
 		return recentlyMapper.selectRecentlyList(baseSearch);
 	}
 

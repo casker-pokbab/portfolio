@@ -122,7 +122,7 @@ public class AdminController {
 	 * @return
 	 */
 	@RequestMapping("/portfolio")
-	public String getPortfolioList(Model model, BaseSearch baseSearch, @ModelAttribute Page page) {
+	public String getPortfolioList(Model model, BaseSearch<Portfolio> baseSearch, @ModelAttribute Page page) {
 		int totalCount = portfolioService.getPortfolioListCount();
 		List<Portfolio> portfolioList = portfolioService.getPortfolioList(baseSearch);
 		
@@ -178,7 +178,7 @@ public class AdminController {
 	 * @return
 	 */
 	@RequestMapping("/recently")
-	public String getRecentlyList(Model model, BaseSearch baseSearch, @ModelAttribute Page page) {
+	public String getRecentlyList(Model model, BaseSearch<Recently> baseSearch, @ModelAttribute Page page) {
 		int totalCount = portfolioService.getRecentlyListCount();
 		List<Recently> recentlyList = portfolioService.getRecentlyList(baseSearch);
 		

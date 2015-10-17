@@ -48,7 +48,7 @@
 		    	<td>한국관광공사</td>
 		    	<td>디자인 + 퍼블리싱</td>
 		    	<td th:text="${#calendars.format(recently.createDate,'yyyy. MM. dd')}">등록일</td>
-		    	<td>Y</td>
+		    	<td th:text="${recently.displayYN}">노출여부</td>
 		    	<td>
 		    		<a href="!#" onclick="return false;" class="arr_rang" id="high">▲</a>
 		    		<a href="!#" onclick="return false;" class="arr_rang" id="low">▼</a>

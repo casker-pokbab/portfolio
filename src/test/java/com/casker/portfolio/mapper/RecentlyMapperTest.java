@@ -26,7 +26,14 @@ public class RecentlyMapperTest {
 
 	@Test
 	public void testSelectProjectList() throws Exception {
-		List<Recently> actual = projectMapper.selectRecentlyList(new BaseSearch());
+		BaseSearch<Recently> search = new BaseSearch<>();
+		Recently domain = new Recently();
+		domain.setDisplayYN("Y");
+		search.setDomain(domain);
+		search.setPageNum(0);
+		search.setPageSize(10);
+		
+		List<Recently> actual = projectMapper.selectRecentlyList(search);
 
 		assertFalse(CollectionUtils.isEmpty(actual));
 	}

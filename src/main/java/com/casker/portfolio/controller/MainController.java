@@ -49,7 +49,10 @@ public class MainController {
 	}
 	
 	@RequestMapping("/portfolio")
-	public String getPortfolioList(Model model, BaseSearch baseSearch) {
+	public String getPortfolioList(Model model, BaseSearch<Portfolio> baseSearch) {
+		Portfolio portfolio = new Portfolio();
+		portfolio.setDisplayYN("Y");
+		baseSearch.setDomain(portfolio);
 		List<Portfolio> portfolioList = portfolioService.getPortfolioList(baseSearch);
 		
 		model.addAttribute("portfolioList", portfolioList);
@@ -58,7 +61,10 @@ public class MainController {
 	}
 	
 	@RequestMapping("/recently")
-	public String getRecentlyList(Model model, BaseSearch baseSearch, @ModelAttribute Page page) {
+	public String getRecentlyList(Model model, BaseSearch<Recently> baseSearch, @ModelAttribute Page page) {
+		Recently recently = new Recently();
+		recently.setDisplayYN("Y");
+		baseSearch.setDomain(recently);
 		int totalCount = portfolioService.getRecentlyListCount();
 		List<Recently> recentlyList = portfolioService.getRecentlyList(baseSearch);
 		

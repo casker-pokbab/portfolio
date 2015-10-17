@@ -14,19 +14,19 @@ import lombok.Data;
  * @author Kanghoon Choi
  */
 @Data
-public class BaseSearch {
+public class BaseSearch<T> {
 	private int pageNum = 1;
-	private int pageSize = 12;
+	private int pageSize;
 	private int skipRows;
 	private boolean all = false;
+	private T domain;
 	
 	//정렬
 	private String orderFieldName;
 	private Integer orderType; //1 = ASCE -1 = DESC
 	
-	public void setPageNum(int pageNum) {
-		this.pageNum = pageNum;
-		this.skipRows = ((pageNum < 1 ? 1 : pageNum) - 1) * pageSize; 
+	public int getSkipRows() {
+		return (this.skipRows == 0) ? (((pageNum < 1 ? 1 : pageNum) - 1) * pageSize) : skipRows; 
 	}
 	
 	public boolean getAll() {

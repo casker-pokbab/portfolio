@@ -19,7 +19,16 @@
 			, view_name
 			, work_date
 			, thumbnail
+			, display_yn
 		FROM  portfolio
+		<if test="domain != null">
+		<where>
+			<if test="domain.displayYN != null">
+				display_yn = #{domain.displayYN}
+			</if>
+		</where>
+		</if>
+		ORDER BY work_date DESC
 		<if test="all == false">
 		LIMIT #{skipRows}, #{pageSize}
 		</if>
@@ -49,5 +58,6 @@
 			, view_name = #{viewName}
 			, work_date = #{workDate}
 			, thumbnail = #{thumbnail}
+			, display_yn = #{displayYN}
 	</insert>
 </mapper>

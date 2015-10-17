@@ -18,7 +18,16 @@
 			, participation_part
 			, create_date
 			, url
+			, display_yn
 		FROM  recently
+		<if test="domain != null">
+		<where>
+			<if test="domain.displayYN != null">
+				display_yn = #{domain.displayYN}
+			</if>
+		</where>
+		</if>
+		ORDER BY create_date DESC
 		<if test="all == false">
 		LIMIT #{skipRows}, #{pageSize}
 		</if>
@@ -35,5 +44,6 @@
 			, url = #{url}
 			, start_date = #{startDate}
 			, end_date = #{endDate}
+			, display_yn = #{displayYN}
 	</insert>
 </mapper>

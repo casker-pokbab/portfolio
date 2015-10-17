@@ -23,7 +23,7 @@ public interface PortfolioService {
 	 * 포트폴리오 리스트를 가져온다.
 	 * @param baseSearch 
 	 */
-	List<Portfolio> getPortfolioList(BaseSearch baseSearch);
+	List<Portfolio> getPortfolioList(BaseSearch<Portfolio> baseSearch);
 	
 	/**
 	 * @return
@@ -35,7 +35,7 @@ public interface PortfolioService {
 	 * @param baseSearch
 	 * @return
 	 */
-	List<Recently> getRecentlyList(BaseSearch baseSearch);
+	List<Recently> getRecentlyList(BaseSearch<Recently> baseSearch);
 
 	/**
 	 * @return
