@@ -41,8 +41,12 @@
 			    	<td class="num" th:text="${recently.recentlyNo}">No</td>
 			    	<td class="subject"><a target="_blank" th:href="@{${recently.url}}" th:remove="${#strings.isEmpty(recently.url)} ? tag : none" th:text="${recently.recentlyName}">프로젝트명</a></td>
 			    	<td class="major">
-			    		<span class="ico_des" title="디자인"></span>
-			    		<span class="ico_cod" title="퍼블리싱"></span>
+			    		<div th:if="${#strings.contains(recently.participationPart,'DESIGN')}" th:remove="tag">
+				    		<span class="ico_des" title="디자인"></span>
+			    		</div>
+			    		<div th:if="${#strings.contains(recently.participationPart,'PUBLISHING')}" th:remove="tag">
+				    		<span class="ico_cod" title="퍼블리싱"></span>
+			    		</div>
 			    	</td>
 			    	<td class="date" th:text="${#calendars.format(recently.createDate,'yyyy. MM')}">날짜</td>
 			    </tr>

@@ -46,7 +46,11 @@
 		    	<td class="num" th:text="${recently.recentlyNo}">No</td>
 		    	<td class="subject"><a th:href="@{'/admin/recently/detail/' + ${recently.recentlyNo}}" th:text="${recently.recentlyName}">프로젝트명</a></td>
 		    	<td>한국관광공사</td>
-		    	<td>디자인 + 퍼블리싱</td>
+		    	<td>
+		    		<div th:if="${#strings.contains(recently.participationPart,'DESIGN')}" th:remove="tag">디자인</div>
+		    		<div th:if="${#strings.contains(recently.participationPart,',')}" th:remove="tag"> + </div>
+		    		<div th:if="${#strings.contains(recently.participationPart,'PUBLISHING')}" th:remove="tag">퍼블리싱</div>
+		    	</td>
 		    	<td th:text="${#calendars.format(recently.createDate,'yyyy. MM. dd')}">등록일</td>
 		    	<td th:text="${recently.displayYN}">노출여부</td>
 		    	<td>

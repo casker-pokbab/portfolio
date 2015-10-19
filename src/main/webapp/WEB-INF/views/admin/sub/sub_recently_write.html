@@ -3,6 +3,7 @@
 	xmlns:th="http://www.thymeleaf.org">
 <head>
 	<object th:include="admin/inc/head.inc :: head" th:remove="tag"></object>
+	<script src="/resources/admin/js/writeForm.js" type="text/javascript"></script>
 </head>
 <body>
 	<div id="wrap">
@@ -46,7 +47,7 @@
 						<tbody>
 						    <tr>
 						    	<th>프로젝트명</th>
-						    	<td><input type="text" name="recentlyName" class="w600"/> <input style="margin-left: 10px;" type="checkbox" id="displayYN" name="displayYN"/> <label for="displayYN">표출여부</label></td>
+						    	<td><input type="text" name="recentlyName" class="w600"/> <input style="margin-left: 10px;" type="checkbox" id="displayYN" name="displayYN" value="N"/> <label for="displayYN">표출여부</label></td>
 						    </tr>
 
 						    <tr>
@@ -61,7 +62,7 @@
 										<option value="">선택</option>		
 										<option value="DESIGN">디자인</option>	
 										<option value="PUBLISHING">퍼블리싱</option>	
-										<option value="TOTAL">디자인 + 퍼블리싱</option>	
+										<option value="DESIGN,PUBLISHING">디자인 + 퍼블리싱</option>	
 									</select>
 						    	</td>
 						    </tr>
