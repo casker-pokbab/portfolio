@@ -33,7 +33,7 @@ public interface RecentlyMapper {
 	 * @param recentlyNo
 	 * @return
 	 */
-	Recently selectRecently(int recentlyNo);
+	Recently selectRecently(long recentlyNo);
 
 	/**
 	 * @param recently

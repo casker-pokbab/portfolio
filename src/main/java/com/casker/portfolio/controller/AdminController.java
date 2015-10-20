@@ -273,7 +273,7 @@ public class AdminController {
 	 * @return
 	 */
 	@RequestMapping(value = "/manegement/recently/editForm/{recentlyNo}", method = RequestMethod.GET)
-	public String editRecentlyForm(Model model, @PathVariable int recentlyNo) {
+	public String editRecentlyForm(Model model, @PathVariable long recentlyNo) {
 		
 		Recently recently = portfolioService.getRecentlyDetail(recentlyNo);
 		

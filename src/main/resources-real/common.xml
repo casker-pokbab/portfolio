@@ -4,6 +4,6 @@
 
 	<comment>기본 및 시스템 환경 설정</comment>
 	
-	<entry key="file.path">/Users/nhnent/files</entry>
+	<entry key="file.path">/home/hosting_users/designbycasker/files</entry>
 	
 </properties>

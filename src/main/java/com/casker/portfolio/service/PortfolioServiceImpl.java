@@ -52,7 +52,7 @@ public class PortfolioServiceImpl implements PortfolioService {
 	}
 	
 	@Override
-	public Portfolio getPortfolioDetail(int portfolioNo) {
+	public Portfolio getPortfolioDetail(long portfolioNo) {
 		return portfolioMapper.selectPortfolio(portfolioNo);
 	}
 	
@@ -132,7 +132,7 @@ public class PortfolioServiceImpl implements PortfolioService {
 	}
 	
 	@Override
-	public Recently getRecentlyDetail(int recentlyNo) {
+	public Recently getRecentlyDetail(long recentlyNo) {
 		return recentlyMapper.selectRecently(recentlyNo);
 	}
 	

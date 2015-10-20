@@ -41,7 +41,7 @@ public interface PortfolioService {
 	 * @param portfolioNo
 	 * @return
 	 */
-	Portfolio getPortfolioDetail(int portfolioNo);
+	Portfolio getPortfolioDetail(long portfolioNo);
 
 	/**
 	 * @param portfolio
@@ -69,7 +69,7 @@ public interface PortfolioService {
 	 * @param recentlyNo
 	 * @return
 	 */
-	Recently getRecentlyDetail(int recentlyNo);
+	Recently getRecentlyDetail(long recentlyNo);
 	
 	/**
 	 * @param recently
