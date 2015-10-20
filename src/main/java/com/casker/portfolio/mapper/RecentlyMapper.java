@@ -30,6 +30,12 @@ public interface RecentlyMapper {
 	int selectRecentlyListCount();
 
 	/**
+	 * @param recentlyNo
+	 * @return
+	 */
+	Recently selectRecently(int recentlyNo);
+
+	/**
 	 * @param recently
 	 */
 	void insertRecently(Recently recently);
@@ -37,6 +43,12 @@ public interface RecentlyMapper {
 	/**
 	 * @param recently
 	 */
+	void updateRecently(Recently recently);
+
+	/**
+	 * @param recently
+	 */
 	void deleteRecently(Recently recently);
+
 
 }

@@ -268,6 +268,36 @@ public class AdminController {
 	}
 	
 	/**
+	 * 최근 작업 수정폼
+	 * 
+	 * @return
+	 */
+	@RequestMapping(value = "/manegement/recently/editForm/{recentlyNo}", method = RequestMethod.GET)
+	public String editRecentlyForm(Model model, @PathVariable int recentlyNo) {
+		
+		Recently recently = portfolioService.getRecentlyDetail(recentlyNo);
+		
+		model.addAttribute("recently", recently);
+		
+		return VIEW_PREFIX + "sub/sub_recently_view";
+	}
+	
+	/**
+	 * 최근 작업 수정
+	 * 
+	 * @return
+	 */
+	@ResponseBody
+	@RequestMapping(value = "/manegement/recently/edit", method = RequestMethod.POST)
+	public String editRecently(HttpServletResponse response, Recently recently) {
+		
+		portfolioService.editRecently(recently);
+		
+		response.setCharacterEncoding("UTF-8");
+		return "<html><head><script>alert('최근작업이 수정되었습니다.');location.href='/admin/manegement/recently';</script></head></html>";
+	}
+	
+	/**
 	 * 최근 작업 삭제
 	 * 
 	 * @return

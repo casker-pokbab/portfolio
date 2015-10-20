@@ -33,6 +33,22 @@
 		</if>
 	</select>
 	
+	<select id="selectRecently" resultType="recently" parameterType="long">
+		/* RecentlyMapper.selectRecently */
+		SELECT 
+			  recently_no
+			, recently_name
+			, participation_part
+			, create_date
+			, url
+			, DATE_FORMAT(start_date, '%x-%m-%d')	AS startDate
+			, DATE_FORMAT(end_date, '%x-%m-%d')		AS endDate
+			, display_yn
+		FROM  recently
+		WHERE
+			recently_no = #{recentlyNo}
+	</select>
+	
 	<insert id="insertRecently" parameterType="recently">
 		/* RecentlyMapper.insertRecently */
 		INSERT recently
@@ -46,6 +62,24 @@
 			, end_date = CAST(#{endDate} AS DATETIME)
 			, display_yn = #{displayYN}
 	</insert>
+	
+	<update id="updateRecently" parameterType="recently">
+		/* RecentlyMapper.updateRecently */
+		UPDATE recently
+		SET
+			  display_yn = #{displayYN}
+		<if test="@org.apache.commons.lang3.StringUtils@isNotBlank(participationPart)">
+			, participation_part = #{participationPart}
+		</if>
+		<if test="@org.apache.commons.lang3.StringUtils@isNotBlank(startDate)">
+			, start_date = CAST(#{startDate} AS DATETIME)
+		</if>
+		<if test="@org.apache.commons.lang3.StringUtils@isNotBlank(endDate)">
+			, end_date = CAST(#{endDate} AS DATETIME)
+		</if>
+		WHERE
+			recently_no = #{recentlyNo}
+	</update>
 	
 	<delete id="deleteRecently" parameterType="recently">
 		/* RecentlyMapper.deleteRecently */

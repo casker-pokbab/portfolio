@@ -19,7 +19,7 @@ import lombok.Data;
 @Data
 public class Recently {
 
-	private int recentlyNo;
+	private long recentlyNo;
 	private String recentlyName;
 	private String companyName;
 	private String participationPart;

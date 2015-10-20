@@ -30,11 +30,6 @@ function getRecentlyList(pageNum, pageSize) {
 		, data : "pageNum=" + pageNum + "&pageSize=" + pageSize
 		, success : function(data) {
 			$(".list_area").empty().append(data);
-//			$(".wrap_table_project").find(".subject").click(function() {
-//				if (!$(this).find(">").is("a")) {
-//					alert("URL이 등록되지 않았습니다.");
-//				}
-//			});
 		}
 	});
 }
@@ -48,9 +43,12 @@ function goPage(pageNum) {
 	getRecentlyList(pageNum, defaultPageSize)
 }
 
+/**
+ * 최근작업 삭제
+ */
 function removeRecently() {
 	$(".list_area").find("input[type=checkbox]:checked").each(function() {
-		var no = $(this).parent().next().text();
+		var no = $(this).attr("no");
 		$.ajax({
 			  url : "/admin/manegement/recently/remove"
 			, type : "html"

@@ -36,6 +36,24 @@ public interface PortfolioService {
 	void addPortfolio(Portfolio portfolio);
 
 	/**
+	 * 포트폴리오 상세정보를 가져온다.
+	 * 
+	 * @param portfolioNo
+	 * @return
+	 */
+	Portfolio getPortfolioDetail(int portfolioNo);
+
+	/**
+	 * @param portfolio
+	 */
+	void editPortfolio(Portfolio portfolio);
+
+	/**
+	 * @param portfolio
+	 */
+	void removePortfolio(Portfolio portfolio);
+
+	/**
 	 * 최근작업 리스트를 가져온다.
 	 * @param baseSearch
 	 * @return
@@ -48,32 +66,25 @@ public interface PortfolioService {
 	int getRecentlyListCount();
 
 	/**
-	 * 포트폴리오 상세정보를 가져온다.
-	 * 
-	 * @param portfolioNo
+	 * @param recentlyNo
 	 * @return
 	 */
-	Portfolio getPortfolioDetail(int portfolioNo);
-
+	Recently getRecentlyDetail(int recentlyNo);
+	
 	/**
 	 * @param recently
 	 */
 	void addRecently(Recently recently);
 
 	/**
-	 * @param portfolio
+	 * @param recently
 	 */
-	void removePortfolio(Portfolio portfolio);
+	void editRecently(Recently recently);
 
 	/**
 	 * @param recently
 	 */
 	void removeRecently(Recently recently);
-
-	/**
-	 * @param portfolio
-	 */
-	void editPortfolio(Portfolio portfolio);
-
+	
 
 }

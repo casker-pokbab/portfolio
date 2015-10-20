@@ -64,11 +64,11 @@ public class PortfolioServiceImpl implements PortfolioService {
 		saveImageFile(portfolio.getSubImageName2(), portfolio.getSubImage2());
 		saveImageFile(portfolio.getSubImageName3(), portfolio.getSubImage3());
 		
-		portfolio.setPortfolioNo(makePortfolioNo());
+		portfolio.setPortfolioNo(makeNo());
 		portfolioMapper.insertPortfoilo(portfolio);
 	}
 	
-	private long makePortfolioNo() {
+	private long makeNo() {
 		return Long.parseLong(DateFormatUtils.format(new Date(), "yyMMddhhmm"));
 	}
 	
@@ -132,17 +132,24 @@ public class PortfolioServiceImpl implements PortfolioService {
 	}
 	
 	@Override
-	public void removeRecently(Recently recently) {
-		recentlyMapper.deleteRecently(recently);
+	public Recently getRecentlyDetail(int recentlyNo) {
+		return recentlyMapper.selectRecently(recentlyNo);
 	}
-
+	
 	@Override
 	public void addRecently(Recently recently) {
-		recently.setRecentlyNo(getRecentlyListCount() + 1); //TODO 채번방식 변경필요
+		recently.setRecentlyNo(makeNo());
 		recentlyMapper.insertRecently(recently);
 	}
 
-	
+	@Override
+	public void editRecently(Recently recently) {
+		recentlyMapper.updateRecently(recently);
+	}
 
+	@Override
+	public void removeRecently(Recently recently) {
+		recentlyMapper.deleteRecently(recently);
+	}
 
 }
