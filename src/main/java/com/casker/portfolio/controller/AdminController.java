@@ -17,6 +17,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -159,7 +160,37 @@ public class AdminController {
 		portfolioService.addPortfolio(portfolio);
 		
 		response.setCharacterEncoding("UTF-8");
-		return "<html><head><script>alert('포트폴리오가 등록되었습니다.');location.href='/admin/manegement/recently';</script></head></html>";
+		return "<html><head><script>alert('포트폴리오가 등록되었습니다.');location.href='/admin/manegement/portfolio';</script></head></html>";
+	}
+	
+	/**
+	 * 포트폴리오 수정폼
+	 * 
+	 * @return
+	 */
+	@RequestMapping(value = "/manegement/portfolio/editForm/{portfolioNo}", method = RequestMethod.GET)
+	public String editPortfolioForm(Model model, @PathVariable int portfolioNo) {
+		
+		Portfolio portfolio = portfolioService.getPortfolioDetail(portfolioNo);
+		
+		model.addAttribute("portfolio", portfolio);
+		
+		return VIEW_PREFIX + "sub/sub_portfolio_view";
+	}
+	
+	/**
+	 * 포트폴리오 수정
+	 * 
+	 * @return
+	 */
+	@ResponseBody
+	@RequestMapping(value = "/manegement/portfolio/edit", method = RequestMethod.POST)
+	public String editPortfolio(HttpServletResponse response, Portfolio portfolio) {
+		
+		portfolioService.editPortfolio(portfolio);
+		
+		response.setCharacterEncoding("UTF-8");
+		return "<html><head><script>alert('포트폴리오가 수정되었습니다.');location.href='/admin/manegement/portfolio';</script></head></html>";
 	}
 	
 	/**

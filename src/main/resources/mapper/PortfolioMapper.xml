@@ -34,15 +34,26 @@
 		</if>
 	</select>
 	
-	<select id="selectPortfolio" resultType="portfolio" parameterType="int">
+	<select id="selectPortfolio" resultType="portfolio" parameterType="long">
 		/* PortfolioMapper.selectPortfolio */
 		SELECT 
 			  portfolio_no
 			, portfolio_name
+			, DATE_FORMAT(start_date, '%x-%m-%d')	AS startDate
+			, DATE_FORMAT(end_date, '%x-%m-%d')		AS endDate
+			, thumbnail
 			, url
+			, main_image
+			, title
+			, description
+			, info
+			, participant
+			, sub_image1
+			, sub_image2
+			, sub_image3
 			, view_name
 			, work_date
-			, thumbnail
+			, display_yn
 		FROM  portfolio
 		WHERE
 			portfolio_no = #{portfolioNo}
@@ -70,6 +81,48 @@
 			, work_date = NOW()
 			, display_yn = #{displayYN}
 	</insert>
+	
+	<update id="updatePortfolio" parameterType="portfolio">
+		/* PortfolioMapper.updatePortfolio */
+		UPDATE portfolio
+		SET
+			  display_yn = #{displayYN}
+		<if test="@org.apache.commons.lang3.StringUtils@isNotBlank(startDate)">
+			, start_date = CAST(#{startDate} AS DATETIME)
+		</if>
+		<if test="@org.apache.commons.lang3.StringUtils@isNotBlank(endDate)">
+			, end_date = CAST(#{endDate} AS DATETIME)
+		</if>
+		<if test="not thumbnailImage.isEmpty()">
+			, thumbnail = #{thumbnail}
+		</if>
+		<if test="not mainImage.isEmpty()">
+			, main_image = #{mainImageName}
+		</if>
+		<if test="@org.apache.commons.lang3.StringUtils@isNotBlank(title)">
+			, title = #{title}
+		</if>
+		<if test="@org.apache.commons.lang3.StringUtils@isNotBlank(description)">
+			, description = #{description}
+		</if>
+		<if test="@org.apache.commons.lang3.StringUtils@isNotBlank(info)">
+			, info = #{info}
+		</if>
+		<if test="@org.apache.commons.lang3.StringUtils@isNotBlank(participant)">
+			, participant = #{participant}
+		</if>
+		<if test="not subImage1.isEmpty()">
+			, sub_image1 = #{subImageName1}
+		</if>
+		<if test="not subImage2.isEmpty()">
+			, sub_image2 = #{subImageName2}
+		</if>
+		<if test="not subImage3.isEmpty()">
+			, sub_image3 = #{subImageName3}
+		</if>
+		WHERE
+			portfolio_no = #{portfolioNo}
+	</update>
 	
 	<delete id="deletePortfolio" parameterType="portfolio">
 		/* PortfolioMapper.deletePortfolio */

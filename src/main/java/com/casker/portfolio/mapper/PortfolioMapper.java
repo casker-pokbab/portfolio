@@ -25,16 +25,11 @@ public interface PortfolioMapper {
 	List<Portfolio> selectPortfolioList(BaseSearch<Portfolio> baseSearch);
 	
 	/**
-	 * @param portfolio
-	 */
-	void insertPortfoilo(Portfolio portfolio);
-
-	/**
 	 * @param portfolioNo
 	 * @return
 	 */
-	Portfolio selectPortfolio(int portfolioNo);
-
+	Portfolio selectPortfolio(long portfolioNo);
+	
 	/**
 	 * @return
 	 */
@@ -43,6 +38,16 @@ public interface PortfolioMapper {
 	/**
 	 * @param portfolio
 	 */
-	void deletePortfolio(Portfolio portfolio);
+	void insertPortfoilo(Portfolio portfolio);
 
+	/**
+	 * @param portfolio
+	 */
+	void updatePortfolio(Portfolio portfolio);
+	
+
+	/**
+	 * @param portfolio
+	 */
+	void deletePortfolio(Portfolio portfolio);
 }

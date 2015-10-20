@@ -42,9 +42,9 @@
     	
     	<tbody th:unless="${#lists.isEmpty(portfolioList)}">
 		    <tr class="bg1" th:each="portfolio : ${portfolioList}">
-		    	<td><input type="checkbox"/></td>
+		    	<td><input type="checkbox" th:attr="no=${portfolio.portfolioNo}"/></td>
 		    	<td class="num" th:text="${portfolio.portfolioNo}">No</td>
-		    	<td class="subject"><a th:href="@{'/admin/portfolio/detail/' + ${portfolio.portfolioNo}}" th:text="${portfolio.portfolioName}">프로젝트명</a></td>
+		    	<td class="subject"><a th:href="@{'/admin/manegement/portfolio/editForm/' + ${portfolio.portfolioNo}}" th:text="${portfolio.portfolioName}">프로젝트명</a></td>
 		    	<td>한국관광공사</td>
 		    	<td>비공개</td>
 		    	<td th:text="${#calendars.format(portfolio.workDate,'yyyy. MM. dd')}">등록일</td>

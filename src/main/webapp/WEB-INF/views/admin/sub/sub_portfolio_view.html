@@ -1,8 +1,18 @@
-<? include('../inc/head.inc.html');?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+	<object th:include="admin/inc/head.inc :: head" th:remove="tag"></object>
+	<script src="/resources/admin/js/writeForm.js" type="text/javascript"></script>
+</head>
+<body>
+	<div id="wrap">
+		
+		<div th:replace="admin/inc/header.inc :: header" th:remove="tag"></div>
 
-<? include('../inc/header.inc.html');?>	
-
-	<!-- <section id="container"> -->
+		<section id="container" class="wrap_1240 container clearfix">
+		
+			<div th:replace="admin/inc/gnb :: gnb" th:remove="tag"></div>
 
 			<section class="content">
 
@@ -17,7 +27,10 @@
 				<!-- ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
 
 				<div class="write_area">
-
+				<form id="form" action="/admin/manegement/portfolio/edit" method="post" enctype="multipart/form-data">
+					
+					<input type="hidden" name="portfolioNo" th:value="${portfolio.portfolioNo}"/>
+					
 					<div class="write_head clearfix">
 						<div class="left">
 							
@@ -28,7 +41,7 @@
 						</div>
 					</div>
 
-					<table border=0 cellpadding=0 cellspacing=0 class="view01">
+					<table border="0" cellpadding="0" cellspacing="0" class="view01">
 						<colgroup>
 					   		<col width="20%" />					
 					   		<col width="80%" />					
@@ -37,58 +50,57 @@
 						<tbody>
 						    <tr>
 						    	<th>프로젝트명</th>
-						    	<td>한국관광공사, 관광투자 웹사이트 <input style="margin-left: 10px;" type="checkbox"> <label for="">표출여부</label></td>
+						    	<td>
+						    		<span th:text="${portfolio.portfolioName}">프로젝트명</span>
+						    		<input type="checkbox" id="displayYN" style="margin-left: 10px;" th:checked="${#strings.equals(portfolio.displayYN, 'Y')}"/> <label for="displayYN">표출여부</label>
+						    		<input type="hidden" name="displayYN" th:value="${portfolio.displayYN}"/>
+						    	</td>
 						    </tr>
 
 						    <tr>
 						    	<th>기간</th>
-						    	<td><input type="text" class="w100" id="date_start" value="2015-02-16"/> ~ <input type="text" class="w100" id="date_end" value="2015-04-16"/></td>
+						    	<td><input type="text" name="startDate" class="w100" id="date_start" th:value="${portfolio.startDate}"/> ~ <input type="text" name="endDate" class="w100" id="date_end" th:value="${portfolio.endDate}"/></td>
 						    </tr>
 
 						    <tr>
 						    	<th>썸네일 이미지</th>
-						    	<td><input type="file"/> <span class="txt_guide">(권장사이즈 : 640 * 640)</span></td>
+						    	<td><input type="file" name="thumbnailImage" th:value="${portfolio.thumbnail}"/> <span class="txt_guide">(권장사이즈 : 640 * 640)</span></td>
 						    </tr>
 
 						    <tr>
 						    	<th>URL</th>
-						    	<td>http://korean.visitkorea.or.kr/kor/invest/main.kto?func_name=main</td>
+						    	<td th:text="${portfolio.url}">URL</td>
 						    </tr>
 
 						    <tr>
 						    	<th>대표 이미지</th>
-						    	<td><input type="file"/> <span class="txt_guide">(권장사이즈 : 1500 * 1024)</span></td>
+						    	<td><input type="file" name="mainImage" th:value="${portfolio.mainImageName}"/> <span class="txt_guide">(권장사이즈 : 1500 * 1024)</span></td>
 						    </tr>
 
 						    <tr>
 						    	<th>프로젝트 제목</th>
-						    	<td>한국관광공사, 관광투자 웹사이트</td>
+						    	<td th:text="${portfolio.title}">제목</td>
 						    </tr>
 
 						    <tr>
 						    	<th>프로젝트 설명</th>
-						    	<td class="t_area"><textarea class="new_fm" name="" id="" cols="30" rows="6">태초의 순수하고 깨끗한 자연의 모습을 패셔너블한 감각으로 재해석한 화장품 브랜드인 네이처리퍼블릭의 모바일 웹사이트를 새롭게 개편하였습니다. 최근 온라인 고객의 모바일 접속 비중이 급격한 성장을 보이고 있는 모바일 중심 트렌드에 발맞춰 보다 고객 친화적인 UI 구성과 최신의 디자인 트렌드를 반영하는 것에 중점을 두었습니다. 세련되고 미려한 구성은 최소한의 형태와 요소를 활용하여 구조를 형상화는 것에 중점을 두었다.</textarea></td>
+						    	<td class="t_area"><textarea class="new_fm" name="description" id="" cols="30" rows="6" th:text="${portfolio.description}"></textarea></td>
 						    </tr>
 
 						    <tr>
 						    	<th>프로젝트 정보</th>
-						    	<td class="t_area"><textarea class="new_fm" name="" id="" cols="30" rows="4">(주)한국관광공사 
-2015년 5월 
-web, mobile, responsible</textarea></td>
+						    	<td class="t_area"><textarea class="new_fm" name="info" id="" cols="30" rows="4" th:text="${portfolio.info}"></textarea></td>
 						    </tr>
 
 						    <tr>
 						    	<th>참여자 정보</th>
-						    	<td class="t_area"><textarea class="new_fm" name="" id="" cols="30" rows="4">Project Manager : 정명훈 
-Design : 김평진, 배성준 
-HTML & CSS & Script : 배성준 
-Development : 김종호</textarea></td>
+						    	<td class="t_area"><textarea class="new_fm" name="participant" id="" cols="30" rows="4" th:text="${portfolio.participant}"></textarea></td>
 						    </tr>
 
 						    <tr>
 						    	<th>서브 이미지 #1</th>
 						    	<td>
-						    		<input type="file"/> <span class="txt_guide">(권장사이즈 : 1500 * limitlessness)</span>
+						    		<input type="file" name="subImage1" th:value="${portfolio.subImageName1}"/> <span class="txt_guide">(권장사이즈 : 1500 * limitlessness)</span>
 						    		<span class="btn_file_del">삭제</span>
 						    		<!-- <span class="btn_file_del">추가</span> -->
 						    	</td>
@@ -97,7 +109,7 @@ Development : 김종호</textarea></td>
 						    <tr>
 						    	<th>서브 이미지 #2</th>
 						    	<td>
-						    		<input type="file"/> <span class="txt_guide">(권장사이즈 : 1500 * limitlessness)</span>
+						    		<input type="file" name="subImage2" th:value="${portfolio.subImageName2}"/> <span class="txt_guide">(권장사이즈 : 1500 * limitlessness)</span>
 						    		<span class="btn_file_del">삭제</span>
 						    		<!-- <span class="btn_file_del">추가</span> -->
 						    	</td>
@@ -106,7 +118,7 @@ Development : 김종호</textarea></td>
 						    <tr>
 						    	<th>서브 이미지 #3</th>
 						    	<td>
-						    		<input type="file"/> <span class="txt_guide">(권장사이즈 : 1500 * limitlessness)</span>
+						    		<input type="file" name="subImage3" th:value="${portfolio.subImageName3}"/> <span class="txt_guide">(권장사이즈 : 1500 * limitlessness)</span>
 						    		<span class="btn_file_del">삭제</span>
 						    		<span class="btn_file_del">추가</span>
 						    	</td>
@@ -121,17 +133,18 @@ Development : 김종호</textarea></td>
 						</div>
 
 					    <div class="right_button">   
-					        <a href="/resources/admin/sub/sub_portfolio.html" class="btnArr">목록</a>
-					        <a href="!#" onclick="return false;" class="btnArr">수정하기</a>
+					        <a href="/admin/manegement/portfolio" class="btnArr">목록</a>
+					        <a href="!#" onclick="$('#form').submit(); return false;" class="btnArr">수정하기</a>
 					    </div>
 					</div><!-- //board_button -->		
-					
+				</form>
 				</div><!-- //write_area -->		
 				
 			</section><!-- //content -->
 
-		</div><!-- //wrap -->
-
-	</section><!-- //container End -->
-
-<? include('../inc/footer.inc.html');?>
+		</section><!-- //container End -->
+	
+	<div th:replace="admin/inc/footer.inc :: footer" th:remove="tag"></div>
+	</div><!-- //wrap -->
+</body>
+</html>

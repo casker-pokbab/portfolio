@@ -52,6 +52,11 @@ public class PortfolioServiceImpl implements PortfolioService {
 	}
 	
 	@Override
+	public Portfolio getPortfolioDetail(int portfolioNo) {
+		return portfolioMapper.selectPortfolio(portfolioNo);
+	}
+	
+	@Override
 	public void addPortfolio(Portfolio portfolio) {
 		saveImageFile(portfolio.getThumbnail(), portfolio.getThumbnailImage());
 		saveImageFile(portfolio.getMainImageName(), portfolio.getMainImage());
@@ -83,6 +88,33 @@ public class PortfolioServiceImpl implements PortfolioService {
 			throw new RuntimeException("Unable to save image", e);
 		}
 	}
+	
+	@Override
+	public void editPortfolio(Portfolio portfolio) {
+		Portfolio oldPortfolio = portfolioMapper.selectPortfolio(portfolio.getPortfolioNo());
+		editImageFile(portfolio.getThumbnail(), portfolio.getThumbnailImage(), oldPortfolio.getThumbnail());
+		editImageFile(portfolio.getMainImageName(), portfolio.getMainImage(), oldPortfolio.getMainImageName());
+		editImageFile(portfolio.getSubImageName1(), portfolio.getSubImage1(), oldPortfolio.getSubImageName1());
+		editImageFile(portfolio.getSubImageName2(), portfolio.getSubImage2(), oldPortfolio.getSubImageName2());
+		editImageFile(portfolio.getSubImageName3(), portfolio.getSubImage3(), oldPortfolio.getSubImageName3());
+		
+		portfolioMapper.updatePortfolio(portfolio);
+	}
+	
+	private void editImageFile(String fileName, MultipartFile multipartFile, String oldFileName) {
+		if (multipartFile == null) {
+			return;
+		}
+		removeImageFile(oldFileName);
+		saveImageFile(fileName, multipartFile);
+	}
+	
+	private void removeImageFile(String oldFileName) {
+		File file = new File(filePath + File.separator + oldFileName);
+		if(file.exists()){
+			file.delete();
+		}
+	}
 
 	@Override
 	public void removePortfolio(Portfolio portfolio) {
@@ -105,15 +137,12 @@ public class PortfolioServiceImpl implements PortfolioService {
 	}
 
 	@Override
-	public Portfolio getPortfolioDetail(int portfolioNo) {
-		return portfolioMapper.selectPortfolio(portfolioNo);
-	}
-
-	@Override
 	public void addRecently(Recently recently) {
 		recently.setRecentlyNo(getRecentlyListCount() + 1); //TODO 채번방식 변경필요
 		recentlyMapper.insertRecently(recently);
 	}
+
+	
 
 
 }
