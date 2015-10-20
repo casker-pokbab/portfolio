@@ -83,13 +83,13 @@ public class MainController {
 	 * 
 	 * @return
 	 */
-	@RequestMapping(value = "/recently/detail/{portfolioNo}", method = RequestMethod.GET)
+	@RequestMapping(value = "/portfolio/detail/{portfolioNo}", method = RequestMethod.GET)
 	public String recentlyDetail(Model model, @PathVariable int portfolioNo) {
 		
 		Portfolio portfolio = portfolioService.getPortfolioDetail(portfolioNo);
 		
 		model.addAttribute("portfolio", portfolio);
 		
-		return VIEW_PREFIX + "sub/" + portfolio.getViewName();
+		return VIEW_PREFIX + "sub/project01";
 	}
 }
