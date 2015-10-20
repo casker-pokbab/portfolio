@@ -1,7 +1,7 @@
 $(document).ready(function() {
 	
 	$("#displayYN").on("click", function() {
-		$("#displayYN").val($(this).prop("checked") ? "Y" : "N");
+		$("input[name=displayYN]").val($(this).prop("checked") ? "Y" : "N");
 	});
 	
 });

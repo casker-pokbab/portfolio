@@ -42,8 +42,8 @@
 			, participation_part = #{participationPart}
 			, create_date = NOW()
 			, url = #{url}
-			, start_date = #{startDate}
-			, end_date = #{endDate}
+			, start_date = CAST(#{startDate} AS DATETIME)
+			, end_date = CAST(#{endDate} AS DATETIME)
 			, display_yn = #{displayYN}
 	</insert>
 	

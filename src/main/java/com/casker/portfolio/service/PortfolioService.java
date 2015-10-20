@@ -31,6 +31,11 @@ public interface PortfolioService {
 	int getPortfolioListCount();
 
 	/**
+	 * @param portfolio
+	 */
+	void addPortfolio(Portfolio portfolio);
+
+	/**
 	 * 최근작업 리스트를 가져온다.
 	 * @param baseSearch
 	 * @return
@@ -64,5 +69,6 @@ public interface PortfolioService {
 	 * @param recently
 	 */
 	void removeRecently(Recently recently);
+
 
 }

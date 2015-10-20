@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd" >
+<properties>
+
+	<comment>기본 및 시스템 환경 설정</comment>
+	
+	<entry key="file.path">/Users/nhnent/files</entry>
+	
+</properties>

@@ -152,10 +152,14 @@ public class AdminController {
 	 * 
 	 * @return
 	 */
+	@ResponseBody
 	@RequestMapping(value = "/manegement/portfolio/write", method = RequestMethod.POST)
-	public String writePortfolio(Model model, Portfolio portfolio) {
+	public String writePortfolio(HttpServletResponse response, Portfolio portfolio) {
 		
-		return VIEW_PREFIX + "sub/sub_portfolio_write";
+		portfolioService.addPortfolio(portfolio);
+		
+		response.setCharacterEncoding("UTF-8");
+		return "<html><head><script>alert('포트폴리오가 등록되었습니다.');location.href='/admin/manegement/recently';</script></head></html>";
 	}
 	
 	/**
@@ -233,7 +237,7 @@ public class AdminController {
 	}
 	
 	/**
-	 * 포트폴리오 삭제
+	 * 최근 작업 삭제
 	 * 
 	 * @return
 	 */

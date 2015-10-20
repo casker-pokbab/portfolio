@@ -27,7 +27,7 @@
 				<!-- ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
 
 				<div class="write_area">
-
+				<form id="form" action="/admin/manegement/portfolio/write" method="post" enctype="multipart/form-data">
 					<div class="write_head clearfix">
 						<div class="left">
 							
@@ -47,53 +47,57 @@
 						<tbody>
 						    <tr>
 						    	<th>프로젝트명</th>
-						    	<td><input type="text" class="w600"/> <input style="margin-left: 10px;" id="displayYN" name="displayYN" type="checkbox" value="N"/> <label for="displayYN">표출여부</label></td>
+						    	<td>
+						    		<input type="text" name="portfolioName" class="w600"/> 
+						    		<input type="checkbox" id="displayYN" style="margin-left: 10px;"/> <label for="displayYN">표출여부</label>
+						    		<input type="hidden" name="displayYN" value="N"/>
+						    	</td>
 						    </tr>
 
 						    <tr>
 						    	<th>기간</th>
-						    	<td><input type="text" class="w100" id="date_start"/> ~ <input type="text" class="w100" id="date_end"/></td>
+						    	<td><input type="text" name="startDate" class="w100" id="date_start"/> ~ <input type="text" name="endDate" class="w100" id="date_end"/></td>
 						    </tr>
 
 						    <tr>
 						    	<th>썸네일 이미지</th>
-						    	<td><input type="file"/> <span class="txt_guide">(권장사이즈 : 640 * 640)</span></td>
+						    	<td><input type="file" name="thumbnailImage"/> <span class="txt_guide">(권장사이즈 : 640 * 640)</span></td>
 						    </tr>
 
 						    <tr>
 						    	<th>URL</th>
-						    	<td><input type="text" class="w600"/></td>
+						    	<td><input type="text" name="url" class="w600"/></td>
 						    </tr>
 
 						    <tr>
 						    	<th>대표 이미지</th>
-						    	<td><input type="file"/> <span class="txt_guide">(권장사이즈 : 1500 * 1024)</span></td>
+						    	<td><input type="file" name="mainImage"/> <span class="txt_guide">(권장사이즈 : 1500 * 1024)</span></td>
 						    </tr>
 
 						    <tr>
 						    	<th>프로젝트 제목</th>
-						    	<td><input type="text" class="w600"/></td>
+						    	<td><input type="text" name="title" class="w600"/></td>
 						    </tr>
 
 						    <tr>
 						    	<th>프로젝트 설명</th>
-						    	<td class="t_area"><textarea class="new_fm" name="" id="" cols="30" rows="6"></textarea></td>
+						    	<td class="t_area"><textarea class="new_fm" name="description" id="" cols="30" rows="6"></textarea></td>
 						    </tr>
 
 						    <tr>
 						    	<th>프로젝트 정보</th>
-						    	<td class="t_area"><textarea class="new_fm" name="" id="" cols="30" rows="4"></textarea></td>
+						    	<td class="t_area"><textarea class="new_fm" name="info" id="" cols="30" rows="4"></textarea></td>
 						    </tr>
 
 						    <tr>
 						    	<th>참여자 정보</th>
-						    	<td class="t_area"><textarea class="new_fm" name="" id="" cols="30" rows="4"></textarea></td>
+						    	<td class="t_area"><textarea class="new_fm" name="participant" id="" cols="30" rows="4"></textarea></td>
 						    </tr>
 
 						    <tr>
 						    	<th>서브 이미지 #1</th>
 						    	<td>
-						    		<input type="file"/> <span class="txt_guide">(권장사이즈 : 1500 * limitlessness)</span>
+						    		<input type="file" name="subImage1"/> <span class="txt_guide">(권장사이즈 : 1500 * limitlessness)</span>
 						    		<span class="btn_file_del">삭제</span>
 						    		<!-- <span class="btn_file_del">추가</span> -->
 						    	</td>
@@ -102,7 +106,7 @@
 						    <tr>
 						    	<th>서브 이미지 #2</th>
 						    	<td>
-						    		<input type="file"/> <span class="txt_guide">(권장사이즈 : 1500 * limitlessness)</span>
+						    		<input type="file" name="subImage2"/> <span class="txt_guide">(권장사이즈 : 1500 * limitlessness)</span>
 						    		<span class="btn_file_del">삭제</span>
 						    		<!-- <span class="btn_file_del">추가</span> -->
 						    	</td>
@@ -111,7 +115,7 @@
 						    <tr>
 						    	<th>서브 이미지 #3</th>
 						    	<td>
-						    		<input type="file"/> <span class="txt_guide">(권장사이즈 : 1500 * limitlessness)</span>
+						    		<input type="file" name="subImage3"/> <span class="txt_guide">(권장사이즈 : 1500 * limitlessness)</span>
 						    		<span class="btn_file_del">삭제</span>
 						    		<span class="btn_file_del">추가</span>
 						    	</td>
@@ -126,11 +130,11 @@
 						</div>
 
 					    <div class="right_button">   
-					        <a href="/resources/admin/sub/sub_portfolio.html" class="btnArr">목록</a>
-					        <a href="!#" onclick="return false;" class="btnArr">등록하기</a>
+					        <a href="/admin/manegement/portfolio" class="btnArr">목록</a>
+					        <a href="!#" onclick="$('#form').submit(); return false;" class="btnArr">등록하기</a>
 					    </div>
 					</div><!-- //board_button -->		
-					
+				</form>
 				</div><!-- //write_area -->		
 				
 			</section><!-- //content -->

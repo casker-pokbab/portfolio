@@ -47,7 +47,11 @@
 						<tbody>
 						    <tr>
 						    	<th>프로젝트명</th>
-						    	<td><input type="text" name="recentlyName" class="w600"/> <input style="margin-left: 10px;" type="checkbox" id="displayYN" name="displayYN" value="N"/> <label for="displayYN">표출여부</label></td>
+						    	<td>
+						    		<input type="text" name="recentlyName" class="w600"/> 
+						    		<input type="checkbox" id="displayYN" style="margin-left: 10px;"/> <label for="displayYN">표출여부</label>
+						    		<input type="hidden" name="displayYN" value="N"/>
+						    	</td>
 						    </tr>
 
 						    <tr>
@@ -81,7 +85,7 @@
 						</div>
 
 					    <div class="right_button">   
-					        <a href="/resources/admin/sub/sub_recently.html" class="btnArr">목록</a>
+					        <a href="/admin/manegement/recently" class="btnArr">목록</a>
 					        <a href="!#" onclick="$('#form').submit(); return false;" class="btnArr">등록하기</a>
 					    </div>
 					</div><!-- //board_button -->		

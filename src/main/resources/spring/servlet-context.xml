@@ -69,11 +69,8 @@
 		<property name="suffix" value=".html" />
 		<property name="templateMode" value="HTML5" />
 	</bean>
-
-    <!-- id-lang map -->
-    <util:map id="langMap">
-        <entry key="spring" value="ko" />
-        <entry key="summer" value="en" />
-    </util:map>
+	
+	<!-- File Upload -->
+	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver"/>
 
 </beans>

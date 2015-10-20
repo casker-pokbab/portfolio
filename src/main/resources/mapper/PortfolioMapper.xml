@@ -54,10 +54,20 @@
 		SET 
 			  portfolio_no = #{portfolioNo}
 			, portfolio_name = #{portfolioName}
-			, url = #{url}
-			, view_name = #{viewName}
-			, work_date = #{workDate}
+			, start_date = CAST(#{startDate} AS DATETIME)
+			, end_date = CAST(#{endDate} AS DATETIME)
 			, thumbnail = #{thumbnail}
+			, url = #{url}
+			, main_image = #{mainImageName}
+			, title = #{title}
+			, description = #{description}
+			, info = #{info}
+			, participant = #{participant}
+			, sub_image1 = #{subImageName1}
+			, sub_image2 = #{subImageName2}
+			, sub_image3 = #{subImageName3}
+			, view_name = #{viewName}
+			, work_date = NOW()
 			, display_yn = #{displayYN}
 	</insert>
 	
