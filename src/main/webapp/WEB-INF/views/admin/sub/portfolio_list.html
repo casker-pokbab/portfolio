@@ -75,15 +75,11 @@
 	<!-- 페이징 -->
 	<div class="board_num_list">
 		<a href="#//" class="prev_all" onclick="goPage(1); return false;">PREV ALL</a>
-		<div th:if="${page.pageNum ne 1}" th:remove="tag">
-			<a href="#//" class="prev" th:attr="onclick='goPage(' + ${page.pageNum - 1} + '); return false;'">PREV</a>
-		</div>
+		<a href="#//" class="prev" th:attr="onclick='goPage(' + ${page.pageNum - 1} + '); return false;'">PREV</a>
 		<div th:each="pageNo : ${#numbers.sequence(page.viewFirst, page.lastPage)}" th:remove="tag">
 			<a href="#//" class="num" th:classappend="${page.pageNum eq pageNo}? 'on' : ''" th:text="${pageNo}" th:attr="onclick='goPage(' + ${pageNo} + '); return false;'">pageNo</a>
 		</div>
-		<div th:if="${page.pageNum ne page.lastPage}" th:remove="tag">
-			<a href="#//" class="next" th:attr="onclick='goPage(' + ${page.pageNum + 1} + '); return false;'">NEXT</a>
-		</div>
+		<a href="#//" class="next" th:attr="onclick='goPage(' + ${page.pageNum + 1} + '); return false;'">NEXT</a>
 		<a href="#//" class="next_all" th:attr="onclick='goPage(' + ${page.lastPage} + '); return false;'">NEXT ALL</a>
 	</div><!-- //board_num_list -->
 	
