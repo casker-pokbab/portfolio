@@ -15,6 +15,7 @@
 		SELECT 
 			  recently_no
 			, recently_name
+			, company_name
 			, participation_part
 			, create_date
 			, url
@@ -38,6 +39,7 @@
 		SELECT 
 			  recently_no
 			, recently_name
+			, company_name
 			, participation_part
 			, create_date
 			, url
@@ -55,6 +57,7 @@
 		SET 
 			  recently_no = #{recentlyNo}
 			, recently_name = #{recentlyName}
+			, company_name = #{companyName}
 			, participation_part = #{participationPart}
 			, create_date = NOW()
 			, url = #{url}
@@ -68,6 +71,9 @@
 		UPDATE recently
 		SET
 			  display_yn = #{displayYN}
+		<if test="@org.apache.commons.lang3.StringUtils@isNotBlank(companyName)">
+			, company_name = #{companyName}
+		</if> 
 		<if test="@org.apache.commons.lang3.StringUtils@isNotBlank(participationPart)">
 			, participation_part = #{participationPart}
 		</if>
