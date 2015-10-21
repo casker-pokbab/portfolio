@@ -30,6 +30,7 @@ import com.casker.portfolio.domain.Recently;
 import com.casker.portfolio.domain.User;
 import com.casker.portfolio.service.PortfolioService;
 import com.casker.portfolio.service.UserService;
+import com.casker.portfolio.util.ScriptUtil;
 
 
 /**
@@ -160,7 +161,7 @@ public class AdminController {
 		portfolioService.addPortfolio(portfolio);
 		
 		response.setCharacterEncoding("UTF-8");
-		return "<html><head><script>alert('포트폴리오가 등록되었습니다.');location.href='/admin/manegement/portfolio';</script></head></html>";
+		return ScriptUtil.alertAndRedirect("포트폴리오가 등록되었습니다.", "/admin/manegement/portfolio");
 	}
 	
 	/**
@@ -190,7 +191,7 @@ public class AdminController {
 		portfolioService.editPortfolio(portfolio);
 		
 		response.setCharacterEncoding("UTF-8");
-		return "<html><head><script>alert('포트폴리오가 수정되었습니다.');location.href='/admin/manegement/portfolio';</script></head></html>";
+		return ScriptUtil.alertAndRedirect("포트폴리오가 수정되었습니다.", "/admin/manegement/portfolio");
 	}
 	
 	/**
@@ -264,7 +265,7 @@ public class AdminController {
 		portfolioService.addRecently(recently);
 		
 		response.setCharacterEncoding("UTF-8");
-		return "<html><head><script>alert('최근작업이 등록되었습니다.');location.href='/admin/manegement/recently';</script></head></html>";
+		return ScriptUtil.alertAndRedirect("최근작업이 등록되었습니다.", "/admin/manegement/recently");
 	}
 	
 	/**
@@ -294,7 +295,7 @@ public class AdminController {
 		portfolioService.editRecently(recently);
 		
 		response.setCharacterEncoding("UTF-8");
-		return "<html><head><script>alert('최근작업이 수정되었습니다.');location.href='/admin/manegement/recently';</script></head></html>";
+		return ScriptUtil.alertAndRedirect("최근작업이 수정되었습니다.", "/admin/manegement/recently");
 	}
 	
 	/**
