@@ -86,7 +86,9 @@
 		/* PortfolioMapper.updatePortfolio */
 		UPDATE portfolio
 		SET
-			  display_yn = #{displayYN}
+			  portfolio_name = #{portfolioName}
+			, url = #{url}
+			, display_yn = #{displayYN}
 		<if test="@org.apache.commons.lang3.StringUtils@isNotBlank(startDate)">
 			, start_date = CAST(#{startDate} AS DATETIME)
 		</if>

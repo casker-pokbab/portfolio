@@ -51,7 +51,7 @@
 						    <tr>
 						    	<th>프로젝트명</th>
 						    	<td>
-						    		<span th:text="${recently.recentlyName}">프로젝트명</span>
+						    		<input type="text" name="recentlyName" class="w600" th:value="${recently.recentlyName}"/> 
 						    		<input type="checkbox" id="displayYN" style="margin-left: 10px;" th:checked="${#strings.equals(recently.displayYN, 'Y')}"/> <label for="displayYN">표출여부</label>
 						    		<input type="hidden" name="displayYN" th:value="${recently.displayYN}"/>
 						    	</td>
@@ -64,7 +64,7 @@
 
 						    <tr>
 						    	<th>URL</th>
-						    	<td th:text="${recently.url}">URL</td>
+						    	<td><input type="text" name="url" class="w600" th:value="${recently.url}"/></td>
 						    </tr>
 
 						    <tr>

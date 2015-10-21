@@ -70,7 +70,9 @@
 		/* RecentlyMapper.updateRecently */
 		UPDATE recently
 		SET
-			  display_yn = #{displayYN}
+			  recently_name = #{recentlyName}
+			, url = #{url}
+			, display_yn = #{displayYN}
 		<if test="@org.apache.commons.lang3.StringUtils@isNotBlank(companyName)">
 			, company_name = #{companyName}
 		</if> 

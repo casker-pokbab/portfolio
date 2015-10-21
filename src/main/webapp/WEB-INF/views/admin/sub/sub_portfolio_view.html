@@ -51,7 +51,7 @@
 						    <tr>
 						    	<th>프로젝트명</th>
 						    	<td>
-						    		<span th:text="${portfolio.portfolioName}">프로젝트명</span>
+						    		<input type="text" name="portfolioName" class="w600" th:value="${portfolio.portfolioName}"/> 
 						    		<input type="checkbox" id="displayYN" style="margin-left: 10px;" th:checked="${#strings.equals(portfolio.displayYN, 'Y')}"/> <label for="displayYN">표출여부</label>
 						    		<input type="hidden" name="displayYN" th:value="${portfolio.displayYN}"/>
 						    	</td>
@@ -69,7 +69,7 @@
 
 						    <tr>
 						    	<th>URL</th>
-						    	<td th:text="${portfolio.url}">URL</td>
+						    	<td><input type="text" name="url" class="w600" th:value="${portfolio.url}"/></td>
 						    </tr>
 
 						    <tr>
@@ -79,7 +79,7 @@
 
 						    <tr>
 						    	<th>프로젝트 제목</th>
-						    	<td th:text="${portfolio.title}">제목</td>
+						    	<td><input type="text" name="title" class="w600" th:value="${portfolio.title}"/></td>
 						    </tr>
 
 						    <tr>
