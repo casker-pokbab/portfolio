@@ -15,7 +15,7 @@
 
 			<div class="wrap_1024">
 				<div class="top_project">
-					<img src="/resources/main/img/sample/top_sample01.jpg" alt=""/>
+					<img th:src="@{'/file/portfolio/' + ${portfolio.portfolioNo} + '/main'}" alt=""/>
 				</div><!-- //top_project -->
 
 				<div class="middle_project">
@@ -51,9 +51,9 @@
 				</div><!-- //middle_project -->
 
 				<div class="bottom_project">
-					<p class="img_frame"><img src="/resources/main/img/sample/sample_sub_con01.jpg" alt=""/></p>
-					<p class="img_frame"><img src="/resources/main/img/sample/sample_sub_con02.png" alt=""/></p>
-					<p class="img_frame"><img src="/resources/main/img/sample/sample_sub_con03.jpg" alt=""/></p>					
+					<p class="img_frame"><img th:src="@{'/file/portfolio/' + ${portfolio.portfolioNo} + '/sub1'}" alt=""/></p>
+					<p class="img_frame"><img th:src="@{'/file/portfolio/' + ${portfolio.portfolioNo} + '/sub2'}" alt=""/></p>
+					<p class="img_frame"><img th:src="@{'/file/portfolio/' + ${portfolio.portfolioNo} + '/sub3'}" alt=""/></p>					
 				</div><!-- //bottom_project -->
 			</div>
 

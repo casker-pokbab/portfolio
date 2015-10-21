@@ -43,14 +43,14 @@
 			, DATE_FORMAT(end_date, '%x-%m-%d')		AS endDate
 			, thumbnail
 			, url
-			, main_image
+			, main_image		AS mainImageName
 			, title
 			, description
 			, info
 			, participant
-			, sub_image1
-			, sub_image2
-			, sub_image3
+			, sub_image1		AS subImageName1
+			, sub_image2		AS subImageName2
+			, sub_image3		AS subImageName3
 			, view_name
 			, work_date
 			, display_yn

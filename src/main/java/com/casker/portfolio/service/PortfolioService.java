@@ -7,6 +7,7 @@
 
 package com.casker.portfolio.service;
 
+import java.io.File;
 import java.util.List;
 
 import com.casker.portfolio.domain.BaseSearch;
@@ -85,6 +86,13 @@ public interface PortfolioService {
 	 * @param recently
 	 */
 	void removeRecently(Recently recently);
+
+	/**
+	 * @param portfolio
+	 * @param imageType
+	 * @return
+	 */
+	File getImageFile(Portfolio portfolio, String imageType);
 	
 
 }

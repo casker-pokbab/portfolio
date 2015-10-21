@@ -24,6 +24,7 @@ import com.casker.portfolio.domain.Portfolio;
 import com.casker.portfolio.domain.Recently;
 import com.casker.portfolio.mapper.PortfolioMapper;
 import com.casker.portfolio.mapper.RecentlyMapper;
+import com.casker.portfolio.type.ImageType;
 
 
 /**
@@ -115,6 +116,13 @@ public class PortfolioServiceImpl implements PortfolioService {
 			file.delete();
 		}
 	}
+	
+	@Override
+	public File getImageFile(Portfolio portfolio, String imageType) {
+		ImageType type = ImageType.valueOfCode(imageType);
+		
+		return new File(filePath + File.separator + type.getFilePath(portfolio));
+	}
 
 	@Override
 	public void removePortfolio(Portfolio portfolio) {
@@ -151,5 +159,4 @@ public class PortfolioServiceImpl implements PortfolioService {
 	public void removeRecently(Recently recently) {
 		recentlyMapper.deleteRecently(recently);
 	}
-
 }
