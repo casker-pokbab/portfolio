@@ -18,7 +18,6 @@ import com.casker.portfolio.domain.Portfolio;
 import com.casker.portfolio.domain.Recently;
 import com.casker.portfolio.service.PortfolioService;
 
-@RequestMapping("/main")
 @Controller
 public class MainController {
 	private static final String VIEW_PREFIX = "main/";
@@ -31,7 +30,7 @@ public class MainController {
 	 * 
 	 * @return
 	 */
-	@RequestMapping(value = "/intro", method = RequestMethod.GET)
+	@RequestMapping(value = {"/intro", "/portfolio"}, method = RequestMethod.GET)
 	public String intro() {
 		
 		return VIEW_PREFIX + "main/intro";
@@ -48,7 +47,7 @@ public class MainController {
 		return VIEW_PREFIX + "main/main";
 	}
 	
-	@RequestMapping("/portfolio")
+	@RequestMapping("/main/portfolio")
 	public String getPortfolioList(Model model, BaseSearch<Portfolio> baseSearch) {
 		Portfolio portfolio = new Portfolio();
 		portfolio.setDisplayYN("Y");
@@ -60,7 +59,7 @@ public class MainController {
 		return VIEW_PREFIX + "sub/list :: portfolioList";
 	}
 	
-	@RequestMapping("/recently")
+	@RequestMapping("/main/recently")
 	public String getRecentlyList(Model model, BaseSearch<Recently> baseSearch, @ModelAttribute Page page) {
 		Recently recently = new Recently();
 		recently.setDisplayYN("Y");
@@ -83,7 +82,7 @@ public class MainController {
 	 * 
 	 * @return
 	 */
-	@RequestMapping(value = "/portfolio/detail/{portfolioNo}", method = RequestMethod.GET)
+	@RequestMapping(value = "/main/portfolio/detail/{portfolioNo}", method = RequestMethod.GET)
 	public String recentlyDetail(Model model, @PathVariable int portfolioNo) {
 		
 		Portfolio portfolio = portfolioService.getPortfolioDetail(portfolioNo);
