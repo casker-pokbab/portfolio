@@ -47,6 +47,10 @@ function goPage(pageNum) {
  * 최근작업 삭제
  */
 function removeRecently() {
+	if (!confirm("게시글을 삭제하시겠습니까?")) {
+		return;
+	}
+	
 	$(".list_area").find("input[type=checkbox]:checked").each(function() {
 		var no = $(this).attr("no");
 		$.ajax({

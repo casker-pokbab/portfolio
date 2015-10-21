@@ -47,6 +47,10 @@ function goPage(pageNum) {
  * 포트폴리오 삭제
  */
 function removePortfolio() {
+	if (!confirm("포트폴리오를 삭제하시겠습니까?")) {
+		return;
+	}
+	
 	$(".list_area").find("input[type=checkbox]:checked").each(function() {
 		var no = $(this).attr("no");
 		$.ajax({

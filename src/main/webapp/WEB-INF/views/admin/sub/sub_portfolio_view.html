@@ -134,7 +134,7 @@
 
 					    <div class="right_button">   
 					        <a href="/admin/manegement/portfolio" class="btnArr">목록</a>
-					        <a href="!#" onclick="$('#form').submit(); return false;" class="btnArr">수정하기</a>
+					        <a href="!#" onclick="if(confirm('포트폴리오를 수정하시겠습니까?')){$('#form').submit(); return false;}" class="btnArr">수정하기</a>
 					    </div>
 					</div><!-- //board_button -->		
 				</form>
