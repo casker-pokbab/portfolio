@@ -71,6 +71,7 @@
 			, start_date = CAST(#{startDate} AS DATETIME)
 			, end_date = CAST(#{endDate} AS DATETIME)
 			, display_yn = #{displayYN}
+			, sort = #{sort}
 	</insert>
 	
 	<update id="updateRecently" parameterType="recently">

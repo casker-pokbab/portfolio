@@ -66,6 +66,7 @@ public class PortfolioServiceImpl implements PortfolioService {
 		saveImageFile(portfolio.getSubImageName3(), portfolio.getSubImage3());
 		
 		portfolio.setPortfolioNo(makeNo());
+		portfolio.setSort(portfolioMapper.selectPortfolioListCount(null) + 1);
 		portfolioMapper.insertPortfoilo(portfolio);
 	}
 	
@@ -79,7 +80,7 @@ public class PortfolioServiceImpl implements PortfolioService {
 	private void saveImageFile(String fileName, MultipartFile multipartFile) {
 		File file = new File(filePath + File.separator + fileName);
 		
-		if (file.isDirectory()) {
+		if (multipartFile == null || file.isDirectory()) {
 			return;
 		}
 		
@@ -147,6 +148,7 @@ public class PortfolioServiceImpl implements PortfolioService {
 	@Override
 	public void addRecently(Recently recently) {
 		recently.setRecentlyNo(makeNo());
+		recently.setSort(recentlyMapper.selectRecentlyListCount(null) + 1);
 		recentlyMapper.insertRecently(recently);
 	}
 
