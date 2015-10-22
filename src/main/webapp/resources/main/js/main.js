@@ -61,10 +61,10 @@ function getPortfolioList(skipRows, pageSize) {
  * @param pageNum
  * @param pageSize
  */
-function getRecentlyList(pageNum, pageSize) {
+function getRecentlyList(pageNum) {
 	
 	pageNum = (pageNum == undefined) ? 1 : pageNum;
-	pageSize = (pageSize == undefined) ? defaultPageSize : pageSize;
+	var pageSize = 11;
 	
 	$.ajax({
 		  url : "/main/recently"
@@ -88,7 +88,15 @@ function getRecentlyList(pageNum, pageSize) {
  * @param pageNum
  */
 function goPage(pageNum) {
-	getRecentlyList(pageNum, defaultPageSize)
+	if (pageNum == 0) {
+		alert("첫페이지 입니다.");
+		return;
+	} else if (pageNum == $(".board_num_list .num").size() + 1) {
+		alert("마지막페이지 입니다.");
+		return;
+	}
+	
+	getRecentlyList(pageNum)
 }
 
 function sendEmail() {

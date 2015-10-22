@@ -27,7 +27,7 @@ public interface RecentlyMapper {
 	/**
 	 * @return
 	 */
-	int selectRecentlyListCount();
+	int selectRecentlyListCount(BaseSearch<Recently> baseSearch);
 
 	/**
 	 * @param recentlyNo

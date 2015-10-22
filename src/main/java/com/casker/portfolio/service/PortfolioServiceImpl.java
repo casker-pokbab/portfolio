@@ -43,8 +43,8 @@ public class PortfolioServiceImpl implements PortfolioService {
 	private RecentlyMapper recentlyMapper;
 	
 	@Override
-	public int getPortfolioListCount() {
-		return portfolioMapper.selectPortfolioListCount();
+	public int getPortfolioListCount(BaseSearch<Portfolio> baseSearch) {
+		return portfolioMapper.selectPortfolioListCount(baseSearch);
 	}
 	
 	@Override
@@ -130,8 +130,8 @@ public class PortfolioServiceImpl implements PortfolioService {
 	}
 	
 	@Override
-	public int getRecentlyListCount() {
-		return recentlyMapper.selectRecentlyListCount();
+	public int getRecentlyListCount(BaseSearch<Recently> baseSearch) {
+		return recentlyMapper.selectRecentlyListCount(baseSearch);
 	}
 
 	@Override

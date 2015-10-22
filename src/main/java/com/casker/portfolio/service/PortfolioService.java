@@ -27,9 +27,10 @@ public interface PortfolioService {
 	List<Portfolio> getPortfolioList(BaseSearch<Portfolio> baseSearch);
 	
 	/**
+	 * @param baseSearch 
 	 * @return
 	 */
-	int getPortfolioListCount();
+	int getPortfolioListCount(BaseSearch<Portfolio> baseSearch);
 
 	/**
 	 * @param portfolio
@@ -64,7 +65,7 @@ public interface PortfolioService {
 	/**
 	 * @return
 	 */
-	int getRecentlyListCount();
+	int getRecentlyListCount(BaseSearch<Recently> baseSearch);
 
 	/**
 	 * @param recentlyNo

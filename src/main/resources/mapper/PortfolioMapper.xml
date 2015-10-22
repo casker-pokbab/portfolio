@@ -8,6 +8,13 @@
 		SELECT 
 			COUNT(1)
 		FROM  portfolio
+		<if test="domain != null">
+		<where>
+			<if test="domain.displayYN != null">
+				display_yn = #{domain.displayYN}
+			</if>
+		</where>
+		</if>
 	</select>
 	
 	<select id="selectPortfolioList" resultType="portfolio" parameterType="baseSearch">

@@ -40,6 +40,14 @@ function getRecentlyList(pageNum, pageSize) {
  * @param pageNum
  */
 function goPage(pageNum) {
+	if (pageNum == 0) {
+		alert("첫페이지 입니다.");
+		return;
+	} else if (pageNum == $(".board_num_list .num").size() + 1) {
+		alert("마지막페이지 입니다.");
+		return;
+	}
+	
 	getRecentlyList(pageNum, defaultPageSize)
 }
 

@@ -33,7 +33,7 @@ public interface PortfolioMapper {
 	/**
 	 * @return
 	 */
-	int selectPortfolioListCount();
+	int selectPortfolioListCount(BaseSearch<Portfolio> baseSearch);
 
 	/**
 	 * @param portfolio

@@ -3,11 +3,18 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.casker.portfolio.mapper.RecentlyMapper">
 
-	<select id="selectRecentlyListCount" resultType="int">
+	<select id="selectRecentlyListCount" resultType="int" parameterType="baseSearch">
 		/* RecentlyMapper.selectRecentlyListCount */
 		SELECT 
 			COUNT(1)
 		FROM  recently
+		<if test="domain != null">
+		<where>
+			<if test="domain.displayYN != null">
+				display_yn = #{domain.displayYN}
+			</if>
+		</where>
+		</if>
 	</select>
 	
 	<select id="selectRecentlyList" resultType="recently" parameterType="baseSearch">

@@ -64,7 +64,7 @@ public class MainController {
 		Recently recently = new Recently();
 		recently.setDisplayYN("Y");
 		baseSearch.setDomain(recently);
-		int totalCount = portfolioService.getRecentlyListCount();
+		int totalCount = portfolioService.getRecentlyListCount(baseSearch);
 		List<Recently> recentlyList = portfolioService.getRecentlyList(baseSearch);
 		
 		if (CollectionUtils.isNotEmpty(recentlyList)) {
