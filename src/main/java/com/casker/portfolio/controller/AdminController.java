@@ -209,6 +209,21 @@ public class AdminController {
 	}
 	
 	/**
+	 * 포트폴리오 서브이미지영역을 추가
+	 * 
+	 * @param model
+	 * @param count
+	 * @return
+	 */
+	@RequestMapping(value = "/manegement/portfolio/subImageForm", method = RequestMethod.GET)
+	public String addSubImageForm(Model model, int count) {
+		
+		model.addAttribute("count", count);
+		
+		return VIEW_PREFIX + "sub/portfolio_sub_image :: subImage";
+	}
+	
+	/**
 	 * 최근 작업 관리
 	 * 
 	 * @return

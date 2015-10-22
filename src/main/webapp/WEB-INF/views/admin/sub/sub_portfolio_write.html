@@ -94,32 +94,8 @@
 						    	<td class="t_area"><textarea class="new_fm" name="participant" id="" cols="30" rows="4"></textarea></td>
 						    </tr>
 
-						    <tr>
-						    	<th>서브 이미지 #1</th>
-						    	<td>
-						    		<input type="file" name="subImage1"/> <span class="txt_guide">(권장사이즈 : 1500 * limitlessness)</span>
-						    		<span class="btn_file_del">삭제</span>
-						    		<!-- <span class="btn_file_del">추가</span> -->
-						    	</td>
-						    </tr>
+						   	<tr th:replace="admin/sub/portfolio_sub_image :: subImage (1)"></tr>
 
-						    <tr>
-						    	<th>서브 이미지 #2</th>
-						    	<td>
-						    		<input type="file" name="subImage2"/> <span class="txt_guide">(권장사이즈 : 1500 * limitlessness)</span>
-						    		<span class="btn_file_del">삭제</span>
-						    		<!-- <span class="btn_file_del">추가</span> -->
-						    	</td>
-						    </tr>
-
-						    <tr>
-						    	<th>서브 이미지 #3</th>
-						    	<td>
-						    		<input type="file" name="subImage3"/> <span class="txt_guide">(권장사이즈 : 1500 * limitlessness)</span>
-						    		<span class="btn_file_del">삭제</span>
-						    		<span class="btn_file_del">추가</span>
-						    	</td>
-						    </tr>			
 						</tbody>
 					</table><!-- //게시판 End -->
 
