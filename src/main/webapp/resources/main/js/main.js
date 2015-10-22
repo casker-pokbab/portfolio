@@ -73,9 +73,9 @@ function getRecentlyList(pageNum) {
 		, data : "pageNum=" + pageNum + "&pageSize=" + pageSize
 		, success : function(data) {
 			$(".wrap_table_project").empty().append(data);
-			$(".wrap_table_project").find(".subject").click(function() {
-				if (!$(this).find(">").is("a")) {
-					alert("URL이 등록되지 않았습니다.");
+			$(".wrap_table_project").find(".subject a").click(function() {
+				if (!$(this).attr("target")) {
+					alert("URL 정보가 없는 프로젝트입니다.");
 				}
 			});
 		}
