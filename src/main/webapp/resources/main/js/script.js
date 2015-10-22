@@ -7,6 +7,35 @@ $(window).load(function() {
 
 $(document).ready(function(){
 	$('#masonrybox').masonry();
+	
+	$(window).off("resize").on("resize", function(){
+		var $workHeight = $('#masonrybox .item').width();
+		$('#masonrybox .item').css("height", $workHeight);
+
+		//browser resize
+		//다운로드 목록 확인부분 없앨시 height 리사이즈
+		var intro_h1 = $(window).height();
+		$('.wrap_intro').css("height", intro_h1);
+
+		// gnb		
+		var $width_cover = $(window).width() - 300;
+		$('.cover_gnb').css('width', $width_cover);
+
+		//visual
+		var $width_div = $(window).width();
+		if($width_div > 1220){
+			var visual_h = $(window).height() - 96;
+		}
+		else{
+			var visual_h = $(window).height() - 60;
+		}
+		// var visual_h = $(window).height() - 96;
+		$('.main_visual').css('height', visual_h);
+
+		// work pattern height
+		$height_work_con = $('#work').height() - 560;
+		$('.bg_ptn').css("height", $height_work_con);
+	});
 
 	// work pattern height
 	$height_work_con = $('#work').height() - 560;
@@ -24,8 +53,8 @@ $(document).ready(function(){
 	});
 
 	// gnb
-//	var $width_cover = $(window).width() - 300;
-//	$('.cover_gnb').css('width', $width_cover);
+	var $width_cover = $(window).width() - 300;
+	$('.cover_gnb').css('width', $width_cover);
 
 	$('#navbutton > a').click(function(){
 		$(this).toggleClass("on");
@@ -166,35 +195,6 @@ function initMasonry() {
 	var $workHeight = $('#masonrybox .item').width();
 	$('#masonrybox .item').css("height", $workHeight);
 	
-	$(window).off("resize").on("resize", function(){
-		var $workHeight = $('#masonrybox .item').width();
-		$('#masonrybox .item').css("height", $workHeight);
-
-		//browser resize
-		//다운로드 목록 확인부분 없앨시 height 리사이즈
-		var intro_h1 = $(window).height();
-		$('.wrap_intro').css("height", intro_h1);
-
-		// gnb		
-		var $width_cover = $(window).width() - 300;
-		$('.cover_gnb').css('width', $width_cover);
-
-		//visual
-		var $width_div = $(window).width();
-		if($width_div > 1220){
-			var visual_h = $(window).height() - 96;
-		}
-		else{
-			var visual_h = $(window).height() - 60;
-		}
-		// var visual_h = $(window).height() - 96;
-		$('.main_visual').css('height', visual_h);
-
-		// work pattern height
-		$height_work_con = $('#work').height() - 560;
-		$('.bg_ptn').css("height", $height_work_con);
-	});
-
 	// work list mouseenter event
 	$('.bg_text').hide();
 	$('#masonrybox .item .cont_work').off("mouseover").on("mouseover", function(){
