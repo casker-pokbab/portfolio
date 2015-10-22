@@ -28,4 +28,5 @@ public class Recently {
 	private String startDate;
 	private String endDate;
 	private String displayYN;
+	private int sort;
 }

@@ -41,6 +41,7 @@ public class Portfolio {
 	private String viewName;
 	private Date workDate;
 	private String displayYN;
+	private int sort;
 	
 	public void setThumbnailImage(MultipartFile thumbnailImage) {
 		this.thumbnailImage = thumbnailImage;
