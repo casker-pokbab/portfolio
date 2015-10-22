@@ -34,8 +34,10 @@
 				<h2><strong>항상 새롭고 차별화된 아이디어와 인사이트에 도전합니다.<br/>사용자 경험을 통해 브랜드를 이야기하고 경쟁력 있는 웹사이트를 구축하기 위해 끊임없이 고민합니다.</strong><br/>당신의 비지니스에 필요한 아름답고 유용한 기술을 제공합니다.</h2>
 
 				<div class="wrap_masonry">
-					<div class="" id="masonrybox" data-masonry-options='{ "itemSelector": ".item" }'>
-
+					<div id="masonrybox">
+					
+						<div th:replace="main/sub/list :: portfolioList (${portfolioList})"></div>
+						
 					</div><!-- //masonrybox -->				
 				</div>
 

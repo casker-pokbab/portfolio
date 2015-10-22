@@ -43,6 +43,15 @@ public class MainController {
 	 */
 	@RequestMapping(value = "/main", method = RequestMethod.GET)
 	public String main(Model model) {
+		BaseSearch<Portfolio> baseSearch = new BaseSearch<Portfolio>();
+		Portfolio portfolio = new Portfolio();
+		portfolio.setDisplayYN("Y");
+		baseSearch.setDomain(portfolio);
+		baseSearch.setPageNum(1);
+		baseSearch.setPageSize(12);
+		List<Portfolio> portfolioList = portfolioService.getPortfolioList(baseSearch);
+		
+		model.addAttribute("portfolioList", portfolioList);
 		
 		return VIEW_PREFIX + "main/main";
 	}

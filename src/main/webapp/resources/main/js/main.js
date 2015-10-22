@@ -22,7 +22,6 @@ $(document).ready(function() {
 		}
 	});
 	
-	getPortfolioList(0, 12);
 	getRecentlyList();
 });
 
@@ -42,13 +41,14 @@ function getPortfolioList(skipRows, pageSize) {
 		, method : "GET"
 		, data : "skipRows=" + skipRows + "&pageSize=" + pageSize
 		, success : function(data) {
-			if ($(data).size() == 0) {
+			var $items = $(data);
+			if ($items == 0) {
 				alert("포트폴리오가 모두 게시되었습니다.")
 				return;
 			}
 			
-			$("#masonrybox").append(data);
-			$("#masonrybox").masonry("appended", $(data));
+			$masonrybox.append($items)
+				.masonry("appended", $items);
 			
 			initMasonry();
 		}

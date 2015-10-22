@@ -4,16 +4,18 @@
 <head>
 </head>
 <body>
-	<div class="item" th:fragment="portfolioList" th:unless="${#lists.isEmpty(portfolioList)}" th:each="portfolio : ${portfolioList}">
-		<div class="cont_work">	
-			<div class="bg_text">
-				<p class="text">
-					<span class="work_name" th:text="${portfolio.portfolioName}">포트폴리오명</span>
-					<a th:href="@{'/main/portfolio/detail/' + ${portfolio.portfolioNo}}" class="work_more">자세히 보기</a>
-					<span class="work_date" th:text="${#calendars.format(portfolio.workDate,'yyyy')}">작업일시</span>
-				</p>								
+	<div th:fragment="portfolioList (portfolioList)" th:remove="tag">
+		<div class="item" th:unless="${#lists.isEmpty(portfolioList)}" th:each="portfolio : ${portfolioList}">
+			<div class="cont_work">	
+				<div class="bg_text">
+					<p class="text">
+						<span class="work_name" th:text="${portfolio.portfolioName}">포트폴리오명</span>
+						<a th:href="@{'/main/portfolio/detail/' + ${portfolio.portfolioNo}}" class="work_more">자세히 보기</a>
+						<span class="work_date" th:text="${#calendars.format(portfolio.workDate,'yyyy')}">작업일시</span>
+					</p>								
+				</div>
+				<p class="img"><img class="ratio" th:src="@{'/file/portfolio/' + ${portfolio.portfolioNo} + '/thumbnail'}" alt="포트폴리오 썸네일 이미지입니다"/></p>							
 			</div>
-			<p class="img"><img class="ratio" th:src="@{'/file/portfolio/' + ${portfolio.portfolioNo} + '/thumbnail'}" alt="포트폴리오 썸네일 이미지입니다"/></p>							
 		</div>
 	</div>
 	

@@ -1,12 +1,18 @@
 /* loader & header
 ----------------------------------------------------------------------------------------------*/
+var $masonrybox;
+
 $(window).load(function() {
 	$('#loader').fadeOut();
 });
 
-
 $(document).ready(function(){
-	$('#masonrybox').masonry();
+	$masonrybox = $('#masonrybox').masonry({
+		itemSelector : ".item",
+		percentPosition : true
+	});
+	
+	initMasonry();
 	
 	$(window).off("resize").on("resize", function(){
 		var $workHeight = $('#masonrybox .item').width();
@@ -173,24 +179,7 @@ $(document).ready(function(){
 	});
 });
 
-// datapicker
-$(document).ready(function(){
-	$( ".call_datepicker" ).datepicker({
-		showAnimation: 'slide',
-		dateFormat: 'yy-mm-dd',
-		minDate : 0,
-		showOtherMonths: true,
-		selectOtherMonths: true,
-		buttonImageOnly: true
-	});
-		
-	$( ".call_datepicker" ).change(function(){
-		$(this).css("backgroundImage","none");
-	});
-});
-
 function initMasonry() {
-	
 	// work list & height값
 	var $workHeight = $('#masonrybox .item').width();
 	$('#masonrybox .item').css("height", $workHeight);
@@ -202,5 +191,7 @@ function initMasonry() {
 	});
 	$('#masonrybox .item .cont_work').off("mouseleave").on("mouseleave", function(){
 		$(this).children('.bg_text').fadeOut(100);
-	});	
+	});
+	
+	$masonrybox.masonry("layout");
 }
