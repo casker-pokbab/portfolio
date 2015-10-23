@@ -19,9 +19,10 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.casker.portfolio.domain.BaseSearch;
 import com.casker.portfolio.domain.Portfolio;
+import com.casker.portfolio.domain.PortfolioSearch;
 import com.casker.portfolio.domain.Recently;
+import com.casker.portfolio.domain.RecentlySearch;
 import com.casker.portfolio.mapper.PortfolioMapper;
 import com.casker.portfolio.mapper.RecentlyMapper;
 import com.casker.portfolio.type.ImageType;
@@ -43,13 +44,13 @@ public class PortfolioServiceImpl implements PortfolioService {
 	private RecentlyMapper recentlyMapper;
 	
 	@Override
-	public int getPortfolioListCount(BaseSearch<Portfolio> baseSearch) {
-		return portfolioMapper.selectPortfolioListCount(baseSearch);
+	public int getPortfolioListCount(PortfolioSearch search) {
+		return portfolioMapper.selectPortfolioListCount(search);
 	}
 	
 	@Override
-	public List<Portfolio> getPortfolioList(BaseSearch<Portfolio> baseSearch) {
-		return portfolioMapper.selectPortfolioList(baseSearch);
+	public List<Portfolio> getPortfolioList(PortfolioSearch search) {
+		return portfolioMapper.selectPortfolioList(search);
 	}
 	
 	@Override
@@ -131,13 +132,13 @@ public class PortfolioServiceImpl implements PortfolioService {
 	}
 	
 	@Override
-	public int getRecentlyListCount(BaseSearch<Recently> baseSearch) {
-		return recentlyMapper.selectRecentlyListCount(baseSearch);
+	public int getRecentlyListCount(RecentlySearch search) {
+		return recentlyMapper.selectRecentlyListCount(search);
 	}
 
 	@Override
-	public List<Recently> getRecentlyList(BaseSearch<Recently> baseSearch) {
-		return recentlyMapper.selectRecentlyList(baseSearch);
+	public List<Recently> getRecentlyList(RecentlySearch search) {
+		return recentlyMapper.selectRecentlyList(search);
 	}
 	
 	@Override

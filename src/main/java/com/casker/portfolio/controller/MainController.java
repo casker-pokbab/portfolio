@@ -13,9 +13,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.casker.portfolio.common.Page;
 import com.casker.portfolio.common.PageUtil;
-import com.casker.portfolio.domain.BaseSearch;
 import com.casker.portfolio.domain.Portfolio;
+import com.casker.portfolio.domain.PortfolioSearch;
 import com.casker.portfolio.domain.Recently;
+import com.casker.portfolio.domain.RecentlySearch;
 import com.casker.portfolio.service.PortfolioService;
 
 @Controller
@@ -43,13 +44,11 @@ public class MainController {
 	 */
 	@RequestMapping(value = "/main", method = RequestMethod.GET)
 	public String main(Model model) {
-		BaseSearch<Portfolio> baseSearch = new BaseSearch<Portfolio>();
-		Portfolio portfolio = new Portfolio();
-		portfolio.setDisplayYN("Y");
-		baseSearch.setDomain(portfolio);
-		baseSearch.setPageNum(1);
-		baseSearch.setPageSize(12);
-		List<Portfolio> portfolioList = portfolioService.getPortfolioList(baseSearch);
+		PortfolioSearch search = new PortfolioSearch();
+		search.setDisplayYN("Y");
+		search.setPageNum(1);
+		search.setPageSize(12);
+		List<Portfolio> portfolioList = portfolioService.getPortfolioList(search);
 		
 		model.addAttribute("portfolioList", portfolioList);
 		
@@ -57,11 +56,9 @@ public class MainController {
 	}
 	
 	@RequestMapping("/main/portfolio")
-	public String getPortfolioList(Model model, BaseSearch<Portfolio> baseSearch) {
-		Portfolio portfolio = new Portfolio();
-		portfolio.setDisplayYN("Y");
-		baseSearch.setDomain(portfolio);
-		List<Portfolio> portfolioList = portfolioService.getPortfolioList(baseSearch);
+	public String getPortfolioList(Model model, PortfolioSearch search) {
+		search.setDisplayYN("Y");
+		List<Portfolio> portfolioList = portfolioService.getPortfolioList(search);
 		
 		model.addAttribute("portfolioList", portfolioList);
 		
@@ -69,12 +66,10 @@ public class MainController {
 	}
 	
 	@RequestMapping("/main/recently")
-	public String getRecentlyList(Model model, BaseSearch<Recently> baseSearch, @ModelAttribute Page page) {
-		Recently recently = new Recently();
-		recently.setDisplayYN("Y");
-		baseSearch.setDomain(recently);
-		int totalCount = portfolioService.getRecentlyListCount(baseSearch);
-		List<Recently> recentlyList = portfolioService.getRecentlyList(baseSearch);
+	public String getRecentlyList(Model model, RecentlySearch search, @ModelAttribute Page page) {
+		search.setDisplayYN("Y");
+		int totalCount = portfolioService.getRecentlyListCount(search);
+		List<Recently> recentlyList = portfolioService.getRecentlyList(search);
 		
 		if (CollectionUtils.isNotEmpty(recentlyList)) {
 			page.setTotalCount(totalCount);

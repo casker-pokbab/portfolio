@@ -27,7 +27,7 @@
 				<!-- ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
 
 				<div class="search_box">
-					<form action="">					
+					<form id="form">					
 						<fieldset>
 							<legend>포트폴리오 목록 검색</legend>
 							<table>
@@ -43,16 +43,16 @@
 										<th><label for="">프로젝트명</label></th>
 
 										<td>
-											<input type="text" class="w140"/>
+											<input type="text" class="w140" name="portfolioName"/>
 										</td>
 
 										<th><label for="">등록일</label></th>
 
 										<td>
-											<input type="text" class="w100" id="date_start"/> ~ <input type="text" class="w100" id="date_end"/>
+											<input type="text" class="w100" id="date_start" name="startDate"/> ~ <input type="text" class="w100" id="date_end" name="endDate"/>
 										</td>
 
-										<td rowspan="2" style="text-align: center !important; padding: 0 !important"><span class="btn_research02">검색</span></td>				
+										<td rowspan="2" style="text-align: center !important; padding: 0 !important"><span id="btn_search" class="btn_research02">검색</span></td>				
 									</tr>									
 
 									<tr>

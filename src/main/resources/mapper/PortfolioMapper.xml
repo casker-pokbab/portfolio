@@ -8,13 +8,20 @@
 		SELECT 
 			COUNT(1)
 		FROM  portfolio
-		<if test="domain != null">
-		<where>
-			<if test="domain.displayYN != null">
-				display_yn = #{domain.displayYN}
+		<where> 1 = 1
+			<if test="@org.apache.commons.lang3.StringUtils@isNotBlank(displayYN)">
+			AND	display_yn = #{displayYN}
+			</if>
+			<if test="@org.apache.commons.lang3.StringUtils@isNotBlank(portfolioName)">
+			AND portfolio_name = #{portfolioName}
+			</if>
+			<if test="@org.apache.commons.lang3.StringUtils@isNotBlank(startDate)">
+			AND start_date &gt; CAST(#{startDate} AS DATETIME)
+			</if>
+			<if test="@org.apache.commons.lang3.StringUtils@isNotBlank(endDate)">
+			AND end_date &lt; CAST(#{endDate} AS DATETIME)
 			</if>
 		</where>
-		</if>
 	</select>
 	
 	<select id="selectPortfolioList" resultType="portfolio" parameterType="baseSearch">
@@ -28,13 +35,20 @@
 			, thumbnail
 			, display_yn
 		FROM  portfolio
-		<if test="domain != null">
-		<where>
-			<if test="domain.displayYN != null">
-				display_yn = #{domain.displayYN}
+		<where> 1 = 1
+			<if test="@org.apache.commons.lang3.StringUtils@isNotBlank(displayYN)">
+			AND	display_yn = #{displayYN}
+			</if>
+			<if test="@org.apache.commons.lang3.StringUtils@isNotBlank(portfolioName)">
+			AND portfolio_name = #{portfolioName}
+			</if>
+			<if test="@org.apache.commons.lang3.StringUtils@isNotBlank(startDate)">
+			AND start_date &gt; CAST(#{startDate} AS DATETIME)
+			</if>
+			<if test="@org.apache.commons.lang3.StringUtils@isNotBlank(endDate)">
+			AND end_date &lt; CAST(#{endDate} AS DATETIME)
 			</if>
 		</where>
-		</if>
 		ORDER BY sort DESC
 		<if test="all == false">
 		LIMIT #{skipRows}, #{pageSize}

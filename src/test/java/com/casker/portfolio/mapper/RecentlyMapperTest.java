@@ -12,8 +12,8 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.casker.portfolio.domain.BaseSearch;
 import com.casker.portfolio.domain.Recently;
+import com.casker.portfolio.domain.RecentlySearch;
 
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -26,10 +26,8 @@ public class RecentlyMapperTest {
 
 	@Test
 	public void testSelectProjectList() throws Exception {
-		BaseSearch<Recently> search = new BaseSearch<>();
-		Recently domain = new Recently();
-		domain.setDisplayYN("Y");
-		search.setDomain(domain);
+		RecentlySearch search = new RecentlySearch();
+		search.setDisplayYN("Y");
 		search.setPageNum(0);
 		search.setPageSize(10);
 		

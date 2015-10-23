@@ -10,9 +10,10 @@ package com.casker.portfolio.service;
 import java.io.File;
 import java.util.List;
 
-import com.casker.portfolio.domain.BaseSearch;
 import com.casker.portfolio.domain.Portfolio;
+import com.casker.portfolio.domain.PortfolioSearch;
 import com.casker.portfolio.domain.Recently;
+import com.casker.portfolio.domain.RecentlySearch;
 
 
 /**
@@ -22,15 +23,15 @@ public interface PortfolioService {
 
 	/**
 	 * 포트폴리오 리스트를 가져온다.
-	 * @param baseSearch 
+	 * @param search 
 	 */
-	List<Portfolio> getPortfolioList(BaseSearch<Portfolio> baseSearch);
+	List<Portfolio> getPortfolioList(PortfolioSearch search);
 	
 	/**
-	 * @param baseSearch 
+	 * @param search 
 	 * @return
 	 */
-	int getPortfolioListCount(BaseSearch<Portfolio> baseSearch);
+	int getPortfolioListCount(PortfolioSearch search);
 
 	/**
 	 * @param portfolio
@@ -57,15 +58,15 @@ public interface PortfolioService {
 
 	/**
 	 * 최근작업 리스트를 가져온다.
-	 * @param baseSearch
+	 * @param search
 	 * @return
 	 */
-	List<Recently> getRecentlyList(BaseSearch<Recently> baseSearch);
+	List<Recently> getRecentlyList(RecentlySearch search);
 
 	/**
 	 * @return
 	 */
-	int getRecentlyListCount(BaseSearch<Recently> baseSearch);
+	int getRecentlyListCount(RecentlySearch search);
 
 	/**
 	 * @param recentlyNo

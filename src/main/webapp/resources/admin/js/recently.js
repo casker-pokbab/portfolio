@@ -5,6 +5,10 @@ $(document).ready(function() {
 		alert("PC에서 접속해주세요.")
 	}
 	
+	$("#btn_search").on("click", function() {
+		getRecentlyList();
+	});
+	
 	getRecentlyList();
 })
 
@@ -27,7 +31,7 @@ function getRecentlyList(pageNum, pageSize) {
 		  url : "/admin/recently"
 		, type : "html"
 		, method : "GET"
-		, data : "pageNum=" + pageNum + "&pageSize=" + pageSize
+		, data : "pageNum=" + pageNum + "&pageSize=" + pageSize + "&" + $("#form").serialize()
 		, success : function(data) {
 			$(".list_area").empty().append(data);
 		}

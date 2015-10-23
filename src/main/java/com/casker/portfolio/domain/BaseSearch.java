@@ -14,12 +14,11 @@ import lombok.Data;
  * @author Kanghoon Choi
  */
 @Data
-public class BaseSearch<T> {
+public class BaseSearch {
 	private int pageNum = 1;
 	private int pageSize;
 	private int skipRows;
 	private boolean all = false;
-	private T domain;
 	
 	//정렬
 	private String orderFieldName;

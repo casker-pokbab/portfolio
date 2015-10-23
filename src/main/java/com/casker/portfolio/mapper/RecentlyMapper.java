@@ -9,8 +9,8 @@ package com.casker.portfolio.mapper;
 
 import java.util.List;
 
-import com.casker.portfolio.domain.BaseSearch;
 import com.casker.portfolio.domain.Recently;
+import com.casker.portfolio.domain.RecentlySearch;
 
 
 /**
@@ -19,15 +19,15 @@ import com.casker.portfolio.domain.Recently;
 public interface RecentlyMapper {
 
 	/**
-	 * @param baseSearch 
+	 * @param search 
 	 * @return
 	 */
-	List<Recently> selectRecentlyList(BaseSearch<Recently> baseSearch);
+	List<Recently> selectRecentlyList(RecentlySearch search);
 
 	/**
 	 * @return
 	 */
-	int selectRecentlyListCount(BaseSearch<Recently> baseSearch);
+	int selectRecentlyListCount(RecentlySearch search);
 
 	/**
 	 * @param recentlyNo
