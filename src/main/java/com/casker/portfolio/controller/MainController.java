@@ -10,14 +10,17 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.casker.portfolio.common.Page;
 import com.casker.portfolio.common.PageUtil;
+import com.casker.portfolio.domain.Contact;
 import com.casker.portfolio.domain.Portfolio;
 import com.casker.portfolio.domain.PortfolioSearch;
 import com.casker.portfolio.domain.Recently;
 import com.casker.portfolio.domain.RecentlySearch;
 import com.casker.portfolio.service.PortfolioService;
+import com.casker.portfolio.service.Publisher;
 
 @Controller
 public class MainController {
@@ -25,6 +28,9 @@ public class MainController {
 	
 	@Autowired
 	private PortfolioService portfolioService;
+	
+	@Autowired
+	private Publisher emailPublisherService;
 	
 	/**
 	 * 인트로 페이지
@@ -94,5 +100,16 @@ public class MainController {
 		model.addAttribute("portfolio", portfolio);
 		
 		return VIEW_PREFIX + "sub/project01";
+	}
+	
+	@ResponseBody
+	@RequestMapping(value = "/main/mail/send", method = RequestMethod.POST)
+	public String sendEmail(Contact contact) {
+		
+		if (emailPublisherService.publish(contact)) {
+			return "success";
+		} else {
+			return "fail";
+		}
 	}
 }

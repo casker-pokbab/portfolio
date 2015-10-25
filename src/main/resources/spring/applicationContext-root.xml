@@ -12,7 +12,6 @@
 		<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller" />
 	</context:component-scan>
 
-	<util:properties id="jdbc" location="classpath:/properties/jdbc.properties" />
 	<util:properties id="common" location="classpath:/common.xml"/>
 	
 	<!-- 다국어 지원 -->
@@ -26,4 +25,5 @@
 	</bean>
 	
 	<import resource="classpath:/spring/applicationContext-dao-config.xml"/>
+	<import resource="classpath:/spring/applicationContext-mail-config.xml"/>
 </beans>

@@ -108,5 +108,18 @@ function sendEmail() {
 		}
 	});
 	
-	
+	var contactForm = $("#contact_form");
+	$.ajax({
+		  url : "/main/mail/send"
+		, type : "html"
+		, method : "POST"
+		, data : contactForm.serialize()
+		, success : function(data) {
+			if (data == "success") {
+				alert("메일이 발송되었습니다.");
+			} else {
+				alert("메일 발송이 실패했습니다.");
+			}
+		}
+	});
 }
