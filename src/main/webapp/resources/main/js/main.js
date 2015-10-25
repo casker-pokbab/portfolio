@@ -22,6 +22,15 @@ $(document).ready(function() {
 		}
 	});
 	
+	$(".go_admin").on("click", function() {
+		if (!isPcResolution()) {
+			alert("PC에서 로그인해주세요.");
+			return;
+		}
+		window.open("/admin/loginForm");
+	});
+	
+	
 	getRecentlyList();
 });
 
@@ -122,4 +131,8 @@ function sendEmail() {
 			}
 		}
 	});
+}
+
+function isPcResolution() {
+	return $(window).width() > 1024
 }

@@ -1,20 +1,12 @@
 var defaultPageSize = 10;
 
 $(document).ready(function() {
-	if (!isPcResolution()) {
-		alert("PC에서 접속해주세요.")
-	}
-	
 	$("#btn_search").on("click", function() {
 		getRecentlyList();
 	});
 	
 	getRecentlyList();
 })
-
-function isPcResolution() {
-	return $(window).width() > 1024
-}
 
 /**
  * 최근작업 리스트를 가져온다.
