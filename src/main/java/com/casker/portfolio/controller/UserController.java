@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.casker.portfolio.domain.User;
+import com.casker.portfolio.exception.UserNotFoundException;
 import com.casker.portfolio.service.UserService;
 
 
@@ -54,9 +55,26 @@ public class UserController {
 			throw new UserNotFoundException(); 
 		}
 		
+		session.setMaxInactiveInterval(60 * 60 * 1);
 		session.setAttribute("user", user);
 		
 		return "redirect:/admin/manegement/portfolio";
+	}
+	
+	/**
+	 * 로그아웃
+	 * 
+	 * @param session
+	 * @param user
+	 * @return
+	 */
+	@ResponseBody
+	@RequestMapping(value = "/logout", method = RequestMethod.POST)
+	public String logout(HttpSession session, User user) {
+		
+		session.removeAttribute("user");
+		
+		return "success";
 	}
 	
 	/**
@@ -66,10 +84,6 @@ public class UserController {
 	 */
 	@RequestMapping(value = "/password/editForm", method = RequestMethod.GET)
 	public String passwordEditForm(Model model, HttpSession session) {
-		
-		User user = new User();
-		user.setId("pokbab");
-		session.setAttribute("user", user);
 		
 		return VIEW_PREFIX + "sub/sub_password";
 	}

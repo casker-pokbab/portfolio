@@ -41,4 +41,17 @@ $(document).ready(function(){
 		selectOtherMonths: true,
 		buttonImageOnly: true
 	});
+	
+	$(".btn_logout").on("click", logout);
 });
+
+function logout() {
+	$.ajax({
+		  url : "/admin/logout"
+		, type : "html"
+		, method : "POST"
+		, success : function(data) {
+			location.replace("/admin/loginForm");
+		}
+	});
+}

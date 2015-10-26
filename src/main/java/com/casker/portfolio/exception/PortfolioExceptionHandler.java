@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.casker.portfolio.controller.UserNotFoundException;
 import com.casker.portfolio.util.ScriptUtil;
 
 
