@@ -136,6 +136,27 @@ public class PortfolioServiceImpl implements PortfolioService {
 	}
 	
 	@Override
+	public void adjustPortfolioSort(int sort, SortType sortType) {
+		int totalCount = portfolioMapper.selectPortfolioListCount(new PortfolioSearch());
+		
+		if (SortType.HIGH == sortType && sort < totalCount) {
+			updatePortfolioSort(sort, 0);
+			updatePortfolioSort(sort + 1, sort);
+			updatePortfolioSort(0, sort + 1);
+		} else if (SortType.LOW == sortType && sort > 1) {
+			updatePortfolioSort(sort, 0);
+			updatePortfolioSort(sort - 1, sort);
+			updatePortfolioSort(0, sort - 1);
+		}
+	}
+	
+	private void updatePortfolioSort(int oldSort, int newSort) {
+		sortParameter.put("oldSort", oldSort);
+		sortParameter.put("newSort", newSort);
+		portfolioMapper.updatePortfolioSort(sortParameter);
+	}
+	
+	@Override
 	public int getRecentlyListCount(RecentlySearch search) {
 		return recentlyMapper.selectRecentlyListCount(search);
 	}
@@ -168,7 +189,7 @@ public class PortfolioServiceImpl implements PortfolioService {
 	}
 
 	@Override
-	public void adjustSort(int sort, SortType sortType) {
+	public void adjustRecentlySort(int sort, SortType sortType) {
 		int totalCount = recentlyMapper.selectRecentlyListCount(new RecentlySearch());
 		
 		if (SortType.HIGH == sortType && sort < totalCount) {

@@ -26,6 +26,7 @@ import com.casker.portfolio.common.PageUtil;
 import com.casker.portfolio.domain.Portfolio;
 import com.casker.portfolio.domain.PortfolioSearch;
 import com.casker.portfolio.service.PortfolioService;
+import com.casker.portfolio.type.SortType;
 import com.casker.portfolio.util.ScriptUtil;
 
 
@@ -157,5 +158,19 @@ public class PortfolioAdminController {
 		model.addAttribute("count", count);
 		
 		return VIEW_PREFIX + "sub/portfolio_sub_image :: subImage";
+	}
+	
+	/**
+	 * 순서 조절
+	 * 
+	 * @return
+	 */
+	@ResponseBody
+	@RequestMapping(value = "/portfolio/sort/adjust", method = RequestMethod.POST)
+	public String adjustSort(Model model, int sort, SortType sortType) {
+		
+		portfolioService.adjustPortfolioSort(sort, sortType);
+		
+		return "success";
 	}
 }

@@ -8,6 +8,7 @@
 package com.casker.portfolio.mapper;
 
 import java.util.List;
+import java.util.Map;
 
 import com.casker.portfolio.domain.Portfolio;
 import com.casker.portfolio.domain.PortfolioSearch;
@@ -50,4 +51,9 @@ public interface PortfolioMapper {
 	 * @param portfolio
 	 */
 	void deletePortfolio(Portfolio portfolio);
+
+	/**
+	 * @param sortParameter
+	 */
+	void updatePortfolioSort(Map<String, Integer> sortParameter);
 }

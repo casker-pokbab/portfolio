@@ -49,9 +49,9 @@
 		    	<td>비공개</td>
 		    	<td th:text="${#calendars.format(portfolio.workDate,'yyyy. MM. dd')}">등록일</td>
 		    	<td th:text="${portfolio.displayYN}">노출여부</td>
-		    	<td>
-		    		<a href="!#" onclick="return false;" class="arr_rang" id="high">▲</a>
-		    		<a href="!#" onclick="return false;" class="arr_rang" id="low">▼</a>
+		    	<td th:attr="sort=${portfolio.sort}">
+		    		<a href="!#" onclick="return false;" class="high arr_rang">▲</a>
+		    		<a href="!#" onclick="return false;" class="low arr_rang">▼</a>
 		    	</td>						    	
 		    </tr>
 		</tbody>

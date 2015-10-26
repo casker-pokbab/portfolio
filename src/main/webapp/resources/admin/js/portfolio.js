@@ -26,6 +26,8 @@ function getPortfolioList(pageNum, pageSize) {
 		, data : "pageNum=" + pageNum + "&pageSize=" + pageSize + "&" + $("#form").serialize()
 		, success : function(data) {
 			$(".list_area").empty().append(data);
+			adjustSort("high");
+			adjustSort("low");
 		}
 	});
 }
@@ -65,6 +67,20 @@ function removePortfolio() {
 			, success : function(data) {
 				alert("선택한 프로젝트를 삭제했습니다.");
 				getPortfolioList();
+			}
+		});
+	});
+}
+
+function adjustSort(sortType) {
+	$(".list_area ." + sortType).on("click", function() {
+		$.ajax({
+			  url : "/admin/portfolio/sort/adjust"
+			, type : "html"
+			, method : "POST"
+			, data : "sort=" + $(this).parent().attr("sort") + "&sortType=" + sortType.toUpperCase()
+			, success : function(data) {
+				goPage($(".board_num_list .num.on").text());
 			}
 		});
 	});

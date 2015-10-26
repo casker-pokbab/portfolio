@@ -34,6 +34,7 @@
 			, work_date
 			, thumbnail
 			, display_yn
+			, sort
 		FROM  portfolio
 		<where> 1 = 1
 			<if test="@org.apache.commons.lang3.StringUtils@isNotBlank(displayYN)">
@@ -75,6 +76,7 @@
 			, view_name
 			, work_date
 			, display_yn
+			, sort
 		FROM  portfolio
 		WHERE
 			portfolio_no = #{portfolioNo}
@@ -153,4 +155,13 @@
 		DELETE FROM portfolio
 		WHERE portfolio_no = #{portfolioNo}
 	</delete>
+	
+	<update id="updatePortfolioSort" parameterType="map">
+		/* PortfolioMapper.updatePortfolioSort */
+		UPDATE portfolio
+		SET
+			sort = #{newSort}
+		WHERE
+			sort = #{oldSort}
+	</update>
 </mapper>

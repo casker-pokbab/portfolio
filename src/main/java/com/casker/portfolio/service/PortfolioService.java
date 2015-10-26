@@ -56,6 +56,12 @@ public interface PortfolioService {
 	 * @param portfolio
 	 */
 	void removePortfolio(Portfolio portfolio);
+	
+	/**
+	 * @param sort
+	 * @param sortType
+	 */
+	void adjustPortfolioSort(int sort, SortType sortType);
 
 	/**
 	 * 최근작업 리스트를 가져온다.
@@ -101,7 +107,5 @@ public interface PortfolioService {
 	 * @param sort
 	 * @param sortType
 	 */
-	void adjustSort(int sort, SortType sortType);
-	
-
+	void adjustRecentlySort(int sort, SortType sortType);
 }

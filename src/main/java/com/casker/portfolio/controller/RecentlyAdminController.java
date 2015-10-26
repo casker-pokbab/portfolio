@@ -154,7 +154,7 @@ public class RecentlyAdminController {
 	@RequestMapping(value = "/recently/sort/adjust", method = RequestMethod.POST)
 	public String adjustSort(Model model, int sort, SortType sortType) {
 		
-		portfolioService.adjustSort(sort, sortType);
+		portfolioService.adjustRecentlySort(sort, sortType);
 		
 		return "success";
 	}
