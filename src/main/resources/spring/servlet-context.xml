@@ -37,24 +37,14 @@
 	</context:component-scan>
 
 	<!-- config interceptor -->
-	<!-- <interceptors>
-		<interceptor>
-			<mapping path="/**" />
-
-			locale change interceptor
-			<bean class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor">
-				<property name="paramName" value="locale" />
-				<property name="paramName" value="lang" />
-			</bean>
-		</interceptor>
-        <interceptor>
-            <mapping path="/**" />
-            <exclude-mapping path="/login" />
-            <exclude-mapping path="/signin" />
-
+	<mvc:interceptors>
+		<mvc:interceptor>
+			<mvc:mapping path="/admin/**"/>
+			<mvc:exclude-mapping path="/admin/loginForm"/>
+			<mvc:exclude-mapping path="/admin/login"/>
             <bean class="com.casker.portfolio.controller.LoginCheckInterceptor" />
-        </interceptor>
-	</interceptors> -->
+		</mvc:interceptor>
+	</mvc:interceptors>
 
 	<!-- thymeleaf -->
 	<bean class="org.thymeleaf.spring4.view.ThymeleafViewResolver">
