@@ -10,7 +10,9 @@ package com.casker.portfolio.service;
 import java.io.File;
 import java.io.IOException;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.time.DateFormatUtils;
@@ -26,6 +28,7 @@ import com.casker.portfolio.domain.RecentlySearch;
 import com.casker.portfolio.mapper.PortfolioMapper;
 import com.casker.portfolio.mapper.RecentlyMapper;
 import com.casker.portfolio.type.ImageType;
+import com.casker.portfolio.type.SortType;
 
 
 /**
@@ -33,6 +36,7 @@ import com.casker.portfolio.type.ImageType;
  */
 @Service
 public class PortfolioServiceImpl implements PortfolioService {
+	private final Map<String, Integer> sortParameter = new HashMap<String, Integer>();
 
 	@Value("#{common['file.path']}")
 	private String filePath;
@@ -161,5 +165,26 @@ public class PortfolioServiceImpl implements PortfolioService {
 	@Override
 	public void removeRecently(Recently recently) {
 		recentlyMapper.deleteRecently(recently);
+	}
+
+	@Override
+	public void adjustSort(int sort, SortType sortType) {
+		int totalCount = recentlyMapper.selectRecentlyListCount(new RecentlySearch());
+		
+		if (SortType.HIGH == sortType && sort < totalCount) {
+			updateRecentlySort(sort, 0);
+			updateRecentlySort(sort + 1, sort);
+			updateRecentlySort(0, sort + 1);
+		} else if (SortType.LOW == sortType && sort > 1) {
+			updateRecentlySort(sort, 0);
+			updateRecentlySort(sort - 1, sort);
+			updateRecentlySort(0, sort - 1);
+		}
+	}
+	
+	private void updateRecentlySort(int oldSort, int newSort) {
+		sortParameter.put("oldSort", oldSort);
+		sortParameter.put("newSort", newSort);
+		recentlyMapper.updateRecentlySort(sortParameter);
 	}
 }

@@ -14,6 +14,7 @@ import com.casker.portfolio.domain.Portfolio;
 import com.casker.portfolio.domain.PortfolioSearch;
 import com.casker.portfolio.domain.Recently;
 import com.casker.portfolio.domain.RecentlySearch;
+import com.casker.portfolio.type.SortType;
 
 
 /**
@@ -95,6 +96,12 @@ public interface PortfolioService {
 	 * @return
 	 */
 	File getImageFile(Portfolio portfolio, String imageType);
+
+	/**
+	 * @param sort
+	 * @param sortType
+	 */
+	void adjustSort(int sort, SortType sortType);
 	
 
 }

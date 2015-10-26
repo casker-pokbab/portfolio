@@ -53,9 +53,9 @@
 		    	</td>
 		    	<td th:text="${#calendars.format(recently.createDate,'yyyy. MM. dd')}">등록일</td>
 		    	<td th:text="${recently.displayYN}">노출여부</td>
-		    	<td>
-		    		<a href="!#" onclick="return false;" class="arr_rang" id="high">▲</a>
-		    		<a href="!#" onclick="return false;" class="arr_rang" id="low">▼</a>
+		    	<td th:attr="sort=${recently.sort}">
+		    		<a href="!#" onclick="return false;" class="high arr_rang">▲</a>
+		    		<a href="!#" onclick="return false;" class="low arr_rang">▼</a>
 		    	</td>						    	
 		    </tr>
 		</tbody>

@@ -8,6 +8,7 @@
 package com.casker.portfolio.mapper;
 
 import java.util.List;
+import java.util.Map;
 
 import com.casker.portfolio.domain.Recently;
 import com.casker.portfolio.domain.RecentlySearch;
@@ -50,5 +51,8 @@ public interface RecentlyMapper {
 	 */
 	void deleteRecently(Recently recently);
 
-
+	/**
+	 * @param sortParameter
+	 */
+	void updateRecentlySort(Map<String, Integer> sortParameter);
 }

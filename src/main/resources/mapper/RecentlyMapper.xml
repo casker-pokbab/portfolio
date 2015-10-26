@@ -40,6 +40,7 @@
 			, create_date
 			, url
 			, display_yn
+			, sort
 		FROM  recently
 		<where> 1 = 1
 			<if test="@org.apache.commons.lang3.StringUtils@isNotBlank(displayYN)">
@@ -79,6 +80,7 @@
 			, DATE_FORMAT(start_date, '%x-%m-%d')	AS startDate
 			, DATE_FORMAT(end_date, '%x-%m-%d')		AS endDate
 			, display_yn
+			, sort
 		FROM  recently
 		WHERE
 			recently_no = #{recentlyNo}
@@ -128,4 +130,13 @@
 		DELETE FROM recently
 		WHERE recently_no = #{recentlyNo}
 	</delete>
+	
+	<update id="updateRecentlySort" parameterType="map">
+		/* RecentlyMapper.updateRecentlySort */
+		UPDATE recently
+		SET
+			sort = #{newSort}
+		WHERE
+			sort = #{oldSort}
+	</update>
 </mapper>

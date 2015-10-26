@@ -26,6 +26,8 @@ function getRecentlyList(pageNum, pageSize) {
 		, data : "pageNum=" + pageNum + "&pageSize=" + pageSize + "&" + $("#form").serialize()
 		, success : function(data) {
 			$(".list_area").empty().append(data);
+			adjustSort("high");
+			adjustSort("low");
 		}
 	});
 }
@@ -65,6 +67,20 @@ function removeRecently() {
 			, success : function(data) {
 				alert("선택한 최근작업을 삭제했습니다.");
 				getRecentlyList();
+			}
+		});
+	});
+}
+
+function adjustSort(sortType) {
+	$(".list_area ." + sortType).on("click", function() {
+		$.ajax({
+			  url : "/admin/recently/sort/adjust"
+			, type : "html"
+			, method : "POST"
+			, data : "sort=" + $(this).parent().attr("sort") + "&sortType=" + sortType.toUpperCase()
+			, success : function(data) {
+				goPage($(".board_num_list .num.on").text());
 			}
 		});
 	});

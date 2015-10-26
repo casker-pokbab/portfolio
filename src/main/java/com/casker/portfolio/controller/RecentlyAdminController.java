@@ -26,6 +26,7 @@ import com.casker.portfolio.common.PageUtil;
 import com.casker.portfolio.domain.Recently;
 import com.casker.portfolio.domain.RecentlySearch;
 import com.casker.portfolio.service.PortfolioService;
+import com.casker.portfolio.type.SortType;
 import com.casker.portfolio.util.ScriptUtil;
 
 
@@ -140,6 +141,20 @@ public class RecentlyAdminController {
 	public String removeRecently(Model model, Recently recently) {
 		
 		portfolioService.removeRecently(recently);
+		
+		return "success";
+	}
+	
+	/**
+	 * 순서 조절
+	 * 
+	 * @return
+	 */
+	@ResponseBody
+	@RequestMapping(value = "/recently/sort/adjust", method = RequestMethod.POST)
+	public String adjustSort(Model model, int sort, SortType sortType) {
+		
+		portfolioService.adjustSort(sort, sortType);
 		
 		return "success";
 	}
