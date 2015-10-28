@@ -30,7 +30,6 @@
 			  portfolio_no
 			, portfolio_name
 			, url
-			, view_name
 			, work_date
 			, thumbnail
 			, display_yn
@@ -73,7 +72,6 @@
 			, sub_image1		AS subImageName1
 			, sub_image2		AS subImageName2
 			, sub_image3		AS subImageName3
-			, view_name
 			, work_date
 			, display_yn
 			, sort
