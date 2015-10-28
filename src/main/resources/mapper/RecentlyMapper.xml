@@ -13,7 +13,7 @@
 			AND	display_yn = #{displayYN}
 			</if>
 			<if test="@org.apache.commons.lang3.StringUtils@isNotBlank(recentlyName)">
-			AND recently_name = #{recentlyName}
+			AND recently_name LIKE CONCAT('%', #{recentlyName}, '%')
 			</if>
 			<if test="@org.apache.commons.lang3.StringUtils@isNotBlank(startDate)">
 			AND start_date &gt; CAST(#{startDate} AS DATETIME)
@@ -22,7 +22,7 @@
 			AND end_date &lt; CAST(#{endDate} AS DATETIME)
 			</if>
 			<if test="@org.apache.commons.lang3.StringUtils@isNotBlank(companyName)">
-			AND company_name = #{companyName}
+			AND company_name LIKE CONCAT('%', #{companyName}, '%')
 			</if>
 			<if test="@org.apache.commons.lang3.StringUtils@isNotBlank(participationPart)">
 			AND participation_part = #{participationPart}
@@ -47,7 +47,7 @@
 			AND	display_yn = #{displayYN}
 			</if>
 			<if test="@org.apache.commons.lang3.StringUtils@isNotBlank(recentlyName)">
-			AND recently_name = #{recentlyName}
+			AND recently_name LIKE CONCAT('%', #{recentlyName}, '%')
 			</if>
 			<if test="@org.apache.commons.lang3.StringUtils@isNotBlank(startDate)">
 			AND start_date &gt; CAST(#{startDate} AS DATETIME)
@@ -56,7 +56,7 @@
 			AND end_date &lt; CAST(#{endDate} AS DATETIME)
 			</if>
 			<if test="@org.apache.commons.lang3.StringUtils@isNotBlank(companyName)">
-			AND company_name = #{companyName}
+			AND company_name LIKE CONCAT('%', #{companyName}, '%')
 			</if>
 			<if test="@org.apache.commons.lang3.StringUtils@isNotBlank(participationPart)">
 			AND participation_part = #{participationPart}

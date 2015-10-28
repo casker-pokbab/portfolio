@@ -13,7 +13,7 @@
 			AND	display_yn = #{displayYN}
 			</if>
 			<if test="@org.apache.commons.lang3.StringUtils@isNotBlank(portfolioName)">
-			AND portfolio_name = #{portfolioName}
+			AND portfolio_name LIKE CONCAT('%', #{portfolioName}, '%')
 			</if>
 			<if test="@org.apache.commons.lang3.StringUtils@isNotBlank(startDate)">
 			AND start_date &gt; CAST(#{startDate} AS DATETIME)
@@ -41,7 +41,7 @@
 			AND	display_yn = #{displayYN}
 			</if>
 			<if test="@org.apache.commons.lang3.StringUtils@isNotBlank(portfolioName)">
-			AND portfolio_name = #{portfolioName}
+			AND portfolio_name LIKE CONCAT('%', #{portfolioName}, '%')
 			</if>
 			<if test="@org.apache.commons.lang3.StringUtils@isNotBlank(startDate)">
 			AND start_date &gt; CAST(#{startDate} AS DATETIME)
