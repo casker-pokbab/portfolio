@@ -88,41 +88,20 @@
 		SET 
 			  portfolio_no = #{portfolioNo}
 			, portfolio_name = #{portfolioName}
-			, start_date = CAST(#{startDate} AS DATETIME)
-			, end_date = CAST(#{endDate} AS DATETIME)
-			, thumbnail = #{thumbnail}
 			, url = #{url}
-			, main_image = #{mainImageName}
-			, title = #{title}
-			, description = #{description}
-			, info = #{info}
-			, participant = #{participant}
-			, sub_image1 = #{subImageName1}
-			, sub_image2 = #{subImageName2}
-			, sub_image3 = #{subImageName3}
-			, view_name = #{viewName}
 			, work_date = NOW()
 			, display_yn = #{displayYN}
 			, sort = #{sort}
-	</insert>
-	
-	<update id="updatePortfolio" parameterType="portfolio">
-		/* PortfolioMapper.updatePortfolio */
-		UPDATE portfolio
-		SET
-			  portfolio_name = #{portfolioName}
-			, url = #{url}
-			, display_yn = #{displayYN}
 		<if test="@org.apache.commons.lang3.StringUtils@isNotBlank(startDate)">
 			, start_date = CAST(#{startDate} AS DATETIME)
 		</if>
 		<if test="@org.apache.commons.lang3.StringUtils@isNotBlank(endDate)">
 			, end_date = CAST(#{endDate} AS DATETIME)
 		</if>
-		<if test="not thumbnailImage.isEmpty()">
+		<if test="thumbnailImage != null">
 			, thumbnail = #{thumbnail}
 		</if>
-		<if test="not mainImage.isEmpty()">
+		<if test="mainImage != null">
 			, main_image = #{mainImageName}
 		</if>
 		<if test="@org.apache.commons.lang3.StringUtils@isNotBlank(title)">
@@ -137,13 +116,56 @@
 		<if test="@org.apache.commons.lang3.StringUtils@isNotBlank(participant)">
 			, participant = #{participant}
 		</if>
-		<if test="not subImage1.isEmpty()">
+		<if test="subImage1 != null">
 			, sub_image1 = #{subImageName1}
 		</if>
-		<if test="not subImage2.isEmpty()">
+		<if test="subImage2 != null">
 			, sub_image2 = #{subImageName2}
 		</if>
-		<if test="not subImage3.isEmpty()">
+		<if test="subImage3 != null">
+			, sub_image3 = #{subImageName3}
+		</if>
+	</insert>
+	
+	<update id="updatePortfolio" parameterType="portfolio">
+		/* PortfolioMapper.updatePortfolio */
+		UPDATE portfolio
+		SET
+			  portfolio_name = #{portfolioName}
+			, url = #{url}
+			, work_date = NOW()
+			, display_yn = #{displayYN}
+		<if test="@org.apache.commons.lang3.StringUtils@isNotBlank(startDate)">
+			, start_date = CAST(#{startDate} AS DATETIME)
+		</if>
+		<if test="@org.apache.commons.lang3.StringUtils@isNotBlank(endDate)">
+			, end_date = CAST(#{endDate} AS DATETIME)
+		</if>
+		<if test="thumbnailImage != null">
+			, thumbnail = #{thumbnail}
+		</if>
+		<if test="mainImage != null">
+			, main_image = #{mainImageName}
+		</if>
+		<if test="@org.apache.commons.lang3.StringUtils@isNotBlank(title)">
+			, title = #{title}
+		</if>
+		<if test="@org.apache.commons.lang3.StringUtils@isNotBlank(description)">
+			, description = #{description}
+		</if>
+		<if test="@org.apache.commons.lang3.StringUtils@isNotBlank(info)">
+			, info = #{info}
+		</if>
+		<if test="@org.apache.commons.lang3.StringUtils@isNotBlank(participant)">
+			, participant = #{participant}
+		</if>
+		<if test="subImage1 != null">
+			, sub_image1 = #{subImageName1}
+		</if>
+		<if test="subImage2 != null">
+			, sub_image2 = #{subImageName2}
+		</if>
+		<if test="subImage3 != null">
 			, sub_image3 = #{subImageName3}
 		</if>
 		WHERE
@@ -160,7 +182,8 @@
 		/* PortfolioMapper.updatePortfolioSort */
 		UPDATE portfolio
 		SET
-			sort = #{newSort}
+			  sort = #{newSort}
+			, work_date = NOW()
 		WHERE
 			sort = #{oldSort}
 	</update>

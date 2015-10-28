@@ -38,7 +38,6 @@ public class Portfolio {
 	private MultipartFile subImage2;
 	private String subImageName3;
 	private MultipartFile subImage3;
-	private String viewName;
 	private Date workDate;
 	private String displayYN;
 	private int sort;
