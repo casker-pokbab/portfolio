@@ -27,3 +27,9 @@ hs_err_pid*
 /target/
 
 *.bak
+.DS_Store
+src/.DS_Store
+src/main/.DS_Store
+src/main/webapp/.DS_Store
+src/main/webapp/resources/.DS_Store
+src/main/webapp/resources/main/.DS_Store
