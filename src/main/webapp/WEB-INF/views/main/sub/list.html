@@ -40,7 +40,7 @@
 
 	    	<tbody th:unless="${#lists.isEmpty(recentlyList)}">
 			    <tr th:each="recently : ${recentlyList}">
-			    	<td class="num" th:text="${recently.recentlyNo}">No</td>
+			    	<td class="num" th:text="${recently.sort}">No</td>
 			    	<td class="subject"><a th:href="${#strings.isEmpty(recently.url)} ? '#//' : @{${recently.url}}" th:target="${#strings.isEmpty(recently.url)} ? '' : '_blank'"  th:text="${recently.recentlyName}">프로젝트명</a></td>
 			    	<td class="major">
 			    		<div th:if="${#strings.contains(recently.participationPart,'DESIGN')}" th:remove="tag">

@@ -43,7 +43,7 @@
     	<tbody th:unless="${#lists.isEmpty(recentlyList)}">
 		    <tr class="bg1" th:each="recently : ${recentlyList}">
 		    	<td><input type="checkbox" th:attr="no=${recently.recentlyNo}"/></td>
-		    	<td class="num" th:text="${recently.recentlyNo}">No</td>
+		    	<td class="num" th:text="${recently.sort}">No</td>
 		    	<td class="subject"><a th:href="@{'/admin/manegement/recently/editForm/' + ${recently.recentlyNo}}" th:text="${recently.recentlyName}">프로젝트명</a></td>
 		    	<td th:text="${recently.companyName}">회사명</td>
 		    	<td>
