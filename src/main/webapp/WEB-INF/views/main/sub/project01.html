@@ -24,7 +24,7 @@
 
 						<div class="area_left left">
 							<p class="title_project" th:text="${portfolio.portfolioName}">프로젝트명</p>
-							<p class="explain_project" th:text="${portfolio.description}">
+							<p class="explain_project" th:utext="${portfolio.description}">
 								프로젝트 설명
 							</p>
 						</div>
@@ -37,13 +37,13 @@
 					</div><!-- //fl_01 -->
 
 					<div class="fl_02">
-						<p class="info_text01" th:text="${portfolio.info}">
+						<p class="info_text01" th:utext="${portfolio.info}">
 							프로젝트 정보
 						</p>
 
 						<span class="line423"></span>
 
-						<p class="info_text02" th:text="${portfolio.participant}">
+						<p class="info_text02" th:utext="${portfolio.participant}">
 							참여자 정보
 						</p>						
 					</div><!-- //fl_02 -->					

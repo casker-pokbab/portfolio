@@ -9,6 +9,7 @@ package com.casker.portfolio.domain;
 
 import java.util.Date;
 
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.web.multipart.MultipartFile;
 
 import lombok.Data;
@@ -41,6 +42,18 @@ public class Portfolio {
 	private Date workDate;
 	private String displayYN;
 	private int sort;
+	
+	public void setDescription(String description) {
+		this.description = StringUtils.replace(description, "\r\n", "<br/>");
+	}
+	
+	public void setInfo(String info) {
+		this.info = StringUtils.replace(info, "\r\n", "<br/>");
+	}
+	
+	public void setParticipant(String participant) {
+		this.participant = StringUtils.replace(participant, "\r\n", "<br/>");
+	}
 	
 	public void setThumbnailImage(MultipartFile thumbnailImage) {
 		this.thumbnailImage = thumbnailImage;
