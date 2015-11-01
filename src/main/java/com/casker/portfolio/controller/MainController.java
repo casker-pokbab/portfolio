@@ -112,4 +112,14 @@ public class MainController {
 			return "fail";
 		}
 	}
+	
+	/**
+	 * 개인정보정책
+	 * 
+	 * @return
+	 */
+	@RequestMapping(value = "/main/policy", method = RequestMethod.GET)
+	public String getPolicyPage() {
+		return VIEW_PREFIX + "sub/policy";
+	}
 }

@@ -1,5 +1,10 @@
-<? include('../inc/head_inc.php');?>
-
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+	<object th:include="main/inc/head_inc :: head" th:remove="tag"></object>
+</head>
+<body>
 	<div id="wrap">
 		<header id="sub_header" class="clearfix">
 			<p class="title_project left"><span class="logo_project"></span>개인정보보호정책</p>
@@ -52,13 +57,14 @@
 					<p class="pol_des">해당 사이트는 이용자께 다른 회사의 웹사이트 또는 자료에 대한 링크를 제공할 수 있습니다. 이 경우 외부사이트 및 자료에 대한 아무런 통제권이 없으므로 그로부터 제공받는 서비스나 자료의 유용성에 대해 책임질 수 없으며 보증할 수 없습니다. 링크를 클릭하여 타 사이트의 페이지로 옮겨갈 경우 해당 사이트의 개인정보취급방침은 회사와 무관하므로 새로 방문한 사이트의 정책을 검토해 보시기 바랍니다.</p>				
 				</div>
 
-			<p class="project_end"><a class="go_top" href="">Back up</a></p>
+				<p class="project_end"><a class="go_top" href="">Back up</a></p>
 
-		</div><!-- //container End -->
+			</div><!-- //container End -->
 
-		<footer id="sub_footer">
-			<p class="sub_copy">Copyright Casker All Rights Reserved.</p>			
-		</footer><!--footer_end-->
-	</div><!--wrap_end-->
+			<footer id="sub_footer">
+				<p class="sub_copy">Copyright Casker All Rights Reserved.</p>			
+			</footer><!--footer_end-->
+		</div><!--wrap_end-->
+	</div>
 </body>
 </html>
