@@ -76,7 +76,7 @@ public class PortfolioServiceImpl implements PortfolioService {
 	}
 	
 	private long makeNo() {
-		return Long.parseLong(DateFormatUtils.format(new Date(), "yyMMddhhmm"));
+		return Long.parseLong(DateFormatUtils.format(new Date(), "yyMMddhhmmss"));
 	}
 	
 	/**

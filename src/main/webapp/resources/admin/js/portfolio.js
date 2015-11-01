@@ -28,6 +28,9 @@ function getPortfolioList(pageNum, pageSize) {
 			$(".list_area").empty().append(data);
 			adjustSort("high");
 			adjustSort("low");
+			$(".board_num_list .page").on("click", function() {
+				goPage($(this).attr("page"));
+			});
 		}
 	});
 }
@@ -38,10 +41,10 @@ function getPortfolioList(pageNum, pageSize) {
  * @param pageNum
  */
 function goPage(pageNum) {
-	if (pageNum == 0) {
+	if (pageNum < 1) {
 		alert("첫페이지 입니다.");
 		return;
-	} else if (pageNum == $(".board_num_list .num").size() + 1) {
+	} else if (pageNum > $(".page.next_all").attr("page")) {
 		alert("마지막페이지 입니다.");
 		return;
 	}

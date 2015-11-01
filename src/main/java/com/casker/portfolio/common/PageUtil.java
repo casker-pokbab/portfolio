@@ -36,7 +36,7 @@ public class PageUtil {
 			lastPage = lastPage - 1;
 		}
 		
-		int viewFirst = (currentPage - 5) <= 0 ? 1 : (currentPage - 5);
+		int viewFirst = (currentPage - DEFAULT_DISPLAY_ROW_NUMBER) <= 0 ? 1 : (currentPage - DEFAULT_DISPLAY_ROW_NUMBER) + 1;
 		int viewLast = viewFirst + DEFAULT_DISPLAY_ROW_NUMBER - 1;
 		
 		if (viewLast > lastPage) {

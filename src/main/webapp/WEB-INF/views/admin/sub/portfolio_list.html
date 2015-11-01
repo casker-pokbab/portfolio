@@ -74,13 +74,13 @@
 
 	<!-- 페이징 -->
 	<div class="board_num_list">
-		<a href="#//" class="prev_all" onclick="goPage(1); return false;">PREV ALL</a>
-		<a href="#//" class="prev" th:attr="onclick='goPage(' + ${page.pageNum - 1} + '); return false;'">PREV</a>
-		<div th:each="pageNo : ${#numbers.sequence(page.viewFirst, page.lastPage)}" th:remove="tag">
-			<a href="#//" class="num" th:classappend="${page.pageNum eq pageNo}? 'on' : ''" th:text="${pageNo}" th:attr="onclick='goPage(' + ${pageNo} + '); return false;'">pageNo</a>
+		<a href="#//" class="page prev_all" page="1">PREV ALL</a>
+		<a href="#//" class="page prev" th:attr="page=${page.pageNum - 1}">PREV</a>
+		<div th:each="pageNo : ${#numbers.sequence(page.viewFirst, page.viewLast)}" th:remove="tag">
+			<a href="#//" class="page num" th:classappend="${page.pageNum eq pageNo}? 'on' : ''" th:text="${pageNo}" th:attr="page=${pageNo}">pageNo</a>
 		</div>
-		<a href="#//" class="next" th:attr="onclick='goPage(' + ${page.pageNum + 1} + '); return false;'">NEXT</a>
-		<a href="#//" class="next_all" th:attr="onclick='goPage(' + ${page.lastPage} + '); return false;'">NEXT ALL</a>
+		<a href="#//" class="page next" th:attr="page=${page.pageNum + 1}">NEXT</a>
+		<a href="#//" class="page next_all" th:attr="page=${page.lastPage}">NEXT ALL</a>
 	</div><!-- //board_num_list -->
 	
 	<!-- 게시판 검색 -->	    

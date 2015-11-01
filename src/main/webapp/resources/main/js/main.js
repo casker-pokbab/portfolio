@@ -65,7 +65,7 @@ function getPortfolioList(skipRows, pageSize) {
 }
 
 /**
- * 프로젝트 리스트를 가져온다.
+ * 최근작업 리스트를 가져온다.
  * 
  * @param pageNum
  * @param pageSize
@@ -87,6 +87,9 @@ function getRecentlyList(pageNum) {
 					alert("URL 정보가 없는 프로젝트입니다.");
 				}
 			});
+			$(".board_num_list .page").on("click", function() {
+				goPage($(this).attr("page"));
+			});
 		}
 	});
 }
@@ -97,10 +100,10 @@ function getRecentlyList(pageNum) {
  * @param pageNum
  */
 function goPage(pageNum) {
-	if (pageNum == 0) {
+	if (pageNum < 1) {
 		alert("첫페이지 입니다.");
 		return;
-	} else if (pageNum == $(".board_num_list .num").size() + 1) {
+	} else if (pageNum > $(".page.next_all").attr("page")) {
 		alert("마지막페이지 입니다.");
 		return;
 	}
