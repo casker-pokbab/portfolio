@@ -128,7 +128,7 @@ function sendEmail() {
 		, data : contactForm.serialize()
 		, success : function(data) {
 			if (data == "success") {
-				alert("메일이 발송되었습니다.");
+				alert("메일을 성공적으로 전송하였습니다.\n문의사항에 신속하고 성실하게 답변해드리겠습니다.");
 			} else {
 				alert("메일 발송이 실패했습니다.");
 			}
