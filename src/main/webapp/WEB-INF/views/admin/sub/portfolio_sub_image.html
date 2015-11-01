@@ -8,6 +8,8 @@
 		<tr class="subImage" th:fragment="subImage (count)">
 		   	<th th:text="'서브 이미지 #' + ${count}">서브 이미지 #count</th>
 		   	<td>
+		   		<input class="file-name" th:value="${portfolio.subImageName${count}}" disabled="disabled"/>
+	    		<label class="btnFile" for="mainImage">파일선택</label>
 		   		<input type="file" th:name="'subImage' + ${count}"/> <span class="txt_guide">(권장사이즈 : 1500 * limitlessness)</span>
 		   		<span class="btn_file_del" th:attr="onclick='removeSubImageForm();'">삭제</span>
 		   		<span class="btn_file_del" th:attr="onclick='addSubImageForm();'">추가</span>

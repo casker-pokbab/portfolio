@@ -4,6 +4,48 @@
 <head>
 	<object th:include="admin/inc/head.inc :: head" th:remove="tag"></object>
 	<script src="/resources/admin/js/writeForm.js" type="text/javascript"></script>
+	<style type="text/css">
+input[type="file"] {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip:rect(0,0,0,0);
+  border: 0;
+}
+
+.btnFile {
+  display: inline-block;
+  padding: .5em .75em;
+  color: #999;
+  font-size: inherit;
+  line-height: normal;
+  vertical-align: middle;
+  background-color: #fdfdfd;
+  cursor: pointer;
+  border: 1px solid #ebebeb;
+  border-bottom-color: #e2e2e2;
+  border-radius: .25em;
+}
+
+.file-name {
+  display: inline-block;
+  padding: .5em .75em;  /* label의 패딩값과 일치 */
+  font-size: inherit;
+  font-family: inherit;
+  line-height: normal;
+  vertical-align: middle;
+  background-color: #f5f5f5;
+  border: 1px solid #ebebeb;
+  border-bottom-color: #e2e2e2;
+  border-radius: .25em;
+  -webkit-appearance: none; /* 네이티브 외형 감추기 */
+  -moz-appearance: none;
+  appearance: none;
+}
+	</style>
 </head>
 <body>
 	<div id="wrap">
@@ -64,7 +106,11 @@
 
 						    <tr>
 						    	<th>썸네일 이미지</th>
-						    	<td><input type="file" name="thumbnailImage" th:value="${portfolio.thumbnail}"/> <span class="txt_guide">(권장사이즈 : 640 * 640)</span></td>
+						    	<td>
+						    		<input class="file-name" th:value="${portfolio.thumbnail}" disabled="disabled"/>
+						    		<label class="btnFile" for="thumbnailImage">파일선택</label>
+						    		<input type="file" id="thumbnailImage" name="thumbnailImage"/> <span class="txt_guide">(권장사이즈 : 640 * 640)</span>
+						    	</td>
 						    </tr>
 
 						    <tr>
@@ -74,7 +120,11 @@
 
 						    <tr>
 						    	<th>대표 이미지</th>
-						    	<td><input type="file" name="mainImage" th:value="${portfolio.mainImageName}"/> <span class="txt_guide">(권장사이즈 : 1500 * 1024)</span></td>
+						    	<td>
+						    		<input class="file-name" th:value="${portfolio.mainImageName}" disabled="disabled"/>
+						    		<label class="btnFile" for="mainImage">파일선택</label>
+						    		<input type="file" id="mainImage" name="mainImage"/> <span class="txt_guide">(권장사이즈 : 1500 * 1024)</span>
+						    	</td>
 						    </tr>
 
 						    <tr>
