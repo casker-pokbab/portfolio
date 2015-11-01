@@ -3,7 +3,7 @@ var defaultPageSize = 10;
 $(document).ready(function() {
 	
 	$("#work .more_work").on("click", function() {
-		getPortfolioList($("#work .item").size(), 8);
+		getPortfolioList($("#work .item").size(), 10);
 	});
 	
 	$("#contact .more_work").on("click", function() {
