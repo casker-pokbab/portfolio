@@ -32,7 +32,7 @@
 						<div class="area_right right">
 							<!-- //웹사이트 URL 없을시 a태그에 class="no_url" 추가 -->
 							<a th:if="${!#strings.isEmpty(portfolio.url)}" class="go_website" th:href="${portfolio.url}" target="_blank">웹사이트 바로가기</a>
-							<a th:if="${#strings.isEmpty(portfolio.url)}" class="go_website no_url">웹사이트 바로가기</a>
+							<a th:if="${#strings.isEmpty(portfolio.url)}" class="go_website no_url" style="cursor : pointer;" onclick="alert('URL 정보가 없는 프로젝트입니다.');return false;">웹사이트 바로가기</a>
 						</div>
 					</div><!-- //fl_01 -->
 
