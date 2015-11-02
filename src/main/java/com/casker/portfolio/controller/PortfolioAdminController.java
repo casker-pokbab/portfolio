@@ -107,7 +107,7 @@ public class PortfolioAdminController {
 	 * @return
 	 */
 	@RequestMapping(value = "/manegement/portfolio/editForm/{portfolioNo}", method = RequestMethod.GET)
-	public String editPortfolioForm(Model model, @PathVariable int portfolioNo) {
+	public String editPortfolioForm(Model model, @PathVariable long portfolioNo) {
 		
 		Portfolio portfolio = portfolioService.getPortfolioDetail(portfolioNo);
 		

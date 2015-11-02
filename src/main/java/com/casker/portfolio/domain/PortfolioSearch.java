@@ -7,6 +7,10 @@
 
 package com.casker.portfolio.domain;
 
+import java.util.Date;
+
+import org.springframework.format.annotation.DateTimeFormat;
+
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -19,7 +23,12 @@ import lombok.EqualsAndHashCode;
 public class PortfolioSearch extends BaseSearch {
 	
 	private String portfolioName;
-	private String startDate;
-	private String endDate;
+	
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	private Date startDate;
+	
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	private Date endDate;
+	
 	private String displayYN;
 }

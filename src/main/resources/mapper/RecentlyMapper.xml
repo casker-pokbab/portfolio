@@ -15,11 +15,11 @@
 			<if test="@org.apache.commons.lang3.StringUtils@isNotBlank(recentlyName)">
 			AND recently_name LIKE CONCAT('%', #{recentlyName}, '%')
 			</if>
-			<if test="@org.apache.commons.lang3.StringUtils@isNotBlank(startDate)">
-			AND start_date &gt; CAST(#{startDate} AS DATETIME)
+			<if test="startDate != null">
+			AND start_date &gt; #{startDate}
 			</if>
-			<if test="@org.apache.commons.lang3.StringUtils@isNotBlank(endDate)">
-			AND end_date &lt; CAST(#{endDate} AS DATETIME)
+			<if test="endDate != null">
+			AND end_date &lt; #{endDate}
 			</if>
 			<if test="@org.apache.commons.lang3.StringUtils@isNotBlank(companyName)">
 			AND company_name LIKE CONCAT('%', #{companyName}, '%')
@@ -39,6 +39,8 @@
 			, participation_part
 			, create_date
 			, url
+			, start_date
+			, end_date
 			, display_yn
 			, sort
 		FROM  recently
@@ -49,11 +51,11 @@
 			<if test="@org.apache.commons.lang3.StringUtils@isNotBlank(recentlyName)">
 			AND recently_name LIKE CONCAT('%', #{recentlyName}, '%')
 			</if>
-			<if test="@org.apache.commons.lang3.StringUtils@isNotBlank(startDate)">
-			AND start_date &gt; CAST(#{startDate} AS DATETIME)
+			<if test="startDate != null">
+			AND start_date &gt; #{startDate}
 			</if>
-			<if test="@org.apache.commons.lang3.StringUtils@isNotBlank(endDate)">
-			AND end_date &lt; CAST(#{endDate} AS DATETIME)
+			<if test="endDate != null">
+			AND end_date &lt; #{endDate}
 			</if>
 			<if test="@org.apache.commons.lang3.StringUtils@isNotBlank(companyName)">
 			AND company_name LIKE CONCAT('%', #{companyName}, '%')
@@ -77,8 +79,8 @@
 			, participation_part
 			, create_date
 			, url
-			, DATE_FORMAT(start_date, '%x-%m-%d')	AS startDate
-			, DATE_FORMAT(end_date, '%x-%m-%d')		AS endDate
+			, start_date
+			, end_date
 			, display_yn
 			, sort
 		FROM  recently
@@ -96,8 +98,8 @@
 			, participation_part = #{participationPart}
 			, create_date = NOW()
 			, url = #{url}
-			, start_date = CAST(#{startDate} AS DATETIME)
-			, end_date = CAST(#{endDate} AS DATETIME)
+			, start_date = #{startDate}
+			, end_date = #{endDate}
 			, display_yn = #{displayYN}
 			, sort = #{sort}
 	</insert>
@@ -115,11 +117,11 @@
 		<if test="@org.apache.commons.lang3.StringUtils@isNotBlank(participationPart)">
 			, participation_part = #{participationPart}
 		</if>
-		<if test="@org.apache.commons.lang3.StringUtils@isNotBlank(startDate)">
-			, start_date = CAST(#{startDate} AS DATETIME)
+		<if test="startDate != null">
+			, start_date = #{startDate}
 		</if>
-		<if test="@org.apache.commons.lang3.StringUtils@isNotBlank(endDate)">
-			, end_date = CAST(#{endDate} AS DATETIME)
+		<if test="endDate != null">
+			, end_date = #{endDate}
 		</if>
 		WHERE
 			recently_no = #{recentlyNo}

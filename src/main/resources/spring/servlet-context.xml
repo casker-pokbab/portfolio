@@ -68,6 +68,14 @@
 		<property name="templateMode" value="HTML5" />
 	</bean>
 	
+	<bean id="conversionService" class="org.springframework.format.support.FormattingConversionServiceFactoryBean">
+		<property name="formatters">
+			<set>
+				<bean class="com.casker.portfolio.common.DateFormatter" />
+			</set>
+		</property>
+	</bean>
+	
 	<!-- File Upload -->
 	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver"/>
 
