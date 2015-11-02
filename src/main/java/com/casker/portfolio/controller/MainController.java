@@ -93,7 +93,7 @@ public class MainController {
 	 * @return
 	 */
 	@RequestMapping(value = "/main/portfolio/detail/{portfolioNo}", method = RequestMethod.GET)
-	public String recentlyDetail(Model model, @PathVariable int portfolioNo) {
+	public String recentlyDetail(Model model, @PathVariable long portfolioNo) {
 		
 		Portfolio portfolio = portfolioService.getPortfolioDetail(portfolioNo);
 		
