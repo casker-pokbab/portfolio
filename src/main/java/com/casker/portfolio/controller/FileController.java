@@ -42,7 +42,7 @@ public class FileController {
 	 */
 	@ResponseBody
 	@RequestMapping("/portfolio/{portfolioNo}/{imageType}")
-	public void editPassword(HttpServletResponse response, @PathVariable int portfolioNo, @PathVariable String imageType) throws Exception {
+	public void editPassword(HttpServletResponse response, @PathVariable long portfolioNo, @PathVariable String imageType) throws Exception {
 		
 		Portfolio portfolio = portfolioService.getPortfolioDetail(portfolioNo);
 		
