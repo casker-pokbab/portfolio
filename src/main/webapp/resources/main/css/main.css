@@ -270,8 +270,8 @@ n
 ul.main_visual {width: 100%; background-color: #694784;}
 /*ul.main_visual img {display: none;}*/
 ul.main_visual .slide_img01{width: 100%; height: 100%; overflow-y: hidden; background: url('../img/main/main_slide01.jpg') repeat center center;}
-ul.main_visual .slide_img02{width: 100%; height: 100%; overflow-y: hidden; background: url('../img/main/main_slide02.png') repeat center center;}
-ul.main_visual .slide_img03{width: 100%; height: 100%; overflow-y: hidden; background: url('../img/main/main_slide03.png') repeat center center;}
+ul.main_visual .slide_img02{width: 100%; height: 100%; overflow-y: hidden; background: url('../img/main/main_slide02.jpg') repeat center center;}
+ul.main_visual .slide_img03{width: 100%; height: 100%; overflow-y: hidden; background: url('../img/main/main_slide03.jpg') repeat center center;}
 .wrap_main_visual .bx-wrapper {position: relative;}
 .wrap_main_visual .bx-wrapper .bx-pager {position:absolute; left:50%; text-align:center; bottom: 71px; z-index:99;}
 .wrap_main_visual .bx-wrapper .bx-pager:after {content:""; display: block; clear :both;}
