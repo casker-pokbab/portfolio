@@ -7,24 +7,31 @@
 
 package com.casker.portfolio.service;
 
+import static java.util.stream.Collectors.*;
+
 import java.io.File;
 import java.io.IOException;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
 
 import org.apache.commons.io.FileUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.time.DateFormatUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.casker.portfolio.domain.Image;
 import com.casker.portfolio.domain.Portfolio;
 import com.casker.portfolio.domain.PortfolioSearch;
 import com.casker.portfolio.domain.Recently;
 import com.casker.portfolio.domain.RecentlySearch;
+import com.casker.portfolio.mapper.ImageMapper;
 import com.casker.portfolio.mapper.PortfolioMapper;
 import com.casker.portfolio.mapper.RecentlyMapper;
 import com.casker.portfolio.type.ImageType;
@@ -47,6 +54,9 @@ public class PortfolioServiceImpl implements PortfolioService {
 	@Autowired
 	private RecentlyMapper recentlyMapper;
 	
+	@Autowired
+	private ImageMapper imageMapper;
+	
 	@Override
 	public int getPortfolioListCount(PortfolioSearch search) {
 		return portfolioMapper.selectPortfolioListCount(search);
@@ -59,19 +69,31 @@ public class PortfolioServiceImpl implements PortfolioService {
 	
 	@Override
 	public Portfolio getPortfolioDetail(long portfolioNo) {
-		return portfolioMapper.selectPortfolio(portfolioNo);
+		Portfolio portfolio = portfolioMapper.selectPortfolio(portfolioNo);
+		
+		Image imageSearch = new Image();
+		imageSearch.setPortfolioNo(portfolioNo);
+		List<Image> imageList = imageMapper.selectImageList(imageSearch);
+		
+		portfolio.setThumbnailImage(imageList.stream().filter(image -> image.getImageType() == ImageType.THUMBNAIL).findFirst().get());
+		portfolio.setMainImage(imageList.stream().filter(image -> image.getImageType() == ImageType.MAIN).findFirst().get());
+		portfolio.setSubImageList(imageList.stream().filter(image -> image.getImageType() == ImageType.SUB).collect(toList()));
+		
+		return portfolio;
 	}
 	
 	@Override
 	public void addPortfolio(Portfolio portfolio) {
-		saveImageFile(portfolio.getThumbnail(), portfolio.getThumbnailImage());
-		saveImageFile(portfolio.getMainImageName(), portfolio.getMainImage());
-		saveImageFile(portfolio.getSubImageName1(), portfolio.getSubImage1());
-		saveImageFile(portfolio.getSubImageName2(), portfolio.getSubImage2());
-		saveImageFile(portfolio.getSubImageName3(), portfolio.getSubImage3());
-		
 		portfolio.setPortfolioNo(makeNo());
 		portfolio.setSort(portfolioMapper.selectPortfolioListCount(null) + 1);
+		
+		int seq = 0;
+		saveImageFile(portfolio.getThumbnailImage(), portfolio.getPortfolioNo(), seq++);
+		saveImageFile(portfolio.getMainImage(), portfolio.getPortfolioNo(), seq++);
+		for (Image subImage : portfolio.getSubImageList()) {
+			saveImageFile(subImage, portfolio.getPortfolioNo(), seq++);
+		}
+		
 		portfolioMapper.insertPortfoilo(portfolio);
 	}
 	
@@ -82,8 +104,12 @@ public class PortfolioServiceImpl implements PortfolioService {
 	/**
 	 * @param portfolio
 	 */
-	private void saveImageFile(String fileName, MultipartFile multipartFile) {
-		File file = new File(filePath + File.separator + fileName);
+	private void saveImageFile(Image image, long portfolioNo, int seq) {
+		String imageId = String.valueOf(portfolioNo) + seq;
+		String fileName = "casker_portfolio_" + imageId + "." + StringUtils.substringAfterLast(image.getRealFileName(), ".");
+		
+		File file = new File(filePath + File.separator + image.getImageType().getFilePath() + File.separator + fileName);
+		MultipartFile multipartFile = image.getFile();
 		
 		if (multipartFile == null || file.isDirectory()) {
 			return;
@@ -94,16 +120,21 @@ public class PortfolioServiceImpl implements PortfolioService {
 		} catch (IOException e) {
 			throw new RuntimeException("Unable to save image", e);
 		}
+		
+		image.setImageId(imageId);
+		image.setPortfolioNo(portfolioNo);
+		image.setFileName(fileName);
+		imageMapper.insertImage(image);
 	}
 	
 	@Override
 	public void editPortfolio(Portfolio portfolio) {
 		Portfolio oldPortfolio = portfolioMapper.selectPortfolio(portfolio.getPortfolioNo());
-		editImageFile(portfolio.getThumbnail(), portfolio.getThumbnailImage(), oldPortfolio.getThumbnail());
-		editImageFile(portfolio.getMainImageName(), portfolio.getMainImage(), oldPortfolio.getMainImageName());
-		editImageFile(portfolio.getSubImageName1(), portfolio.getSubImage1(), oldPortfolio.getSubImageName1());
-		editImageFile(portfolio.getSubImageName2(), portfolio.getSubImage2(), oldPortfolio.getSubImageName2());
-		editImageFile(portfolio.getSubImageName3(), portfolio.getSubImage3(), oldPortfolio.getSubImageName3());
+//		editImageFile(portfolio.getThumbnail(), portfolio.getThumbnailImage(), oldPortfolio.getThumbnail());
+//		editImageFile(portfolio.getMainImageName(), portfolio.getMainImage(), oldPortfolio.getMainImageName());
+//		editImageFile(portfolio.getSubImageName1(), portfolio.getSubImage1(), oldPortfolio.getSubImageName1());
+//		editImageFile(portfolio.getSubImageName2(), portfolio.getSubImage2(), oldPortfolio.getSubImageName2());
+//		editImageFile(portfolio.getSubImageName3(), portfolio.getSubImage3(), oldPortfolio.getSubImageName3());
 		
 		portfolioMapper.updatePortfolio(portfolio);
 	}
@@ -113,7 +144,7 @@ public class PortfolioServiceImpl implements PortfolioService {
 			return;
 		}
 		removeImageFile(oldFileName);
-		saveImageFile(fileName, multipartFile);
+//		saveImageFile(fileName, multipartFile);
 	}
 	
 	private void removeImageFile(String oldFileName) {
@@ -124,10 +155,16 @@ public class PortfolioServiceImpl implements PortfolioService {
 	}
 	
 	@Override
-	public File getImageFile(Portfolio portfolio, String imageType) {
-		ImageType type = ImageType.valueOfCode(imageType);
+	public File getImageFile(long portfolioNo, String imageTypeCode, int seq) {
+		ImageType imageType = ImageType.valueOfCode(imageTypeCode);
+		Image imageSearch = new Image();
+		imageSearch.setPortfolioNo(portfolioNo);
+		imageSearch.setImageType(imageType);
 		
-		return new File(filePath + File.separator + type.getFilePath(portfolio));
+		List<Image> imageList = imageMapper.selectImageList(imageSearch);
+		Image image = imageList.get(seq);
+
+		return new File(filePath + File.separator + imageType.getFilePath() + File.separator + image.getFileName());
 	}
 
 	@Override

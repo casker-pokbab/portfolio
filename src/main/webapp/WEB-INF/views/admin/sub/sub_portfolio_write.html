@@ -61,7 +61,12 @@
 
 						    <tr>
 						    	<th>썸네일 이미지</th>
-						    	<td><input type="file" name="thumbnailImage"/> <span class="txt_guide">(권장사이즈 : 640 * 640)</span></td>
+						    	<td>
+						    		<input class="file-name" disabled="disabled"/>
+						    		<label class="btnFile" for="thumbnailImage">파일선택</label>
+						    		<input type="file" id="thumbnailImage" name="thumbnailImage.file"/> <span class="txt_guide">(권장사이즈 : 640 * 640)</span>
+						    		<input type="hidden" name="thumbnailImage.imageType" value="THUMBNAIL"/>
+						    	</td>
 						    </tr>
 
 						    <tr>
@@ -71,7 +76,12 @@
 
 						    <tr>
 						    	<th>대표 이미지</th>
-						    	<td><input type="file" name="mainImage"/> <span class="txt_guide">(권장사이즈 : 1500 * 1024)</span></td>
+						    	<td>
+						    		<input class="file-name" disabled="disabled"/>
+						    		<label class="btnFile" for="mainImage">파일선택</label>
+						    		<input type="file" id="mainImage" name="mainImage.file"/> <span class="txt_guide">(권장사이즈 : 1500 * 1024)</span>
+						    		<input type="hidden" name="mainImage.imageType" value="MAIN"/>
+						    	</td>
 						    </tr>
 
 						    <tr>
@@ -94,7 +104,7 @@
 						    	<td class="t_area"><textarea class="new_fm" name="participant" id="" cols="30" rows="4"></textarea></td>
 						    </tr>
 
-						   	<tr th:replace="admin/sub/portfolio_sub_image :: subImage (1)"></tr>
+						   	<tr th:replace="admin/sub/portfolio_sub_image :: subImage (0)"></tr>
 
 						</tbody>
 					</table><!-- //게시판 End -->

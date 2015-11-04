@@ -97,11 +97,11 @@ public interface PortfolioService {
 	void removeRecently(Recently recently);
 
 	/**
-	 * @param portfolio
+	 * @param portfolioNo
 	 * @param imageType
 	 * @return
 	 */
-	File getImageFile(Portfolio portfolio, String imageType);
+	File getImageFile(long portfolioNo, String imageType, int seq);
 
 	/**
 	 * @param sort

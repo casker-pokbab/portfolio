@@ -11,7 +11,7 @@ function addSubImageForm() {
 		  url : "/admin/manegement/portfolio/subImageForm"
 		, type : "html"
 		, method : "GET"
-		, data : "count=" + ($(".subImage").size() + 1)
+		, data : "index=" + ($(".subImage").size())
 		, success : function(data) {
 			$(".subImage").last().after(data);
 		}

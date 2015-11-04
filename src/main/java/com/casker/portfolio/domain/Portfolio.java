@@ -8,6 +8,7 @@
 package com.casker.portfolio.domain;
 
 import java.util.Date;
+import java.util.List;
 
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -31,15 +32,11 @@ public class Portfolio {
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date endDate;
 	
-	private String thumbnail;
-	
-	private MultipartFile thumbnailImage;
+	private Image thumbnailImage;
 	
 	private String url;
 	
-	private String mainImageName;
-	
-	private MultipartFile mainImage;
+	private Image mainImage;
 	
 	private String title;
 	
@@ -49,17 +46,7 @@ public class Portfolio {
 	
 	private String participant;
 	
-	private String subImageName1;
-	
-	private MultipartFile subImage1;
-	
-	private String subImageName2;
-	
-	private MultipartFile subImage2;
-	
-	private String subImageName3;
-	
-	private MultipartFile subImage3;
+	private List<Image> subImageList;
 	
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date workDate;
@@ -80,28 +67,28 @@ public class Portfolio {
 		this.participant = StringUtils.replace(participant, "\r\n", "<br/>");
 	}
 	
-	public void setThumbnailImage(MultipartFile thumbnailImage) {
-		this.thumbnailImage = thumbnailImage;
-		this.thumbnail = "/thumbnail/" + thumbnailImage.getOriginalFilename();
-	}
-	
-	public void setMainImage(MultipartFile mainImage) {
-		this.mainImage = mainImage;
-		this.mainImageName = "/main/" + mainImage.getOriginalFilename();
-	}
-	
-	public void setSubImage1(MultipartFile subImage1) {
-		this.subImage1 = subImage1;
-		this.subImageName1 = "/sub/" + subImage1.getOriginalFilename();
-	}
-	
-	public void setSubImage2(MultipartFile subImage2) {
-		this.subImage2 = subImage2;
-		this.subImageName2 = "/sub/" + subImage2.getOriginalFilename();
-	}
-	
-	public void setSubImage3(MultipartFile subImage3) {
-		this.subImage3 = subImage3;
-		this.subImageName3 = "/sub/" + subImage3.getOriginalFilename();
-	}
+//	public void setThumbnailImage(MultipartFile thumbnailImage) {
+//		this.thumbnailImage = thumbnailImage;
+//		this.thumbnail = "/thumbnail/" + thumbnailImage.getOriginalFilename();
+//	}
+//	
+//	public void setMainImage(MultipartFile mainImage) {
+//		this.mainImage = mainImage;
+//		this.mainImageName = "/main/" + mainImage.getOriginalFilename();
+//	}
+//	
+//	public void setSubImage1(MultipartFile subImage1) {
+//		this.subImage1 = subImage1;
+//		this.subImageName1 = "/sub/" + subImage1.getOriginalFilename();
+//	}
+//	
+//	public void setSubImage2(MultipartFile subImage2) {
+//		this.subImage2 = subImage2;
+//		this.subImageName2 = "/sub/" + subImage2.getOriginalFilename();
+//	}
+//	
+//	public void setSubImage3(MultipartFile subImage3) {
+//		this.subImage3 = subImage3;
+//		this.subImageName3 = "/sub/" + subImage3.getOriginalFilename();
+//	}
 }

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.casker.portfolio.mapper.ImageMapper">
+	
+	<select id="selectImageList" resultType="image" parameterType="image">
+		/* ImageMapper.selectImageList */
+		SELECT
+			  image_id
+			, portfolio_no
+			, image_type_code AS imageType
+			, real_file_name
+			, file_name
+			, create_date
+			, modify_date
+		  FROM image
+		 WHERE portfolio_no = #{portfolioNo}
+		<if test="imageType != null">
+		   AND image_type_code = #{imageType.name}
+		</if>
+	</select>
+	
+	<insert id="insertImage" parameterType="image">
+		/* ImageMapper.insertImage */
+		INSERT image
+		SET
+			  image_id = #{imageId}
+			, portfolio_no = #{portfolioNo}
+			, image_type_code = #{imageType.name}
+			, real_file_name = #{realFileName}
+			, file_name = #{fileName}
+			, create_date = NOW()
+			, modify_date = NOW()
+	</insert>
+</mapper>

@@ -153,9 +153,9 @@ public class PortfolioAdminController {
 	 * @return
 	 */
 	@RequestMapping(value = "/manegement/portfolio/subImageForm", method = RequestMethod.GET)
-	public String addSubImageForm(Model model, int count) {
+	public String addSubImageForm(Model model, int index) {
 		
-		model.addAttribute("count", count);
+		model.addAttribute("index", index);
 		
 		return VIEW_PREFIX + "sub/portfolio_sub_image :: subImage";
 	}
