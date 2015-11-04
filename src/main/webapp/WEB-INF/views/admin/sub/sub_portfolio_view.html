@@ -101,7 +101,10 @@ input[type="file"] {
 
 						    <tr>
 						    	<th>기간</th>
-						    	<td><input type="text" name="startDate" class="w100" id="date_start" th:value="${portfolio.startDate}"/> ~ <input type="text" name="endDate" class="w100" id="date_end" th:value="${portfolio.endDate}"/></td>
+						    	<td>
+						    		<input type="text" name="startDate" class="w100" id="date_start" th:value="${#calendars.format(portfolio.startDate,'yyyy-MM-dd')}"/> ~ 
+						    		<input type="text" name="endDate" class="w100" id="date_end" th:value="${#calendars.format(portfolio.endDate,'yyyy-MM-dd')}"/>
+						    	</td>
 						    </tr>
 
 						    <tr>

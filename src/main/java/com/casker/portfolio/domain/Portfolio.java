@@ -10,6 +10,7 @@ package com.casker.portfolio.domain;
 import java.util.Date;
 
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.multipart.MultipartFile;
 
 import lombok.Data;
@@ -21,26 +22,50 @@ import lombok.Data;
 public class Portfolio {
 
 	private long portfolioNo;
+	
 	private String portfolioName;
-	private String startDate;
-	private String endDate;
+	
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	private Date startDate;
+	
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	private Date endDate;
+	
 	private String thumbnail;
+	
 	private MultipartFile thumbnailImage;
+	
 	private String url;
+	
 	private String mainImageName;
+	
 	private MultipartFile mainImage;
+	
 	private String title;
+	
 	private String description;
+	
 	private String info;
+	
 	private String participant;
+	
 	private String subImageName1;
+	
 	private MultipartFile subImage1;
+	
 	private String subImageName2;
+	
 	private MultipartFile subImage2;
+	
 	private String subImageName3;
+	
 	private MultipartFile subImage3;
+	
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date workDate;
+	
 	private String displayYN;
+	
 	private int sort;
 	
 	public void setDescription(String description) {

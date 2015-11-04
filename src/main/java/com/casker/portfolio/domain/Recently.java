@@ -9,6 +9,8 @@ package com.casker.portfolio.domain;
 
 import java.util.Date;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import lombok.Data;
 
 /**
@@ -20,13 +22,24 @@ import lombok.Data;
 public class Recently {
 
 	private long recentlyNo;
+
 	private String recentlyName;
+
 	private String companyName;
+
 	private String participationPart;
+
 	private Date createDate;
+
 	private String url;
-	private String startDate;
-	private String endDate;
+
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	private Date startDate;
+
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	private Date endDate;
+
 	private String displayYN;
+
 	private int sort;
 }

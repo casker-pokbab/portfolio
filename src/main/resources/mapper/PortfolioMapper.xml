@@ -15,11 +15,11 @@
 			<if test="@org.apache.commons.lang3.StringUtils@isNotBlank(portfolioName)">
 			AND portfolio_name LIKE CONCAT('%', #{portfolioName}, '%')
 			</if>
-			<if test="@org.apache.commons.lang3.StringUtils@isNotBlank(startDate)">
-			AND start_date &gt; CAST(#{startDate} AS DATETIME)
+			<if test="startDate != null">
+			AND start_date &gt; #{startDate}
 			</if>
-			<if test="@org.apache.commons.lang3.StringUtils@isNotBlank(endDate)">
-			AND end_date &lt; CAST(#{endDate} AS DATETIME)
+			<if test="endDate != null">
+			AND end_date &lt; #{endDate}
 			</if>
 		</where>
 	</select>
@@ -29,6 +29,8 @@
 		SELECT 
 			  portfolio_no
 			, portfolio_name
+			, start_date
+			, end_date
 			, url
 			, work_date
 			, thumbnail
@@ -42,11 +44,11 @@
 			<if test="@org.apache.commons.lang3.StringUtils@isNotBlank(portfolioName)">
 			AND portfolio_name LIKE CONCAT('%', #{portfolioName}, '%')
 			</if>
-			<if test="@org.apache.commons.lang3.StringUtils@isNotBlank(startDate)">
-			AND start_date &gt; CAST(#{startDate} AS DATETIME)
+			<if test="startDate != null">
+			AND start_date &gt; #{startDate}
 			</if>
-			<if test="@org.apache.commons.lang3.StringUtils@isNotBlank(endDate)">
-			AND end_date &lt; CAST(#{endDate} AS DATETIME)
+			<if test="endDate != null">
+			AND end_date &lt; #{endDate}
 			</if>
 		</where>
 		ORDER BY sort DESC
@@ -60,8 +62,8 @@
 		SELECT 
 			  portfolio_no
 			, portfolio_name
-			, DATE_FORMAT(start_date, '%x-%m-%d')	AS startDate
-			, DATE_FORMAT(end_date, '%x-%m-%d')		AS endDate
+			, start_date
+			, end_date
 			, thumbnail
 			, url
 			, main_image		AS mainImageName
@@ -90,11 +92,11 @@
 			, work_date = NOW()
 			, display_yn = #{displayYN}
 			, sort = #{sort}
-		<if test="@org.apache.commons.lang3.StringUtils@isNotBlank(startDate)">
-			, start_date = CAST(#{startDate} AS DATETIME)
+		<if test="startDate != null">
+			, start_date = #{startDate}
 		</if>
-		<if test="@org.apache.commons.lang3.StringUtils@isNotBlank(endDate)">
-			, end_date = CAST(#{endDate} AS DATETIME)
+		<if test="endDate != null">
+			, end_date = #{endDate}
 		</if>
 		<if test="thumbnailImage != null">
 			, thumbnail = #{thumbnail}
@@ -133,11 +135,11 @@
 			, url = #{url}
 			, work_date = NOW()
 			, display_yn = #{displayYN}
-		<if test="@org.apache.commons.lang3.StringUtils@isNotBlank(startDate)">
-			, start_date = CAST(#{startDate} AS DATETIME)
+		<if test="startDate != null">
+			, start_date = #{startDate}
 		</if>
-		<if test="@org.apache.commons.lang3.StringUtils@isNotBlank(endDate)">
-			, end_date = CAST(#{endDate} AS DATETIME)
+		<if test="endDate != null">
+			, end_date = #{endDate}
 		</if>
 		<if test="thumbnailImage != null">
 			, thumbnail = #{thumbnail}
