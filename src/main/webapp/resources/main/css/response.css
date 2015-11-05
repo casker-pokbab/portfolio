@@ -236,8 +236,8 @@
 
 	/*visual*/
 	ul.main_visual .slide_img01{overflow-y: hidden; background: url('../img/main/main_slide01.jpg') repeat center center; background-size: auto 140%;}
-	ul.main_visual .slide_img02{overflow-y: hidden; background: url('../img/main/main_slide02.png') repeat center center;}
-	ul.main_visual .slide_img03{overflow-y: hidden; background: url('../img/main/main_slide03.png') repeat center center;}
+	ul.main_visual .slide_img02{overflow-y: hidden; background: url('../img/main/main_slide02.jpg') repeat center center; background-size: auto 100%;}
+	ul.main_visual .slide_img03{overflow-y: hidden; background: url('../img/main/main_slide03.jpg') repeat center center; background-size: auto 100%;}
 
 	/*contact*/
 	#contact form .field {width: 100%; padding: 1em 0;}
