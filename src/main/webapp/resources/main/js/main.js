@@ -3,7 +3,7 @@ var defaultPageSize = 10;
 $(document).ready(function() {
 	
 	$("#work .more_work").on("click", function() {
-		getPortfolioList($("#work .item").size(), 10);
+		getPortfolioList($("#work .item").size(), 12);
 	});
 	
 	$("#contact .more_work").on("click", function() {
@@ -51,8 +51,8 @@ function getPortfolioList(skipRows, pageSize) {
 		, data : "skipRows=" + skipRows + "&pageSize=" + pageSize
 		, success : function(data) {
 			var $items = $(data);
-			if ($items == 0) {
-				alert("포트폴리오가 모두 게시되었습니다.")
+			if ($items.length == 0) {
+				alert("모든 포트폴리오가 게시되었습니다.")
 				return;
 			}
 			
