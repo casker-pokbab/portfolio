@@ -19,9 +19,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.casker.portfolio.domain.Portfolio;
 import com.casker.portfolio.service.PortfolioService;
 
 
@@ -36,17 +36,16 @@ public class FileController {
 	private PortfolioService portfolioService;
 	
 	/**
-	 * 패스워드 수정
+	 * 이미지파일을 가져온다
 	 * 
 	 * @return
 	 */
 	@ResponseBody
 	@RequestMapping("/portfolio/{portfolioNo}/{imageType}")
-	public void editPassword(HttpServletResponse response, @PathVariable long portfolioNo, @PathVariable String imageType) throws Exception {
+	public void getImageFile(HttpServletResponse response, @PathVariable long portfolioNo, 
+			@PathVariable String imageType, @RequestParam(defaultValue = "0", required = false) int seq) throws Exception {
 		
-		Portfolio portfolio = portfolioService.getPortfolioDetail(portfolioNo);
-		
-		File file = portfolioService.getImageFile(portfolio, imageType);
+		File file = portfolioService.getImageFile(portfolioNo, imageType, seq);
 		
 		response.setContentLength((int)file.length());
 		

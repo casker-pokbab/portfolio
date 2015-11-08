@@ -4,6 +4,14 @@ $(document).ready(function() {
 		$("input[name=displayYN]").val($(this).prop("checked") ? "Y" : "N");
 	});
 	
+	$("input[type=file]").on("change", function() {
+		if(window.FileReader){  // modern browser
+			var filename = $(this)[0].files[0].name;
+		} else {  // old IE
+			var filename = $(this).val().split('/').pop().split('\\').pop();
+		}
+		$(this).siblings('.file-name').val(filename);
+	});
 });
 
 function addSubImageForm() {
@@ -11,7 +19,7 @@ function addSubImageForm() {
 		  url : "/admin/manegement/portfolio/subImageForm"
 		, type : "html"
 		, method : "GET"
-		, data : "count=" + ($(".subImage").size() + 1)
+		, data : "index=" + ($(".subImage").size())
 		, success : function(data) {
 			$(".subImage").last().after(data);
 		}

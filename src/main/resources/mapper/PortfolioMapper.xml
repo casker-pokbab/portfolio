@@ -64,16 +64,11 @@
 			, portfolio_name
 			, start_date
 			, end_date
-			, thumbnail
 			, url
-			, main_image		AS mainImageName
 			, title
 			, description
 			, info
 			, participant
-			, sub_image1		AS subImageName1
-			, sub_image2		AS subImageName2
-			, sub_image3		AS subImageName3
 			, work_date
 			, display_yn
 			, sort
@@ -98,12 +93,6 @@
 		<if test="endDate != null">
 			, end_date = #{endDate}
 		</if>
-		<if test="thumbnailImage != null">
-			, thumbnail = #{thumbnail}
-		</if>
-		<if test="mainImage != null">
-			, main_image = #{mainImageName}
-		</if>
 		<if test="@org.apache.commons.lang3.StringUtils@isNotBlank(title)">
 			, title = #{title}
 		</if>
@@ -115,15 +104,6 @@
 		</if>
 		<if test="@org.apache.commons.lang3.StringUtils@isNotBlank(participant)">
 			, participant = #{participant}
-		</if>
-		<if test="subImage1 != null">
-			, sub_image1 = #{subImageName1}
-		</if>
-		<if test="subImage2 != null">
-			, sub_image2 = #{subImageName2}
-		</if>
-		<if test="subImage3 != null">
-			, sub_image3 = #{subImageName3}
 		</if>
 	</insert>
 	
@@ -141,12 +121,6 @@
 		<if test="endDate != null">
 			, end_date = #{endDate}
 		</if>
-		<if test="thumbnailImage != null">
-			, thumbnail = #{thumbnail}
-		</if>
-		<if test="mainImage != null">
-			, main_image = #{mainImageName}
-		</if>
 		<if test="@org.apache.commons.lang3.StringUtils@isNotBlank(title)">
 			, title = #{title}
 		</if>
@@ -158,15 +132,6 @@
 		</if>
 		<if test="@org.apache.commons.lang3.StringUtils@isNotBlank(participant)">
 			, participant = #{participant}
-		</if>
-		<if test="subImage1 != null">
-			, sub_image1 = #{subImageName1}
-		</if>
-		<if test="subImage2 != null">
-			, sub_image2 = #{subImageName2}
-		</if>
-		<if test="subImage3 != null">
-			, sub_image3 = #{subImageName3}
 		</if>
 		WHERE
 			portfolio_no = #{portfolioNo}
