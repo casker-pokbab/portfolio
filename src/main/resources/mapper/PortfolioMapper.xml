@@ -121,12 +121,6 @@
 		<if test="endDate != null">
 			, end_date = #{endDate}
 		</if>
-		<if test="thumbnailImage != null">
-			, thumbnail = #{thumbnail}
-		</if>
-		<if test="mainImage != null">
-			, main_image = #{mainImageName}
-		</if>
 		<if test="@org.apache.commons.lang3.StringUtils@isNotBlank(title)">
 			, title = #{title}
 		</if>
@@ -138,15 +132,6 @@
 		</if>
 		<if test="@org.apache.commons.lang3.StringUtils@isNotBlank(participant)">
 			, participant = #{participant}
-		</if>
-		<if test="subImage1 != null">
-			, sub_image1 = #{subImageName1}
-		</if>
-		<if test="subImage2 != null">
-			, sub_image2 = #{subImageName2}
-		</if>
-		<if test="subImage3 != null">
-			, sub_image3 = #{subImageName3}
 		</if>
 		WHERE
 			portfolio_no = #{portfolioNo}

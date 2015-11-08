@@ -14,7 +14,7 @@
 		<div id="sub_container" class="">
 
 			<div class="wrap_1024">
-				<div class="top_project">
+				<div class="top_project" th:unless="${#lists.isEmpty(portfolio.mainImage)}">
 					<img th:src="@{'/file/portfolio/' + ${portfolio.portfolioNo} + '/main'}" alt=""/>
 				</div><!-- //top_project -->
 
@@ -51,8 +51,8 @@
 				</div><!-- //middle_project -->
 
 				<div class="bottom_project" th:unless="${#lists.isEmpty(portfolio.subImageList)}">
-					<p class="img_frame" th:each="subImage : ${portfolio.subImageList}">
-						<img th:src="@{'/file/portfolio/' + ${portfolio.portfolioNo} + '/sub(seq=' + ${subImageStat.index} + ')'" alt=""/>
+					<p class="img_frame" th:each="subImage,iterStat : ${portfolio.subImageList}">
+						<img th:src="@{'/file/portfolio/' + ${portfolio.portfolioNo} + '/sub?seq=' + ${iterStat.index}}" alt=""/>
 					</p>
 				</div><!-- //bottom_project -->
 			</div>

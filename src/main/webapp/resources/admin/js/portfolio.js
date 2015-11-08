@@ -6,16 +6,6 @@ $(document).ready(function() {
 	});
 	
 	getPortfolioList();
-	
-
-	$("input[type=file]").on("change", function() {
-		if(window.FileReader){  // modern browser
-			var filename = $(this)[0].files[0].name;
-		} else {  // old IE
-			var filename = $(this).val().split('/').pop().split('\\').pop();
-		}
-		$(this).siblings('.file-name').val(filename);
-	});
 })
 
 /**

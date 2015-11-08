@@ -10,11 +10,10 @@ package com.casker.portfolio.domain;
 import java.util.Date;
 import java.util.List;
 
+import lombok.Data;
+
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.format.annotation.DateTimeFormat;
-import org.springframework.web.multipart.MultipartFile;
-
-import lombok.Data;
 
 /**
  * @author Kanghoon Choi

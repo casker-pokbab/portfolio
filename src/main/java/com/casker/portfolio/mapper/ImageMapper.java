@@ -28,4 +28,15 @@ public interface ImageMapper {
 	 */
 	List<Image> selectImageList(Image imageSearch);
 
+	/**
+	 * @param portfolioNo
+	 * @return
+	 */
+	String selectMaxImageId(long portfolioNo);
+
+	/**
+	 * @param oldImage
+	 */
+	void deleteImage(Image oldImage);
+
 }

@@ -7,17 +7,15 @@
 
 package com.casker.portfolio.service;
 
-import static java.util.stream.Collectors.*;
-
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.stream.Collector;
-import java.util.stream.Collectors;
 
+import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.time.DateFormatUtils;
@@ -75,9 +73,23 @@ public class PortfolioServiceImpl implements PortfolioService {
 		imageSearch.setPortfolioNo(portfolioNo);
 		List<Image> imageList = imageMapper.selectImageList(imageSearch);
 		
-		portfolio.setThumbnailImage(imageList.stream().filter(image -> image.getImageType() == ImageType.THUMBNAIL).findFirst().get());
-		portfolio.setMainImage(imageList.stream().filter(image -> image.getImageType() == ImageType.MAIN).findFirst().get());
-		portfolio.setSubImageList(imageList.stream().filter(image -> image.getImageType() == ImageType.SUB).collect(toList()));
+		List<Image> subImageList = new ArrayList<Image>();
+		for (Image image : imageList) {
+			switch (image.getImageType()) {
+				case THUMBNAIL:
+					portfolio.setThumbnailImage(image);
+					break;
+					
+				case MAIN:
+					portfolio.setMainImage(image);
+					break;
+									
+				case SUB:
+					subImageList.add(image);
+					break;
+			}
+		}
+		portfolio.setSubImageList(subImageList);
 		
 		return portfolio;
 	}
@@ -105,6 +117,9 @@ public class PortfolioServiceImpl implements PortfolioService {
 	 * @param portfolio
 	 */
 	private void saveImageFile(Image image, long portfolioNo, int seq) {
+		if (image.getFile().isEmpty()) {
+			return;
+		}
 		String imageId = String.valueOf(portfolioNo) + seq;
 		String fileName = "casker_portfolio_" + imageId + "." + StringUtils.substringAfterLast(image.getRealFileName(), ".");
 		
@@ -129,29 +144,47 @@ public class PortfolioServiceImpl implements PortfolioService {
 	
 	@Override
 	public void editPortfolio(Portfolio portfolio) {
-		Portfolio oldPortfolio = portfolioMapper.selectPortfolio(portfolio.getPortfolioNo());
-//		editImageFile(portfolio.getThumbnail(), portfolio.getThumbnailImage(), oldPortfolio.getThumbnail());
-//		editImageFile(portfolio.getMainImageName(), portfolio.getMainImage(), oldPortfolio.getMainImageName());
-//		editImageFile(portfolio.getSubImageName1(), portfolio.getSubImage1(), oldPortfolio.getSubImageName1());
-//		editImageFile(portfolio.getSubImageName2(), portfolio.getSubImage2(), oldPortfolio.getSubImageName2());
-//		editImageFile(portfolio.getSubImageName3(), portfolio.getSubImage3(), oldPortfolio.getSubImageName3());
+		Portfolio oldPortfolio = getPortfolioDetail(portfolio.getPortfolioNo());
+		
+		int seq = getNextImageSeq(portfolio.getPortfolioNo());
+		editImageFile(portfolio.getThumbnailImage(), portfolio.getPortfolioNo(), oldPortfolio.getThumbnailImage(), seq++);
+		editImageFile(portfolio.getMainImage(), portfolio.getPortfolioNo(), oldPortfolio.getMainImage(), seq++);
+		if (CollectionUtils.isNotEmpty(portfolio.getSubImageList())) {
+			for (int index = 0; index < portfolio.getSubImageList().size(); index++) {
+				Image oldSubImage = null;
+				if (index < oldPortfolio.getSubImageList().size() - 1) {
+					oldSubImage = oldPortfolio.getSubImageList().get(index);
+				}
+				editImageFile(portfolio.getSubImageList().get(index), portfolio.getPortfolioNo(), oldSubImage, seq++);
+			}
+		}
 		
 		portfolioMapper.updatePortfolio(portfolio);
 	}
 	
-	private void editImageFile(String fileName, MultipartFile multipartFile, String oldFileName) {
-		if (multipartFile == null) {
-			return;
-		}
-		removeImageFile(oldFileName);
-//		saveImageFile(fileName, multipartFile);
+	private int getNextImageSeq(long portfolioNo) {
+		String maxImageId = imageMapper.selectMaxImageId(portfolioNo);
+		return Integer.parseInt(maxImageId.replace(String.valueOf(portfolioNo), "")) + 1;
 	}
 	
-	private void removeImageFile(String oldFileName) {
-		File file = new File(filePath + File.separator + oldFileName);
+	private void editImageFile(Image image, long portfolioNo, Image oldImage, int seq) {
+		if (image.getFile().isEmpty()) {
+			return;
+		}
+		removeImageFile(oldImage);
+		saveImageFile(image, portfolioNo, seq);
+	}
+	
+	private void removeImageFile(Image oldImage) {
+		if (oldImage == null) {
+			return;
+		}
+		
+		File file = new File(filePath + File.separator + oldImage.getFileName());
 		if(file.exists()){
 			file.delete();
 		}
+		imageMapper.deleteImage(oldImage);
 	}
 	
 	@Override

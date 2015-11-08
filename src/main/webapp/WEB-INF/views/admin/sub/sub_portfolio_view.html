@@ -110,9 +110,10 @@ input[type="file"] {
 						    <tr>
 						    	<th>썸네일 이미지</th>
 						    	<td>
-						    		<input class="file-name" th:value="${portfolio.thumbnail}" disabled="disabled"/>
+						    		<input class="file-name" th:value="${portfolio.thumbnailImage ne null ? portfolio.thumbnailImage.realFileName : ''}" disabled="disabled"/>
 						    		<label class="btnFile" for="thumbnailImage">파일선택</label>
-						    		<input type="file" id="thumbnailImage" name="thumbnailImage"/> <span class="txt_guide">(권장사이즈 : 640 * 640)</span>
+						    		<input type="file" id="thumbnailImage" name="thumbnailImage.file"/> <span class="txt_guide">(권장사이즈 : 640 * 640)</span>
+						    		<input type="hidden" name="thumbnailImage.imageType" value="THUMBNAIL"/>
 						    	</td>
 						    </tr>
 
@@ -124,9 +125,10 @@ input[type="file"] {
 						    <tr>
 						    	<th>대표 이미지</th>
 						    	<td>
-						    		<input class="file-name" th:value="${portfolio.mainImageName}" disabled="disabled"/>
+						    		<input class="file-name" th:value="${portfolio.mainImage.realFileName}" disabled="disabled"/>
 						    		<label class="btnFile" for="mainImage">파일선택</label>
-						    		<input type="file" id="mainImage" name="mainImage"/> <span class="txt_guide">(권장사이즈 : 1500 * 1024)</span>
+						    		<input type="file" id="mainImage" name="mainImage.file"/> <span class="txt_guide">(권장사이즈 : 1500 * 1024)</span>
+						    		<input type="hidden" name="mainImage.imageType" value="MAIN"/>
 						    	</td>
 						    </tr>
 
@@ -149,9 +151,13 @@ input[type="file"] {
 						    	<th>참여자 정보</th>
 						    	<td class="t_area"><textarea class="new_fm" name="participant" id="" cols="30" rows="4" th:text="${portfolio.participant}"></textarea></td>
 						    </tr>
-
-						    <tr th:replace="admin/sub/portfolio_sub_image :: subImage (1)"></tr>
-						    		
+						    
+						</tbody>
+						<tbody th:if="${#lists.isEmpty(portfolio.subImageList)}">
+					    	<tr th:replace="admin/sub/portfolio_sub_image :: subImage (0)"></tr>
+						</tbody>
+						<tbody th:each="subImage,iterStat : ${portfolio.subImageList}">
+					    	<tr th:replace="admin/sub/portfolio_sub_image :: subImage (${iterStat.index})"></tr>
 						</tbody>
 					</table><!-- //게시판 End -->
 

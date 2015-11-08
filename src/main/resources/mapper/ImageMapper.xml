@@ -20,6 +20,15 @@
 		</if>
 	</select>
 	
+	<select id="selectMaxImageId" resultType="string" parameterType="long">
+		/* ImageMapper.selectMaxImageId */
+		SELECT
+			  MAX(image_id)
+		  FROM image
+		 WHERE portfolio_no = #{portfolioNo}
+	</select>
+	
+	
 	<insert id="insertImage" parameterType="image">
 		/* ImageMapper.insertImage */
 		INSERT image
@@ -32,4 +41,10 @@
 			, create_date = NOW()
 			, modify_date = NOW()
 	</insert>
+	
+	<delete id="deleteImage" parameterType="image">
+		/* ImageMapper.deleteImage */
+		DELETE FROM image
+		WHERE image_id = #{imageId}
+	</delete>
 </mapper>
