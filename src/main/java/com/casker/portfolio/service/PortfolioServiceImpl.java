@@ -164,7 +164,7 @@ public class PortfolioServiceImpl implements PortfolioService {
 	
 	private int getNextImageSeq(long portfolioNo) {
 		String maxImageId = imageMapper.selectMaxImageId(portfolioNo);
-		return Integer.parseInt(maxImageId.replace(String.valueOf(portfolioNo), "")) + 1;
+		return StringUtils.isEmpty(maxImageId) ? 0 : Integer.parseInt(maxImageId.replace(String.valueOf(portfolioNo), "")) + 1;
 	}
 	
 	private void editImageFile(Image image, long portfolioNo, Image oldImage, int seq) {
@@ -188,16 +188,14 @@ public class PortfolioServiceImpl implements PortfolioService {
 	}
 	
 	@Override
-	public File getImageFile(long portfolioNo, String imageTypeCode, int seq) {
+	public Image getImageFile(long portfolioNo, String imageTypeCode, int seq) {
 		ImageType imageType = ImageType.valueOfCode(imageTypeCode);
 		Image imageSearch = new Image();
 		imageSearch.setPortfolioNo(portfolioNo);
 		imageSearch.setImageType(imageType);
 		
 		List<Image> imageList = imageMapper.selectImageList(imageSearch);
-		Image image = imageList.get(seq);
-
-		return new File(filePath + File.separator + imageType.getFilePath() + File.separator + image.getFileName());
+		return imageList.get(seq);
 	}
 
 	@Override

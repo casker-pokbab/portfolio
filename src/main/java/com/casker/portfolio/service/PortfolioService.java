@@ -10,6 +10,7 @@ package com.casker.portfolio.service;
 import java.io.File;
 import java.util.List;
 
+import com.casker.portfolio.domain.Image;
 import com.casker.portfolio.domain.Portfolio;
 import com.casker.portfolio.domain.PortfolioSearch;
 import com.casker.portfolio.domain.Recently;
@@ -101,7 +102,7 @@ public interface PortfolioService {
 	 * @param imageType
 	 * @return
 	 */
-	File getImageFile(long portfolioNo, String imageType, int seq);
+	Image getImageFile(long portfolioNo, String imageType, int seq);
 
 	/**
 	 * @param sort

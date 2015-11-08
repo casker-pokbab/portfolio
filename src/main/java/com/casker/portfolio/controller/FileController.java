@@ -16,13 +16,17 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.io.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.casker.portfolio.domain.Image;
 import com.casker.portfolio.service.PortfolioService;
+import com.casker.portfolio.type.ImageType;
 
 
 /**
@@ -31,6 +35,8 @@ import com.casker.portfolio.service.PortfolioService;
 @Controller
 @RequestMapping("/file")
 public class FileController {
+	@Value("#{common['file.path']}")
+	private String filePath;
 
 	@Autowired
 	private PortfolioService portfolioService;
@@ -41,18 +47,21 @@ public class FileController {
 	 * @return
 	 */
 	@ResponseBody
-	@RequestMapping("/portfolio/{portfolioNo}/{imageType}")
+	@RequestMapping("/portfolio/{portfolioNo}/{imageTypeCode}")
 	public void getImageFile(HttpServletResponse response, @PathVariable long portfolioNo, 
-			@PathVariable String imageType, @RequestParam(defaultValue = "0", required = false) int seq) throws Exception {
+			@PathVariable String imageTypeCode, @RequestParam(defaultValue = "0", required = false) int seq) throws Exception {
 		
-		File file = portfolioService.getImageFile(portfolioNo, imageType, seq);
+		Image image = portfolioService.getImageFile(portfolioNo, imageTypeCode, seq);
+		ImageType imageType = ImageType.valueOfCode(imageTypeCode);
+		File file = new File(filePath + File.separator + imageType.getFilePath() + File.separator + image.getFileName());
 		
 		response.setContentLength((int)file.length());
 		
-		String fileName = URLEncoder.encode(file.getName(), "utf-8");
+		String fileName = URLEncoder.encode(image.getRealFileName(), "utf-8");
 		
 		response.setHeader("Content-Disposition", "attachment; filename=\"" + fileName + "\";");
         response.setHeader("Content-Transfer-Encoding", "binary");
+        response.setContentType(MediaType.IMAGE_PNG_VALUE);
          
         InputStream inputStream = new FileInputStream(file);
 		IOUtils.copy(inputStream, response.getOutputStream());
