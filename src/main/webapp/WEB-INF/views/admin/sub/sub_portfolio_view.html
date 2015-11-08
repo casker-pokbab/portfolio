@@ -98,6 +98,13 @@ input[type="file"] {
 						    		<input type="hidden" name="displayYN" th:value="${portfolio.displayYN}"/>
 						    	</td>
 						    </tr>
+						    
+						    <tr>
+						    	<th>회사명</th>
+						    	<td>
+						    		<input type="text" name="companyName" class="w600" th:value="${portfolio.companyName}"/> 
+						    	</td>
+						    </tr>
 
 						    <tr>
 						    	<th>기간</th>
@@ -125,7 +132,7 @@ input[type="file"] {
 						    <tr>
 						    	<th>대표 이미지</th>
 						    	<td>
-						    		<input class="file-name" th:value="${portfolio.mainImage.realFileName}" disabled="disabled"/>
+						    		<input class="file-name" th:value="${portfolio.mainImage ne null ? portfolio.mainImage.realFileName : ''}" disabled="disabled"/>
 						    		<label class="btnFile" for="mainImage">파일선택</label>
 						    		<input type="file" id="mainImage" name="mainImage.file"/> <span class="txt_guide">(권장사이즈 : 1500 * 1024)</span>
 						    		<input type="hidden" name="mainImage.imageType" value="MAIN"/>

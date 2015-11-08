@@ -45,7 +45,7 @@
 		    	<td><input type="checkbox" th:attr="no=${portfolio.portfolioNo}"/></td>
 		    	<td class="num" th:text="${portfolio.sort}">No</td>
 		    	<td class="subject"><a th:href="@{'/admin/manegement/portfolio/editForm/' + ${portfolio.portfolioNo}}" th:text="${portfolio.portfolioName}">프로젝트명</a></td>
-		    	<td>한국관광공사</td>
+		    	<td th:text="${portfolio.companyName}">회사명</td>
 		    	<td>비공개</td>
 		    	<td th:text="${#calendars.format(portfolio.workDate,'yyyy. MM. dd')}">등록일</td>
 		    	<td th:text="${portfolio.displayYN}">노출여부</td>

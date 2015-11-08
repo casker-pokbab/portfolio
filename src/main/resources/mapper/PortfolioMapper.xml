@@ -15,6 +15,9 @@
 			<if test="@org.apache.commons.lang3.StringUtils@isNotBlank(portfolioName)">
 			AND portfolio_name LIKE CONCAT('%', #{portfolioName}, '%')
 			</if>
+			<if test="@org.apache.commons.lang3.StringUtils@isNotBlank(companyName)">
+			AND company_name LIKE CONCAT('%', #{companyName}, '%')
+			</if>
 			<if test="startDate != null">
 			AND start_date &gt; #{startDate}
 			</if>
@@ -29,6 +32,7 @@
 		SELECT 
 			  portfolio_no
 			, portfolio_name
+			, company_name
 			, start_date
 			, end_date
 			, url
@@ -43,6 +47,9 @@
 			</if>
 			<if test="@org.apache.commons.lang3.StringUtils@isNotBlank(portfolioName)">
 			AND portfolio_name LIKE CONCAT('%', #{portfolioName}, '%')
+			</if>
+			<if test="@org.apache.commons.lang3.StringUtils@isNotBlank(companyName)">
+			AND company_name LIKE CONCAT('%', #{companyName}, '%')
 			</if>
 			<if test="startDate != null">
 			AND start_date &gt; #{startDate}
@@ -62,6 +69,7 @@
 		SELECT 
 			  portfolio_no
 			, portfolio_name
+			, company_name
 			, start_date
 			, end_date
 			, url
@@ -87,6 +95,9 @@
 			, work_date = NOW()
 			, display_yn = #{displayYN}
 			, sort = #{sort}
+		<if test="@org.apache.commons.lang3.StringUtils@isNotBlank(companyName)">
+			, company_name = #{companyName}
+		</if>
 		<if test="startDate != null">
 			, start_date = #{startDate}
 		</if>
@@ -115,6 +126,9 @@
 			, url = #{url}
 			, work_date = NOW()
 			, display_yn = #{displayYN}
+		<if test="@org.apache.commons.lang3.StringUtils@isNotBlank(companyName)">
+			, company_name = #{companyName}
+		</if>
 		<if test="startDate != null">
 			, start_date = #{startDate}
 		</if>

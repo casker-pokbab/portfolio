@@ -24,6 +24,8 @@ public class PortfolioSearch extends BaseSearch {
 	
 	private String portfolioName;
 	
+	private String companyName;
+	
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date startDate;
 	

@@ -25,6 +25,8 @@ public class Portfolio {
 	
 	private String portfolioName;
 	
+	private String companyName;
+	
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date startDate;
 	
