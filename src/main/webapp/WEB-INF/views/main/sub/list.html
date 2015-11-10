@@ -10,7 +10,7 @@
 				<div class="bg_text">
 					<p class="text">
 						<span class="work_name" th:text="${portfolio.portfolioName}">포트폴리오명</span>
-						<a th:href="@{'/main/portfolio/detail/' + ${portfolio.portfolioNo}}" class="work_more">자세히 보기</a>
+						<a th:href="@{'/main/portfolio/detail/' + ${portfolio.portfolioNo}}" class="work_more" target="_blank">자세히 보기</a>
 						<span class="work_date" th:text="${#calendars.format(portfolio.endDate,'yyyy')}">작업일시</span>
 					</p>								
 				</div>
